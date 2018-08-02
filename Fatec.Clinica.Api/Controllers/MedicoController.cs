@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using Fatec.Clinica.Api.Model;
 using Fatec.Clinica.Dominio;
 using Fatec.Clinica.Dominio.Dto;
@@ -19,6 +20,7 @@ namespace Fatec.Clinica.Api.Controllers
         /// 
         /// </summary>
         private MedicoNegocio _medicoNegocio;
+       
 
         /// <summary>
         /// 
@@ -26,10 +28,11 @@ namespace Fatec.Clinica.Api.Controllers
         public MedicoController()
         {
             _medicoNegocio = new MedicoNegocio();
+           
         }
 
         /// <summary>
-        /// Método que obtem uma lista de métodos
+        /// Método que obtem uma lista de médicos
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -41,7 +44,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// Método que seleciona um médico..
+        /// Método que seleciona um médico
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -55,7 +58,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// Método que seleciona um médico..
+        /// Método que obtem uma lista de médicos por especialidade
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -69,7 +72,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// Método que insere um médico..
+        /// Método que insere um médico
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
@@ -79,12 +82,24 @@ namespace Fatec.Clinica.Api.Controllers
         [SwaggerResponse((int)HttpStatusCode.InternalServerError)]
         public IActionResult Post([FromBody]MedicoInput input)
         {
+ 
             var objMedico = new Medico()
             {
                 Cpf = input.Cpf,
                 Crm =  input.Crm,
                 IdEspecialidade = input.IdEspecialidade,
-                Nome = input.Nome
+                Nome = input.Nome,
+                Email = input.Email,
+                Senha = input.Senha,
+                Sexo = input.Sexo,
+                Telefone_c = input.Telefone_c,
+                Telefone_r = input.Telefone_r,
+                Endereco_c = input.Endereco_c,
+                Estado = input.Estado,
+                Cidade = input.Cidade,
+                Ativo = true,
+                Ativo_Adm = true
+
             };
 
             var idMedico = _medicoNegocio.Inserir(objMedico);
@@ -107,10 +122,13 @@ namespace Fatec.Clinica.Api.Controllers
         {
             var objMedico = new Medico()
             {
-                Cpf = input.Cpf,
-                Crm = input.Crm,
-                IdEspecialidade = input.IdEspecialidade,
-                Nome = input.Nome
+                Telefone_c = input.Telefone_c,
+                Telefone_r = input.Telefone_r,
+                Endereco_c = input.Endereco_c,
+                Cidade = input.Cidade,
+                Estado = input.Estado,
+                Email = input.Email,
+                Senha = input.Senha
             };
 
             var obj = _medicoNegocio.Alterar(id, objMedico);
@@ -118,18 +136,35 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Método que ativa/desativa um médico
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete]
-        [Route("{id}")]
-        [SwaggerResponse((int)HttpStatusCode.OK)]
-        [SwaggerResponse((int)HttpStatusCode.NotFound)]
-        public IActionResult Delete([FromRoute]int id)
+        [HttpPut]
+        [Route("MudarAtivo/{id}")]
+        [SwaggerResponse((int)HttpStatusCode.Accepted)]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest)]
+        [SwaggerResponse((int)HttpStatusCode.InternalServerError)]
+        public IActionResult MudarAtivo([FromRoute]int id)
         {
-            _medicoNegocio.Deletar(id);
-            return Ok();
+            _medicoNegocio.MudarAtivoMedico(id);
+            return Accepted();
         }
+
+
+        /// <summary>
+        /// Método que deleta um médico
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        //[HttpDelete]
+        //[Route("{id}")]
+        //[SwaggerResponse((int)HttpStatusCode.OK)]
+        //[SwaggerResponse((int)HttpStatusCode.NotFound)]
+        //public IActionResult Delete([FromRoute]int id)
+        //{
+        //    _medicoNegocio.Deletar(id);
+        //    return Ok();
+        //}
     }
 }
