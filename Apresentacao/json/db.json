@@ -1,0 +1,104 @@
+{
+  "medico": [
+    {
+      "nome": "Gabriel Traldi - Alterado",
+      "cpf": "36827623882",
+      "crm": "12345",
+      "idEspecialidade": 1,
+      "id": 1
+    },
+    {
+      "nome": "Fernando Mendes",
+      "cpf": "12345678910",
+      "crm": "123456",
+      "idEspecialidade": 1,
+      "id": 2
+    },
+    {
+      "nome": "Médico 1",
+      "cpf": "12345678910",
+      "crm": "12345",
+      "idEspecialidade": 2,
+      "id": 3
+    },
+    {
+      "nome": "Médico 2",
+      "cpf": "1",
+      "crm": "1",
+      "idEspecialidade": 2,
+      "id": 4
+    },
+    {
+      "nome": "Médico 3",
+      "cpf": "123",
+      "crm": "123",
+      "idEspecialidade": 1,
+      "id": 5
+    },
+    {
+      "nome": "Médico 4",
+      "cpf": "1",
+      "crm": "21",
+      "idEspecialidade": 1,
+      "id": 6
+    }
+  ],
+  "especialidade": [
+    {
+      "id": 1,
+      "nome": "Otorrino"
+    },
+    {
+      "id": 2,
+      "nome": "Pediatra"
+    },
+    {
+      "id": 3,
+      "nome": "Otorrino"
+    },
+    {
+      "id": 4,
+      "nome": "Pediatra"
+    },
+    {
+      "id": 5,
+      "nome": "Otorrino"
+    },
+    {
+      "id": 6,
+      "nome": "Pediatra"
+    },
+    {
+      "id": 7,
+      "nome": "Otorrino"
+    },
+    {
+      "id": 8,
+      "nome": "Pediatra"
+    },
+    {
+      "id": 9,
+      "nome": "Otorrino"
+    },
+    {
+      "id": 10,
+      "nome": "Pediatra"
+    },
+    {
+      "id": 11,
+      "nome": "Otorrino"
+    },
+    {
+      "id": 12,
+      "nome": "Pediatra"
+    },
+    {
+      "id": 13,
+      "nome": "Otorrino"
+    },
+    {
+      "id": 14,
+      "nome": "Pediatra"
+    }
+  ]
+}

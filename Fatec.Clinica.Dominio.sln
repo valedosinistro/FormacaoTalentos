@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fatec.Clinica.Dominio", "Fatec.Clinica.Dominio\Fatec.Clinica.Dominio.csproj", "{222D3FD3-1C4F-453E-969F-BC4958A5957C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-WebApi", "1-WebApi", "{BE2B18CF-F5FD-4B82-99D3-27B05D3F74E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Negocio", "2-Negocio", "{A40EE0FD-154E-47E3-9C4F-582BAA7F5D6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Dados", "3-Dados", "{FBA1F3DE-DD2D-4C3A-AD0A-1E256CD28165}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fatec.Clinica.Negocio", "Fatec.Clinica.Negocio\Fatec.Clinica.Negocio.csproj", "{C5BA0937-1255-4744-93C9-781678DA30AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fatec.Clinica.Dado", "Fatec.Clinica.Dado\Fatec.Clinica.Dado.csproj", "{E0C9BC38-DD0E-4FBE-8616-D2980E3EED6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fatec.Clinica.Api", "Fatec.Clinica.Api\Fatec.Clinica.Api.csproj", "{AA00C8BF-26DB-4BB9-AF5C-805600B6792F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Database", "4-Database", "{64333D46-D937-4099-AD3E-F1C385F3BC9D}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Fatec.Clinica.Database", "Fatec.Clinica.Database\Fatec.Clinica.Database.sqlproj", "{7836AAB7-298E-4C8A-9BE2-BE1ECE470C45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{222D3FD3-1C4F-453E-969F-BC4958A5957C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{222D3FD3-1C4F-453E-969F-BC4958A5957C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{222D3FD3-1C4F-453E-969F-BC4958A5957C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{222D3FD3-1C4F-453E-969F-BC4958A5957C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5BA0937-1255-4744-93C9-781678DA30AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5BA0937-1255-4744-93C9-781678DA30AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5BA0937-1255-4744-93C9-781678DA30AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5BA0937-1255-4744-93C9-781678DA30AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C9BC38-DD0E-4FBE-8616-D2980E3EED6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C9BC38-DD0E-4FBE-8616-D2980E3EED6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C9BC38-DD0E-4FBE-8616-D2980E3EED6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C9BC38-DD0E-4FBE-8616-D2980E3EED6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA00C8BF-26DB-4BB9-AF5C-805600B6792F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA00C8BF-26DB-4BB9-AF5C-805600B6792F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA00C8BF-26DB-4BB9-AF5C-805600B6792F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA00C8BF-26DB-4BB9-AF5C-805600B6792F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7836AAB7-298E-4C8A-9BE2-BE1ECE470C45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7836AAB7-298E-4C8A-9BE2-BE1ECE470C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7836AAB7-298E-4C8A-9BE2-BE1ECE470C45}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7836AAB7-298E-4C8A-9BE2-BE1ECE470C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7836AAB7-298E-4C8A-9BE2-BE1ECE470C45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7836AAB7-298E-4C8A-9BE2-BE1ECE470C45}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{222D3FD3-1C4F-453E-969F-BC4958A5957C} = {A40EE0FD-154E-47E3-9C4F-582BAA7F5D6E}
+		{C5BA0937-1255-4744-93C9-781678DA30AB} = {A40EE0FD-154E-47E3-9C4F-582BAA7F5D6E}
+		{E0C9BC38-DD0E-4FBE-8616-D2980E3EED6F} = {FBA1F3DE-DD2D-4C3A-AD0A-1E256CD28165}
+		{AA00C8BF-26DB-4BB9-AF5C-805600B6792F} = {BE2B18CF-F5FD-4B82-99D3-27B05D3F74E8}
+		{7836AAB7-298E-4C8A-9BE2-BE1ECE470C45} = {64333D46-D937-4099-AD3E-F1C385F3BC9D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FF871C9-6439-4C86-AB22-A4CD29094F31}
+	EndGlobalSection
+EndGlobal

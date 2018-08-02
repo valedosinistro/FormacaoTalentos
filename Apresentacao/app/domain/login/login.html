@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <title>Projeto - Login</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <link rel="stylesheet" href="login.css">
+
+    <script src="../../../lib/jquery.js"></script>
+    <script src="../../../lib/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body class="text-center">
+
+    <form class="form-signin" id="form-login">
+
+        <img class="mb-4" src="../../../img/bootstrap-solid.svg" alt="" width="72" height="72">
+
+        <h1 class="h3 mb-3 font-weight-normal">Por favor, faça o login</h1>
+
+        <div class="form-group">
+            <label for="inputEmail" class="sr-only">Usuário</label>
+            <input type="email" id="login" class="form-control" placeholder="Usuário" required autofocus>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword" class="sr-only">Senha</label>
+            <input type="password" id="senha" class="form-control" placeholder="Senha" required>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Lembrar-me
+            </label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+
+        <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+
+        <p class="mt-5 mb-3 text-muted">
+            Não tem um cadastro?
+            <a href="#" id="login-link-cadastrar">
+                Registre-se
+            </a>
+        </p>
+
+    </form>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

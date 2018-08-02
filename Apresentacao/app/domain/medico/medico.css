@@ -1,0 +1,7 @@
+.navbar-nav.contents{
+    display: contents;
+}
+
+table thead{
+    text-transform: uppercase;
+}
