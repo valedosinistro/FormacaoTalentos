@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>Projeto - Adicionar Médico</title>
+    <title>Projeto - Adicionar Paciente</title>
 
     <link rel="stylesheet" href="../../../css/bootstrap.css">
     <link rel="stylesheet" href="../../../css/style.css">
@@ -29,13 +29,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dashboard</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="medico.html">Médico
+                <li class="nav-item">
+                    <a class="nav-link" href="../medico/medico.html">Médico
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../paciente/paciente.html">Paciente</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="paciente.html">Paciente</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
@@ -78,18 +78,14 @@
             </div>
 
             <div class="form-group">
-                <input type="text" name="crm" id="crm" class="form-control" placeholder="CRM">
-            </div>
-
-            <div class="form-group">
                 <input type="text" name="celular" id="celular" class="form-control" placeholder="Celular">
             </div>
 
             <div class="form-row">
                 <div class="col-md-8 mb-3">
-                    <select name="especialidade" id="especialidade" class="form-control">
-                        <option selected>Especialidade</option>
-                    </select>
+
+                    <input type="text" name="data-nasc" id="data-nasc" class="form-control" placeholder="Data de Nascimento">
+
                 </div>
 
                 <div class="col mb-3">
@@ -109,41 +105,7 @@
                 </div>
             </div>
 
-            <!--Informações Comerciais-->
-            <button class="btn btn-light btn-block" data-toggle="collapse" data-target="#info">+ Informações Comerciais</button>
-            <br>
 
-            <div id="info" class="collapse mb-3">
-                <div class="form-group">
-                    <input type="text" name="cep" id="cep" class="form-control" placeholder="CEP">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro">
-                </div>
-                <div class="form-row">
-                    <div class="col-md-8">
-                        <input type="password" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
-                    </div>
-
-                    <div class="col mb-2">
-                        <input type="password" name="numero" id="numero" class="form-control" placeholder="Nº">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-8">
-                        <input type="password" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
-                    </div>
-
-                    <div class="col mb-3">
-                        <select name="uf" id="uf" class="form-control">
-                            <option selected>UF</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="telefone-comercial" id="telefone-comercial" class="form-control" placeholder="Telefone Comercial">
-                </div>
-            </div>
 
             <button class="btn btn-lg btn-success btn-login" type="submit">Cadastrar</button>
 
@@ -153,9 +115,9 @@
 
     <!-- Script com ligações para banco e visual studio -->
 
-    <script src="medicoCriar.js"></script>
+    <script src="pacienteCriar.js"></script>
 
-    
+
 </body>
 
 </html>

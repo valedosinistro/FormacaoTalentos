@@ -5,7 +5,7 @@ body {
 
 body {
     align-items: center;
-    background-color: #f5f5f5;
+    background-color: #343f6a;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -17,10 +17,6 @@ body {
     margin: auto;
     max-width: 330px;
     width: 100%;
-}
-
-.form-signin .checkbox {
-    font-weight: 400;
 }
 
 .form-signin .form-control {
@@ -36,14 +32,10 @@ body {
 }
 
 .form-signin input[type="email"] {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
     margin-bottom: -1px;
 }
 
 .form-signin input[type="password"] {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
     margin-bottom: 10px;
 }
 
@@ -62,4 +54,24 @@ body {
     top: 10px;
     transition: .2s;
     -webkit-transition: .2s;
+}
+
+.esqueci_senha{
+    margin-left: 170px;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.esqueci_senha:hover{
+    color: #fff;
+}
+
+.btn-login{
+    margin-top: 20px;
+}
+
+.label-login{
+    color: #fff;
+    font-weight: bold;
+    margin-right: 5px; 
 }

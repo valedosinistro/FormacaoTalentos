@@ -2,49 +2,46 @@
 <html lang="pt-Br">
 
 <head>
-    <title>Projeto</title>
-
+    <meta charset="UTF-8">
+    <title>WebApp - Luva</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/index.css">
-
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
     <script src="lib/jquery.js"></script>
     <script src="lib/bootstrap.bundle.min.js"></script>
-
 </head>
 
-<body class="text-center cover-page">
+<body>
+    <header>
+        <nav class="nav justify-content-end">
+            <a href="app/domain/login/index.html">Home</a>
+            <a href="app/domain/login/login.html">Login</a>
+            <a href="app/domain/cadastrar/cadastrar.html">Cadastrar</a>
+        </nav>
+    </header>
+    <main>
+        <h1 class="titulo-home">MedServ</h1>
+        <h2 class="slogan-home">Boa saúde em suas mãos!</h2>
+        <a href="#sobre">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </main>
+    <!-- <section></section> -->
+    <footer></footer>
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="masthead mb-auto">
-            <div class="inner">
-                <h3 class="masthead-brand">Projeto</h3>
-                <nav class="nav nav-masthead justify-content-center">
-                    <a class="nav-link" href="app/domain/login/login.html" id="link-entrar">Login</a>
-                    <a class="nav-link" href="#" id="link-cadastrar">Cadastro</a>
-                </nav>
-            </div>
-        </header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // SCROLL
+        $('main a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('href'),
+                targetOffset = $(id).offset().top;
 
-        <main role="main" class="inner cover">
-            <h1 class="cover-heading">Sobre sua página.</h1>
-            <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque leo turpis, gravida eu eros quis, dictum rhoncus eros. Suspendisse
-                tincidunt at dui et suscipit. Maecenas fringilla nisl nibh, in tincidunt turpis posuere dignissim. Praesent
-                porta magna eu metus interdum, blandit egestas leo tristique.</p>
-            <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary">Ler Mais</a>
-            </p>
-        </main>
-
-        <footer class="mastfoot mt-auto">
-            <div class="inner">
-                <p>Template desenvolvido com
-                    <a href="https://getbootstrap.com/">Bootstrap</a>, by
-                    <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-        </footer>
-
-        <script src="app/index.js"></script>
+            $('html, body').animate({
+                scrollTop: targetOffset - 0
+            }, 1000);
+        });
+    </script>
 </body>
-
 </html>
