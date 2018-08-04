@@ -16,64 +16,83 @@
 
 </head>
 
-<body>
-
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand mr-5 ml-5" href="#">Projeto</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navbarsExampleDefault"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Médico
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Paciente</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav mr-auto contents">
-
-                <li class="nav-item mr-5">
-                    <a class="nav-link" href="../login/login.html">Sair</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<body class="text-center">
 
     <main role="main" class="container">
 
-        <h2 class="mb-3">
-            Médicos
-        </h2>
+        <!-- <form class="form-signin col-md-4 col-mb-3" id="form-medico">
 
-        <span>
-            <a href="medicoCriar.html">Adicionar novo</a>
-        </span>
+            <!--Informações Básicas
+            <div class="form-group">
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
+            </div>
+            <div class="form-group">
+                <input type="text" name="crm" id="crm" class="form-control" placeholder="CRM">
+            </div>
+            <div class="form-group">
+                <input type="text" name="celular" id="celular" class="form-control" placeholder="Celular">
+            </div>
+            <div class="form-row">
+                <div class="col-md-8 mb-3">
+                    <select name="especialidade" id="especialidade" class="form-control">
+                        <option selected>Especialidade</option>
+                    </select>
+                </div>
+                <div class="col mb-3">
+                    <select name="sexo" id="sexo" class="form-control">
+                        <option selected>Sexo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                </div>
 
-        <div class="mt-5" id="medicos"></div>
+                <div class="col mb-2">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control" placeholder="Confirmar Senha">
+                </div>
+            </div>
+
+            <!--Informações Comerciais
+            <button class="btn btn-light btn-block" data-toggle="collapse" data-target="#info">+ Informações Comerciais</button>
+            <br>
+            <div id="info" class="collapse mb-3">
+                <div class="form-group">
+                    <input type="text" name="cep" id="cep" class="form-control" placeholder="CEP">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro">
+                </div>
+                <div class="form-row">
+                    <div class="col-md-8">
+                        <input type="password" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
+                    </div>
+                    <div class="col mb-2">
+                        <input type="password" name="numero" id="numero" class="form-control" placeholder="Nº">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-8">
+                        <input type="password" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
+                    </div>
+                    <div class="col mb-3">
+                        <select name="uf" id="uf" class="form-control">
+                            <option selected>UF</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="telefone-comercial" id="telefone-comercial" class="form-control" placeholder="Telefone Comercial">
+                </div>
+            </div>
+            <button class="btn btn-lg btn-success btn-login" type="submit">Cadastrar</button>
+        </form> -->
 
     </main>
-
     <script src="medico.js"></script>
 </body>
 
