@@ -33,6 +33,9 @@ namespace Fatec.Clinica.Api.Filtros
                 case ConflitoException nfEx:
                     code = HttpStatusCode.Conflict;
                     break;
+                case RecusadoException nfEx:
+                    code = HttpStatusCode.Forbidden;
+                    break;
                 default:
                     code = HttpStatusCode.InternalServerError;
                     break;

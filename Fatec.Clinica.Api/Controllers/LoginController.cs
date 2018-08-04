@@ -43,6 +43,8 @@ namespace Fatec.Clinica.Api.Controllers
         [HttpPost]
         [Route("Paciente")]
         [SwaggerResponse((int)HttpStatusCode.OK, typeof(PacienteDto), nameof(HttpStatusCode.OK))]
+        [SwaggerResponse((int)HttpStatusCode.NotFound)]
+        [SwaggerResponse((int)HttpStatusCode.Forbidden)]
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError)]
         public IActionResult LoginPaciente([FromBody]LoginInput input)
@@ -59,6 +61,8 @@ namespace Fatec.Clinica.Api.Controllers
         [HttpPost]
         [Route("Medico")]
         [SwaggerResponse((int)HttpStatusCode.OK, typeof(MedicoDto), nameof(HttpStatusCode.OK))]
+        [SwaggerResponse((int)HttpStatusCode.NotFound)]
+        [SwaggerResponse((int)HttpStatusCode.Forbidden)]
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError)]
         public IActionResult LoginMedico([FromBody]LoginInput input)

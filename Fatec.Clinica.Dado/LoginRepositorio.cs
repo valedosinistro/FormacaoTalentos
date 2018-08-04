@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 using Dapper;
 using Fatec.Clinica.Dado.Configuracao;
-using Fatec.Clinica.Dominio;
 using Fatec.Clinica.Dominio.Dto;
 using System.Data.SqlClient;
 
