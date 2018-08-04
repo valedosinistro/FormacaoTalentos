@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Fatec.Clinica.Dado;
 using Fatec.Clinica.Dominio;
 using Fatec.Clinica.Dominio.Dto;
@@ -10,28 +11,28 @@ namespace Fatec.Clinica.Negocio
     /// <summary>
     /// 
     /// </summary>
-    public class MedicoNegocio
+    public class PacienteNegocio
     {
         /// <summary>
         /// 
         /// </summary>
-        private readonly MedicoRepositorio _medicoRepositorio;
+        private readonly PacienteRepositorio _pacienteRepositorio;
 
         /// <summary>
         /// 
         /// </summary>
-        public MedicoNegocio()
+        public PacienteNegocio()
         {
-            _medicoRepositorio = new MedicoRepositorio();
+            _pacienteRepositorio = new PacienteRepositorio();
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<MedicoDto> Selecionar()
+        public IEnumerable<PacienteDto> Selecionar()
         {
-            return _medicoRepositorio.Selecionar();
+            return _pacienteRepositorio.Selecionar();
         }
 
         /// <summary>
@@ -39,12 +40,12 @@ namespace Fatec.Clinica.Negocio
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public MedicoDto SelecionarPorId(int id)
+        public PacienteDto SelecionarPorId(int id)
         {
-            var obj = _medicoRepositorio.SelecionarPorId(id);
+            var obj = _pacienteRepositorio.SelecionarPorId(id);
 
             if (obj == null)
-                throw new NaoEncontradoException("Médico não encontrado !");
+                throw new NaoEncontradoException("Paciente não encontrado !");
 
             return obj;
         }
@@ -52,29 +53,9 @@ namespace Fatec.Clinica.Negocio
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IEnumerable<MedicoDto> SelecionarPorEspecialidade(int id)
-        {
-            return _medicoRepositorio.SelecionarPorEspecialidade(id);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IEnumerable<MedicoDto> SelecionarMedicosAtivos()
-        {
-            return _medicoRepositorio.SelecionarMedicosAtivos();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public int Inserir(Medico entity)
+        public int Inserir(Paciente entity)
         {
             //Verifica campos nulos
             if (!VerificaCamposObrigatorios(entity))
@@ -84,26 +65,20 @@ namespace Fatec.Clinica.Negocio
             if (String.IsNullOrEmpty(entity.Email) || String.IsNullOrEmpty(entity.Senha))
                 throw new ConflitoException("Email ou senha não estão preenchidos !");
 
-            var emailExistente = _medicoRepositorio.SelecionarPorEmail(entity.Email);
+            var emailExistente = _pacienteRepositorio.SelecionarPorEmail(entity.Email);
 
             //Verifica se já existe um usuario com o Email já cadastrado
             if (emailExistente != null)
                 throw new ConflitoException($"Já existe usuário cadastrado com Email {emailExistente.Email}!");
 
-            var crmExistente = _medicoRepositorio.SelecionarPorCrm(entity.Crm);
-
-            //Verifica CRM existente
-            if (crmExistente != null)
-                throw new ConflitoException($"Já existe cadastrado o CRM {crmExistente.Crm}!");
-
-            var cpfExistente = _medicoRepositorio.SelecionarPorCpf(entity.Cpf);
+            var cpfExistente = _pacienteRepositorio.SelecionarPorCpf(entity.Cpf);
 
             //Verifica CPF existente
             if (cpfExistente != null)
                 throw new ConflitoException($"Já existe cadastrado o CPF {cpfExistente.Cpf}!");
 
 
-            return _medicoRepositorio.Inserir(entity);
+            return _pacienteRepositorio.Inserir(entity);
         }
 
         /// <summary>
@@ -112,17 +87,17 @@ namespace Fatec.Clinica.Negocio
         /// <param name="id"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public MedicoDto Alterar(int id, Medico entity)
+        public PacienteDto Alterar(int id, Paciente entity)
         {
-            var emailExistente = _medicoRepositorio.SelecionarPorEmail(entity.Email);
-            //Verifica se já existe um usuario com o Email já cadastrado
+            var emailExistente = _pacienteRepositorio.SelecionarPorEmail(entity.Email);
+            //Verifica se já existe um Paciente com o Email já cadastrado
             if (emailExistente != null)
                 throw new ConflitoException($"Já existe usuário cadastrado com Email {emailExistente.Email}!");
 
             entity.Id = id;
-            _medicoRepositorio.Alterar(entity);
+            _pacienteRepositorio.Alterar(entity);
 
-            return _medicoRepositorio.SelecionarPorId(id);
+            return _pacienteRepositorio.SelecionarPorId(id);
         }
 
         /// <summary>
@@ -133,48 +108,43 @@ namespace Fatec.Clinica.Negocio
         {
             var obj = SelecionarPorId(id);
 
-            _medicoRepositorio.Deletar(obj.Id);
+            _pacienteRepositorio.Deletar(obj.Id);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
-        public void MudarAtivoMedico(int id)
+        public void MudarAtivoPaciente(int id)
         {
-            var obj = _medicoRepositorio.SelecionarCampoAtivo(id);
+            var obj = _pacienteRepositorio.SelecionarCampoAtivo(id);
 
             if (obj.Ativo == true)
             {
-                _medicoRepositorio.DesativarMedico(id);
+                _pacienteRepositorio.DesativarPaciente(id);
             }
             else
             {
-                _medicoRepositorio.AtivarMedico(id);
+                _pacienteRepositorio.AtivarPaciente(id);
             }
 
            
         }
 
         // Verifica se os campos obrigatórios estão preenchidos
-        private bool VerificaCamposObrigatorios(Medico entity)
+        private bool VerificaCamposObrigatorios(Paciente entity)
         {
-            if (String.IsNullOrEmpty(entity.Email) || String.IsNullOrEmpty(entity.Senha) || String.IsNullOrEmpty(entity.Sexo.ToString()))
+            if (String.IsNullOrEmpty(entity.Email) || String.IsNullOrEmpty(entity.Senha))
             {
                 return false;
             }
 
-            if (String.IsNullOrEmpty(entity.Nome) || String.IsNullOrEmpty(entity.Cpf) || String.IsNullOrEmpty(entity.Crm))
+            if (String.IsNullOrEmpty(entity.Nome) || String.IsNullOrEmpty(entity.Cpf) || String.IsNullOrEmpty(entity.Data_Nasc.ToString()))
             {
                 return false;
             }
 
-            if(String.IsNullOrEmpty(entity.Telefone_r) || String.IsNullOrEmpty(entity.Telefone_c) || String.IsNullOrEmpty(entity.Endereco_c))
-            {
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(entity.Cidade) || String.IsNullOrEmpty(entity.Estado) || String.IsNullOrEmpty(entity.IdEspecialidade.ToString()))
+            if(String.IsNullOrEmpty(entity.Telefone) || String.IsNullOrEmpty(entity.Sexo.ToString()))
             {
                 return false;
             }
