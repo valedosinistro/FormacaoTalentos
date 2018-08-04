@@ -4,13 +4,7 @@ body {
 }
 
 body {
-    align-items: center;
     background-color: #343f6a;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    padding-bottom: 40px;
-    padding-top: 40px;
 }
 
 .form-signin {

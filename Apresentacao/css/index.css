@@ -6,40 +6,51 @@
 
 body{
     background-color: #343f6a;
+    /* overflow: hidden; */
 }
 
 header{
     background-color:#303030 ;
-    height: 10vh;
     width: 100%;
+    /* display: flex;
+    justify-content: flex-end;
+    align-items: center; */
 }
+/* nav a{
+    margin-right: 20px;
+} */
 
-nav a{
-    padding-top: 3vh;
-    margin-right: 10px;
+main{
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
 }
 
 .titulo-home{
     color:#fff;
     font-size: 5em;
-    text-align: center;
-    margin: 150px 0 0 0;
+    margin:0;
 }
 
 .slogan-home{
     color:#fff;
     font-size: 2em;
-    text-align: center;
 }
 
-main i{
-    color: #fff;
-    font-size: 2em;
-    text-align: center;
-}
-
-section{
+footer{
+    background-color:#303030;
+    height: 6vh;
     width: 100%;
-    height: 2000px;
-    background-color: aqua;
+    position: fixed;
+    bottom: 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p{
+    margin-bottom: 0;
 }

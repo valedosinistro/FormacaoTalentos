@@ -5,34 +5,64 @@
     <meta charset="UTF-8">
     <title>Projeto - Login</title>
     <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="login.css">
     <script src="../../../lib/jquery.js"></script>
     <script src="../../../lib/bootstrap.bundle.min.js"></script>
 </head>
-<body class="text-center">
 
-    <form class="form-signin" id="form-login">
-        <img class="mb-4" src="../../../img/bootstrap-solid.svg" alt="" width="72" height="72">
-        <div class="mb-3">
-            <label class="label-login">
-                <input type="radio" value="medico" name="login"> Médico
-            </label>
-            <label class="label-login">
-                <input type="radio" value="paciente" name="login"> Paciente
-            </label>
-        </div>
-        <div class="form-group">
-            <label for="inputEmail" class="sr-only">E-mail/CPF</label>
-            <input type="email" id="login" class="form-control" placeholder="E-mail/CPF" required autofocus>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword" class="sr-only">Senha</label>
-            <input type="password" id="senha" class="form-control" placeholder="Senha" required>
-            <a href="" class="esqueci_senha">Esqueceu sua senha?</a>
-        </div>
-        <button class="btn btn-lg btn-success btn-login" type="submit">Entrar</button>
-        <p class="mt-5 mb-3 text-muted">2018 &copy; - Desenvolvido por Vale do Sinistro</p>
-    </form>
+<body>
+
+    <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#"> <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbar1">
+                    <ul class="navbar-nav ml-auto"> 
+                <li class="nav-item active">
+                <a class="nav-link" href="../../../index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="login.html"> Login </a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Cadastrar  </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="../medico/medicoCriar.html"> Médico</a></li>
+                      <li><a class="dropdown-item" href="../paciente/pacienteCriar.html"> Paciente </a></li>
+                    </ul>
+                </li>
+                    </ul>
+                  </div>
+                </nav>
+    </header>
+
+    <main class="text-center">
+        <form class="form-signin" id="form-login">
+            <img class="mb-4" src="../../../img/bootstrap-solid.svg" alt="" width="72" height="72">
+            <div class="mb-3">
+                <label class="label-login">
+                    <input type="radio" value="medico" name="login"> Médico
+                </label>
+                <label class="label-login">
+                    <input type="radio" value="paciente" name="login"> Paciente
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="sr-only">E-mail/CPF</label>
+                <input type="email" id="login" class="form-control" placeholder="E-mail/CPF" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="sr-only">Senha</label>
+                <input type="password" id="senha" class="form-control" placeholder="Senha" required autofocus>
+                <a href="" class="esqueci_senha">Esqueceu sua senha?</a>
+            </div>
+            <button class="btn btn-lg btn-success btn-login" type="submit">Entrar</button>
+        </form>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
     <script src="login.js"></script>
 </body>
 

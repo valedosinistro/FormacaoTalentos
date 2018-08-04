@@ -6,42 +6,40 @@
     <title>WebApp - Luva</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
     <script src="lib/jquery.js"></script>
     <script src="lib/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
     <header>
-        <nav class="nav justify-content-end">
-            <a href="app/domain/login/index.html">Home</a>
-            <a href="app/domain/login/login.html">Login</a>
-            <a href="app/domain/cadastrar/cadastrar.html">Cadastrar</a>
-        </nav>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#"> <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbar1">
+                    <ul class="navbar-nav ml-auto"> 
+                <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="app/domain/login/login.html"> Login </a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Cadastrar  </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="app/domain/medico/medicoCriar.html"> Médico</a></li>
+                      <li><a class="dropdown-item" href="app/domain/paciente/pacienteCriar.html"> Paciente </a></li>
+                    </ul>
+                </li>
+                    </ul>
+                  </div>
+                </nav>
     </header>
     <main>
         <h1 class="titulo-home">MedServ</h1>
         <h2 class="slogan-home">Boa saúde em suas mãos!</h2>
-        <a href="#sobre">
-            <i class="fas fa-chevron-down"></i>
-        </a>
     </main>
-    <!-- <section></section> -->
-    <footer></footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        // SCROLL
-        $('main a[href^="#"]').on('click', function (e) {
-            e.preventDefault();
-            var id = $(this).attr('href'),
-                targetOffset = $(id).offset().top;
-
-            $('html, body').animate({
-                scrollTop: targetOffset - 0
-            }, 1000);
-        });
-    </script>
+    <footer>
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
 </body>
 </html>
