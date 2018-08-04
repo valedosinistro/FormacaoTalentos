@@ -136,6 +136,20 @@ namespace Fatec.Clinica.Negocio
             if (!VerificaCamposObrigatorios(entity))
                 throw new ConflitoException("Por favor preencha todos os campos obrigatórios !");
 
+            var consultaExistente = _ConsultaRepositorio.SelecionarConsultaPorDataEHoraEMedico(entity.DataConsulta, entity.Horario, entity.IdMedico);
+
+            //Verifica Consultas ao mesmo tempo existente
+            if (consultaExistente != null)
+                throw new ConflitoException($"Já existe uma consulta nesta Data e Horario com este médico!");
+
+            var MedicoDesativado = _ConsultaRepositorio.VerificaSeOMedicoEstaAtivo(entity.IdMedico);
+
+            //Verifica Consultas ao mesmo tempo existente
+            if (MedicoDesativado != null)
+                throw new ConflitoException($"Este médico esta desativado");
+
+
+
             return _ConsultaRepositorio.Inserir(entity);
         }
 
@@ -185,6 +199,7 @@ namespace Fatec.Clinica.Negocio
             return true;
 
         }
+
 
         // Verifica se os campos obrigatórios estão preenchidos
         private bool VerificaCamposObrigatoriosAlt(Consulta entity)

@@ -95,6 +95,8 @@ namespace Fatec.Clinica.Dado
             }
         }
 
+        
+
         /// <summary>
         /// 
         /// </summary>
@@ -110,7 +112,11 @@ namespace Fatec.Clinica.Dado
                 return obj;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public Medico SelecionarPorEmail(string email)
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
@@ -121,6 +127,7 @@ namespace Fatec.Clinica.Dado
                 return obj;
             }
         }
+
 
         /// <summary>
         /// 

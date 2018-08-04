@@ -58,6 +58,34 @@ namespace Fatec.Clinica.Dado
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ConsultaDto SelecionarConsultaPorDataEHoraEMedico(DateTime DataConsulta, TimeSpan Horario, int id)
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var obj = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, C.IdPaciente, C.IdMedico, C.DataConsulta, C.Horario, C.Status FROM [Consulta] C WHERE C.DataConsulta = '{DataConsulta}' AND C.Horario = '{Horario}' AND C.IdMedico = {id}");
+                return obj;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="crm"></param>
+        /// <returns></returns>
+        public Medico VerificaSeOMedicoEstaAtivo(int id)
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var obj = connection.QueryFirstOrDefault<Medico>($"SELECT * FROM[Medico] M WHERE M.Ativo = {0} AND M.Id = {id}");
+                return obj;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="IdMedico"></param>
         /// <returns></returns>
         public ConsultaDto SelecionarPorMedico(int IdMedico)
