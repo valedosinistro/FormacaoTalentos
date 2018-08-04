@@ -42,12 +42,12 @@ document.querySelector('#form-medico').addEventListener('submit', function (even
 
     event.preventDefault();
 
-    var medico = {
-        nome: elementosMedico.nome.value,
-        cpf: elementosMedico.cpf.value,
-        crm: elementosMedico.crm.value,
-        idEspecialidade: parseInt(elementosMedico.especialidade.value)
-    };
+    // var medico = {
+    //     nome: elementosMedico.nome.value,
+    //     cpf: elementosMedico.cpf.value,
+    //     crm: elementosMedico.crm.value,
+    //     idEspecialidade: parseInt(elementosMedico.especialidade.value)
+    // };
 
     if(data.id){
         alterarMedico(data.id, medico);

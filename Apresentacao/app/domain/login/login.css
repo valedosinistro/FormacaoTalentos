@@ -7,10 +7,12 @@ body {
     background-color: #343f6a;
 }
 
+
 .form-signin {
     margin: auto;
     max-width: 330px;
     width: 100%;
+    margin-top: 40px;
 }
 
 .form-signin .form-control {

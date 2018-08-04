@@ -17,33 +17,43 @@
 
 <body>
 
-        <!-- <header>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a class="navbar-brand" href="#"> <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbar1">
-                        <ul class="navbar-nav ml-auto"> 
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                    <a class="nav-link" href="../../../index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../../../index.html">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"> Login </a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html"> Login </a>
+                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Cadastrar  </a>
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Cadastrar </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="../medico/medicoCriar.html"> Médico</a></li>
-                          <li><a class="dropdown-item" href="../paciente/pacienteCriar.html"> Paciente </a></li>
+                            <li>
+                                <a class="dropdown-item" href="../medico/medicoCriar.html"> Médico</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../paciente/pacienteCriar.html"> Paciente </a>
+                            </li>
                         </ul>
                     </li>
-                        </ul>
-                      </div>
-                    </nav>
-        </header> -->
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main role="main" class="container text-center">
 
-        <form class="form-signin col-md-4 col-mb-3" id="form-medico">
+        <form class="form-signin col-md-8 col-mb-3" id="form-medico">
 
             <!--Informações Básicas-->
 
@@ -88,52 +98,58 @@
             </div>
 
             <!--Informações Comerciais-->
-            <button class="btn btn-light btn-block" data-toggle="collapse" data-target="#info">+ Informações Comerciais</button>
+            <a class="btn btn-light btn-block" data-toggle="collapse" href="#multiCollapseExample" role="button" aria-expanded="false"
+                aria-controls="multiCollapseExample1">+ Informações Comerciais</a>
             <br>
 
-            <div id="info" class="collapse mb-3">
-                <div class="form-group">
-                    <input type="text" name="cep" id="cep" class="form-control" placeholder="CEP">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro">
-                </div>
-                <div class="form-row">
-                    <div class="col-md-8">
-                        <input type="password" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample">
+                        <div class="form-group">
+                            <input type="text" name="cep" id="cep" class="form-control" placeholder="CEP">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <input type="password" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
+                            </div>
 
-                    <div class="col mb-2">
-                        <input type="password" name="numero" id="numero" class="form-control" placeholder="Nº">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-8">
-                        <input type="password" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
-                    </div>
+                            <div class="col mb-2">
+                                <input type="password" name="numero" id="numero" class="form-control" placeholder="Nº">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <input type="password" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
+                            </div>
 
-                    <div class="col mb-3">
-                        <select name="uf" id="uf" class="form-control">
-                            <option selected>UF</option>
-                        </select>
+                            <div class="col mb-3">
+                                <select name="uf" id="uf" class="form-control">
+                                    <option selected>UF</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefone-comercial" id="telefone-comercial" class="form-control" placeholder="Telefone Comercial">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="telefone-comercial" id="telefone-comercial" class="form-control" placeholder="Telefone Comercial">
                 </div>
             </div>
-
             <button class="btn btn-lg btn-success btn-login" type="submit">Cadastrar</button>
-
         </form>
 
     </main>
+    <footer>
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
 
     <!-- Script com ligações para banco e visual studio -->
 
     <script src="medicoCriar.js"></script>
 
-    
+
 </body>
 
 </html>

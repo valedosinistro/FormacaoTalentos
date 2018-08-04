@@ -6,6 +6,7 @@
 
 body{
     background-color: #343f6a;
+    height: 100%;
     /* overflow: hidden; */
 }
 
@@ -21,7 +22,8 @@ header{
 } */
 
 main{
-    height: 75vh;
+    height: 78vh;
+    max-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,12 +45,13 @@ footer{
     background-color:#303030;
     height: 6vh;
     width: 100%;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    clear: both;
 }
 
 footer p{

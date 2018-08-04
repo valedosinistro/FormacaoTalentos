@@ -1,13 +1,10 @@
 var api = 'http://localhost:53731/api/paciente/';
-var apiEspecialidade = 'http://localhost:53731/api/especialidade/';
 
 var titulo = document.querySelector('#titulo-paciente');
-var especialidade = document.querySelector('#consulta');
 
 var elementosPaciente = {
-    nome: document.querySelector('#nome'),
+    nome: document.querySelector('#nome'),  //ADD outros campos
     cpf: document.querySelector('#cpf'),
-    /* consulta: document.querySelector('#consulta')*/
 };
 
 var query = location.search.slice(1); // Pega as informações enviadas após o ponto de interrogação na URL
@@ -26,36 +23,34 @@ partes.forEach(function (parte) { // percorre as informações passadas
 
 console.log(data); 
 
-if(data.id) { // Se voi passado um id, quer dizer que eu estou alterando
-    obterPaciente(data.id);
-    titulo.innerHTML = 'ALTERAR PACIENTE';
-}
+// if(data.id) { // Se voi passado um id, quer dizer que eu estou alterando
+//     obterPaciente(data.id);
+//     titulo.innerHTML = 'ALTERAR PACIENTE';
+// }
 
-else{
-    obterConsultas();
+// else{
+//     obterConsultas();
     
-    titulo.innerHTML ='ADICIONAR PACIENTE';
+//     titulo.innerHTML ='ADICIONAR PACIENTE';
     
-}
+// }
 
 
 document.querySelector('#form-paciente').addEventListener('submit', function (event) {
 
     event.preventDefault();
 
-    var paciente = {
-        nome: elementosPaciente.nome.value,
-        cpf: elementosPaciente.cpf.value,
-        crm: elementosPaciente.crm.value,
-        idEspecialidade: parseInt(elementosPaciente.especialidade.value)
-    };
+    // var paciente = {
+    //     nome: elementosPaciente.nome.value,
+    //     cpf: elementosPaciente.cpf.value
+    // };
 
-    if(data.id){
-        alterarpaciente(data.id, paciente);
-    }
-    else{
+    // if(data.id){
+    //     alterarpaciente(data.id, paciente);
+    // }
+    // else{
         inserirpaciente(paciente);
-    }
+    //}
 
 });
 
@@ -90,106 +85,106 @@ function inserirPaciente(paciente) {
 
 }
 
-function alterarPaciente(idPaciente, paciente) {
+// function alterarPaciente(idPaciente, paciente) {
 
-    var request = new Request(api + idpaciente, {
-        method: "PUT",
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify(paciente)
-    });
+//     var request = new Request(api + idpaciente, {
+//         method: "PUT",
+//         headers: new Headers({
+//             'Content-Type': 'application/json'
+//         }),
+//         body: JSON.stringify(paciente)
+//     });
 
-    fetch(request)
-        .then(function (response) {
-            // console.log(response);
-            if (response.status == 202) {
-                alert("Paciente alterado com sucesso");
-                window.location.href="paciente.html";
-            } else {
-		response.json().then(function(message){
-			alert(message.error);
-		});
-            }
-        })
-        .catch(function (response) {
-            // console.log(response);
-            alert("Desculpe, ocorreu um erro no servidor.");
-        });
+//     fetch(request)
+//         .then(function (response) {
+//             // console.log(response);
+//             if (response.status == 202) {
+//                 alert("Paciente alterado com sucesso");
+//                 window.location.href="paciente.html";
+//             } else {
+// 		response.json().then(function(message){
+// 			alert(message.error);
+// 		});
+//             }
+//         })
+//         .catch(function (response) {
+//             // console.log(response);
+//             alert("Desculpe, ocorreu um erro no servidor.");
+//         });
 
-}
+// }
 
-function obterPaciente(idPaciente) {
-    var request = new Request(api + idPaciente, {
-        method: "GET",
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        })
-    });
+// function obterPaciente(idPaciente) {
+//     var request = new Request(api + idPaciente, {
+//         method: "GET",
+//         headers: new Headers({
+//             'Content-Type': 'application/json'
+//         })
+//     });
 
-    fetch(request)
-        .then(function (response) {
-            // console.log(response);
-            if (response.status == 200) {
-                response.json()
-                .then(function(paciente){
-                    atribuirValorAoFormulario(paciente);
-                    obterConsultas(paciente.idConsulta);
-                });
-            } else {
-                alert("Ocorreu um erro ao obter o paciente");
-            }
-        })
-        .catch(function (response) {
-            // console.log(response);
-            alert("Desculpe, ocorreu um erro no servidor.");
-        });
-}
+//     fetch(request)
+//         .then(function (response) {
+//             // console.log(response);
+//             if (response.status == 200) {
+//                 response.json()
+//                 .then(function(paciente){
+//                     atribuirValorAoFormulario(paciente);
+//                     obterConsultas(paciente.idConsulta);
+//                 });
+//             } else {
+//                 alert("Ocorreu um erro ao obter o paciente");
+//             }
+//         })
+//         .catch(function (response) {
+//             // console.log(response);
+//             alert("Desculpe, ocorreu um erro no servidor.");
+//         });
+// }
 
 
 
-function obterConsultas(id){
-    var request = new Request(apiConsulta, {
-        method: "GET",
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        })
-    });
+// function obterConsultas(id){
+//     var request = new Request(apiConsulta, {
+//         method: "GET",
+//         headers: new Headers({
+//             'Content-Type': 'application/json'
+//         })
+//     });
 
-    fetch(request)
-        .then(function (response) {
-            // console.log(response);
-            if (response.status == 200) {
-                response.json()
-                .then(function(consultas){
-                    updateTemplateConsultas(consultas, id);
-                });
-            } else {
-                alert("Ocorreu um erro ao obter as consultas");
-            }
-        })
-        .catch(function (response) {
-            // console.log(response);
-            alert("Desculpe, ocorreu um erro no servidor.");
-        });
-}
+//     fetch(request)
+//         .then(function (response) {
+//             // console.log(response);
+//             if (response.status == 200) {
+//                 response.json()
+//                 .then(function(consultas){
+//                     updateTemplateConsultas(consultas, id);
+//                 });
+//             } else {
+//                 alert("Ocorreu um erro ao obter as consultas");
+//             }
+//         })
+//         .catch(function (response) {
+//             // console.log(response);
+//             alert("Desculpe, ocorreu um erro no servidor.");
+//         });
+// }
 
-function updateTemplateConsultas(consultas, id){
-    consulta.innerHTML = templateConsultas(consultas, id);
-}
+// function updateTemplateConsultas(consultas, id){
+//     consulta.innerHTML = templateConsultas(consultas, id);
+// }
 
-function templateConsultas(consulta = [], id = null){
-    return `
-        <option>Selecione</option>
-        ${
-            consulta.map(function(consulta){
-                return `
-                    <option value="${consulta.id}" ${consulta.id == id ? 'selected' : ''}>${consulta.nome}</option>
-                `;
-            }).join('')
-        }
-    `;
-}
+// function templateConsultas(consulta = [], id = null){
+//     return `
+//         <option>Selecione</option>
+//         ${
+//             consulta.map(function(consulta){
+//                 return `
+//                     <option value="${consulta.id}" ${consulta.id == id ? 'selected' : ''}>${consulta.nome}</option>
+//                 `;
+//             }).join('')
+//         }
+//     `;
+// }
 
 
 function atribuirValorAoFormulario(paciente = {}) {
