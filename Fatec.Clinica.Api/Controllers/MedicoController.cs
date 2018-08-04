@@ -72,6 +72,20 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
+        /// Método que obtem uma lista de médicos ativos
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("Ativos")]
+        [SwaggerResponse((int)HttpStatusCode.OK, typeof(MedicoDto), nameof(HttpStatusCode.OK))]
+        [SwaggerResponse((int)HttpStatusCode.NotFound)]
+        public IActionResult GetMedicosAtivos()
+        {
+            return Ok(_medicoNegocio.SelecionarMedicosAtivos());
+        }
+
+        /// <summary>
         /// Método que insere um médico
         /// </summary>
         /// <param name="input"></param>

@@ -62,6 +62,16 @@ namespace Fatec.Clinica.Negocio
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IEnumerable<MedicoDto> SelecionarMedicosAtivos()
+        {
+            return _medicoRepositorio.SelecionarMedicosAtivos();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
         public int Inserir(Medico entity)

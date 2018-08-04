@@ -65,6 +65,23 @@ namespace Fatec.Clinica.Dado
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IEnumerable<MedicoDto> SelecionarMedicosAtivos()
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var obj = connection.Query<MedicoDto>($"SELECT M.Id,M.Email, M.Nome, M.Sexo, M.Cpf, M.Crm, M.IdEspecialidade, M.Telefone_r, M.Telefone_c, M.Endereco_C, M.Cidade, M.Estado, M.Ativo, M.Ativo_Adm, E.Nome As Especialidade " +
+                                                                    $"FROM [Medico] M " +
+                                                                    $"JOIN [Especialidade] E ON M.IdEspecialidade = E.Id " +
+                                                                    $"WHERE M.Ativo = {1}");
+                return obj;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="crm"></param>
         /// <returns></returns>
         public Medico SelecionarPorCrm(string crm)
