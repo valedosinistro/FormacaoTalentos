@@ -12,34 +12,46 @@
 
 <body>
     <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#"> <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbar1">
-                    <ul class="navbar-nav ml-auto"> 
-                <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="app/domain/login/login.html"> Login </a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Cadastrar  </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="app/domain/medico/medicoCriar.html"> Médico</a></li>
-                      <li><a class="dropdown-item" href="app/domain/paciente/pacienteCriar.html"> Paciente </a></li>
-                    </ul>
-                </li>
-                    </ul>
-                  </div>
-                </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Cadastrar </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li>
+                                <a class="dropdown-item text-light" href="app/domain/medico/medicoCriar.html"> Médico</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light" href="app/domain/paciente/pacienteCriar.html"> Paciente </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="app/domain/login/login.html"> Login </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
     </header>
     <main>
         <h1 class="titulo-home">MedServ</h1>
         <h2 class="slogan-home">Boa saúde em suas mãos!</h2>
     </main>
-    <footer>
+    <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
 </body>
+
 </html>
