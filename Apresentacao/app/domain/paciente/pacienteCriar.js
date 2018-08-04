@@ -1,14 +1,13 @@
-﻿var api = 'http://localhost:53731/api/medico/';
+var api = 'http://localhost:53731/api/paciente/';
 var apiEspecialidade = 'http://localhost:53731/api/especialidade/';
 
-var titulo = document.querySelector('#titulo-medico');
-var especialidade = document.querySelector('#especialidade');
+var titulo = document.querySelector('#titulo-paciente');
+var especialidade = document.querySelector('#consulta');
 
-var elementosMedico = {
+var elementosPaciente = {
     nome: document.querySelector('#nome'),
     cpf: document.querySelector('#cpf'),
-    crm: document.querySelector('#crm'),
-    especialidade: document.querySelector('#especialidade')
+    /* consulta: document.querySelector('#consulta')*/
 };
 
 var query = location.search.slice(1); // Pega as informações enviadas após o ponto de interrogação na URL
@@ -28,51 +27,53 @@ partes.forEach(function (parte) { // percorre as informações passadas
 console.log(data); 
 
 if(data.id) { // Se voi passado um id, quer dizer que eu estou alterando
-    obterMedico(data.id);
-    titulo.innerHTML = 'ALTERAR MÉDICO';
+    obterPaciente(data.id);
+    titulo.innerHTML = 'ALTERAR PACIENTE';
 }
+
 else{
-    obterEspecialidades();
+    obterConsultas();
     
-    titulo.innerHTML ='ADICIONAR MÉDICO';
+    titulo.innerHTML ='ADICIONAR PACIENTE';
     
 }
 
-document.querySelector('#form-medico').addEventListener('submit', function (event) {
+
+document.querySelector('#form-paciente').addEventListener('submit', function (event) {
 
     event.preventDefault();
 
-    var medico = {
-        nome: elementosMedico.nome.value,
-        cpf: elementosMedico.cpf.value,
-        crm: elementosMedico.crm.value,
-        idEspecialidade: parseInt(elementosMedico.especialidade.value)
+    var paciente = {
+        nome: elementosPaciente.nome.value,
+        cpf: elementosPaciente.cpf.value,
+        crm: elementosPaciente.crm.value,
+        idEspecialidade: parseInt(elementosPaciente.especialidade.value)
     };
 
     if(data.id){
-        alterarMedico(data.id, medico);
+        alterarpaciente(data.id, paciente);
     }
     else{
-        inserirMedico(medico);
+        inserirpaciente(paciente);
     }
 
 });
 
-function inserirMedico(medico) {
+function inserirPaciente(paciente) {
 
     var request = new Request(api, {
         method: "POST",
         headers: new Headers({
             'Content-Type': 'application/json'
         }),
-        body: JSON.stringify(medico)
+        body: JSON.stringify(paciente)
     });
 
     fetch(request)
         .then(function (response) {
             console.log(response);
             if (response.status == 201) {
-                alert("Médico inserido com sucesso");
+                alert("Paciente inserido com sucesso");
                 atribuirValorAoFormulario();
             } else {
 		
@@ -89,22 +90,22 @@ function inserirMedico(medico) {
 
 }
 
-function alterarMedico(idMedico, medico) {
+function alterarPaciente(idPaciente, paciente) {
 
-    var request = new Request(api + idMedico, {
+    var request = new Request(api + idpaciente, {
         method: "PUT",
         headers: new Headers({
             'Content-Type': 'application/json'
         }),
-        body: JSON.stringify(medico)
+        body: JSON.stringify(paciente)
     });
 
     fetch(request)
         .then(function (response) {
             // console.log(response);
             if (response.status == 202) {
-                alert("Médico alterado com sucesso");
-                window.location.href="medico.html";
+                alert("Paciente alterado com sucesso");
+                window.location.href="paciente.html";
             } else {
 		response.json().then(function(message){
 			alert(message.error);
@@ -118,8 +119,8 @@ function alterarMedico(idMedico, medico) {
 
 }
 
-function obterMedico(idMedico) {
-    var request = new Request(api + idMedico, {
+function obterPaciente(idPaciente) {
+    var request = new Request(api + idPaciente, {
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json'
@@ -131,12 +132,12 @@ function obterMedico(idMedico) {
             // console.log(response);
             if (response.status == 200) {
                 response.json()
-                .then(function(medico){
-                    atribuirValorAoFormulario(medico);
-                    obterEspecialidades(medico.idEspecialidade);
+                .then(function(paciente){
+                    atribuirValorAoFormulario(paciente);
+                    obterConsultas(paciente.idConsulta);
                 });
             } else {
-                alert("Ocorreu um erro ao obter o médico");
+                alert("Ocorreu um erro ao obter o paciente");
             }
         })
         .catch(function (response) {
@@ -145,8 +146,10 @@ function obterMedico(idMedico) {
         });
 }
 
-function obterEspecialidades(id){
-    var request = new Request(apiEspecialidade, {
+
+
+function obterConsultas(id){
+    var request = new Request(apiConsulta, {
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json'
@@ -158,11 +161,11 @@ function obterEspecialidades(id){
             // console.log(response);
             if (response.status == 200) {
                 response.json()
-                .then(function(especialidades){
-                    updateTemplateEspecialidades(especialidades, id);
+                .then(function(consultas){
+                    updateTemplateConsultas(consultas, id);
                 });
             } else {
-                alert("Ocorreu um erro ao obter as especialidades");
+                alert("Ocorreu um erro ao obter as consultas");
             }
         })
         .catch(function (response) {
@@ -171,26 +174,27 @@ function obterEspecialidades(id){
         });
 }
 
-function updateTemplateEspecialidades(especialidades, id){
-    especialidade.innerHTML = templateEspecialidades(especialidades, id);
+function updateTemplateConsultas(consultas, id){
+    consulta.innerHTML = templateConsultas(consultas, id);
 }
 
-function templateEspecialidades(especialidades = [], id = null){
+function templateConsultas(consulta = [], id = null){
     return `
         <option>Selecione</option>
         ${
-            especialidades.map(function(especialidade){
+            consulta.map(function(consulta){
                 return `
-                    <option value="${especialidade.id}" ${especialidade.id == id ? 'selected' : ''}>${especialidade.nome}</option>
+                    <option value="${consulta.id}" ${consulta.id == id ? 'selected' : ''}>${consulta.nome}</option>
                 `;
             }).join('')
         }
     `;
 }
 
-function atribuirValorAoFormulario(medico = {}) {
-    elementosMedico.nome.value = medico.nome || '';
-    elementosMedico.cpf.value = medico.cpf || '';
-    elementosMedico.crm.value = medico.crm || '';
-    elementosMedico.especialidade.value = medico.idEspecialidade || '';
+
+function atribuirValorAoFormulario(paciente = {}) {
+    elementospaciente.nome.value = paciente.nome || '';
+    elementospaciente.cpf.value = paciente.cpf || '';
+    elementospaciente.crm.value = paciente.crm || '';
+    elementospaciente.consulta.value = paciente.idConsulta || '';
 }
