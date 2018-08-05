@@ -8,7 +8,14 @@ var elementosMedico = {
     nome: document.querySelector('#nome'),
     cpf: document.querySelector('#cpf'),
     crm: document.querySelector('#crm'),
-    especialidade: document.querySelector('#especialidade')
+    idEspecialidade: document.querySelector('#especialidade'),
+    telefone_r: document.querySelector('#celular'),
+    telefone_c: document.querySelector('#telefone_c'),
+    endereco_c: document.querySelector('#logradouro'),
+    cidade: document.querySelector('#cidade'),
+    sexo: document.querySelector('#sexo'),
+    email: document.querySelector('#email'),
+    senha: document.querySelector('#senha')
 };
 
 // var query = location.search.slice(1); // Pega as informações enviadas após o ponto de interrogação na URL
@@ -40,17 +47,24 @@ document.querySelector('#form-medico').addEventListener('submit', function (even
 
     event.preventDefault();
 
-    // var medico = {
-    //     nome: elementosMedico.nome.value,
-    //     cpf: elementosMedico.cpf.value,
-    //     crm: elementosMedico.crm.value,
-    //     idEspecialidade: parseInt(elementosMedico.especialidade.value)
-    // };
+    var medico = {
+        nome: elementosMedico.nome.value,
+        cpf: elementosMedico.cpf.value,
+        crm: elementosMedico.crm.value,
+        idEspecialidade: parseInt(elementosMedico.especialidade.value),
+        telefone_r: elementosMedico.celular.value,
+        telefone_c: elementosMedico.telefone_c.value,
+        endereco_c: elementosMedico.endereco_c.value,
+        cidade: elementosMedico.cidade.value,
+        sexo: elementosMedico.sexo.value,
+        email: elementosMedico.email.value,
+        senha: elementosMedico.senha.value
+    };
 
-    if(data.id){
+    if (data.id) {
         alterarMedico(data.id, medico);
     }
-    else{
+    else {
         inserirMedico(medico);
     }
 
@@ -73,10 +87,10 @@ function inserirMedico(medico) {
                 alert("Médico inserido com sucesso");
                 atribuirValorAoFormulario();
             } else {
-		
-		response.json().then(function(message){
-			alert(message.error);
-		});
+
+                response.json().then(function (message) {
+                    alert(message.error);
+                });
 
             }
         })
@@ -102,11 +116,11 @@ function alterarMedico(idMedico, medico) {
             // console.log(response);
             if (response.status == 202) {
                 alert("Médico alterado com sucesso");
-                window.location.href="medico.html";
+                window.location.href = "medico.html";
             } else {
-		response.json().then(function(message){
-			alert(message.error);
-		});
+                response.json().then(function (message) {
+                    alert(message.error);
+                });
             }
         })
         .catch(function (response) {
@@ -129,10 +143,10 @@ function obterMedico(idMedico) {
             // console.log(response);
             if (response.status == 200) {
                 response.json()
-                .then(function(medico){
-                    atribuirValorAoFormulario(medico);
-                    obterEspecialidades(medico.idEspecialidade);
-                });
+                    .then(function (medico) {
+                        atribuirValorAoFormulario(medico);
+                        obterEspecialidades(medico.idEspecialidade);
+                    });
             } else {
                 alert("Ocorreu um erro ao obter o médico");
             }
@@ -143,7 +157,7 @@ function obterMedico(idMedico) {
         });
 }
 
-function obterEspecialidades(id){
+function obterEspecialidades(id) {
     var request = new Request(apiEspecialidade, {
         method: "GET",
         headers: new Headers({
@@ -156,9 +170,9 @@ function obterEspecialidades(id){
             // console.log(response);
             if (response.status == 200) {
                 response.json()
-                .then(function(especialidades){
-                    updateTemplateEspecialidades(especialidades, id);
-                });
+                    .then(function (especialidades) {
+                        updateTemplateEspecialidades(especialidades, id);
+                    });
             } else {
                 alert("Ocorreu um erro ao obter as especialidades");
             }
@@ -169,19 +183,19 @@ function obterEspecialidades(id){
         });
 }
 
-function updateTemplateEspecialidades(especialidades, id){
+function updateTemplateEspecialidades(especialidades, id) {
     especialidade.innerHTML = templateEspecialidades(especialidades, id);
 }
 
-function templateEspecialidades(especialidades = [], id = null){
+function templateEspecialidades(especialidades = [], id = null) {
     return `
-        <option>Selecione</option>
+        <option>Especialidade</option>
         ${
-            especialidades.map(function(especialidade){
-                return `
+        especialidades.map(function (especialidade) {
+            return `
                     <option value="${especialidade.id}" ${especialidade.id == id ? 'selected' : ''}>${especialidade.nome}</option>
                 `;
-            }).join('')
+        }).join('')
         }
     `;
 }
