@@ -1,6 +1,8 @@
  //Caminho da API
 var api = 'http://localhost:53731/api/paciente/';
 
+var form = document.getElementById('form-paciente');
+
 //Pegando os Input
 var elementosPaciente = {                     
     nome: document.querySelector('#nome'),
@@ -29,6 +31,7 @@ document.querySelector('#form-paciente').addEventListener('submit', function (ev
     };
 
         inserirPaciente(paciente);
+        form.reset();
 });
 
 // Função que insere os pacientes 
