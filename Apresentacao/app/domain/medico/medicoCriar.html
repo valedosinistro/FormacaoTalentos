@@ -19,7 +19,7 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../../../index.html">
                 <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -27,25 +27,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="../../../index.html">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html"> Login </a>
-                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Cadastrar </a>
-                        <ul class="dropdown-menu">
+                        <a class="nav-link  dropdown-toggle active" href="#" data-toggle="dropdown"> Cadastrar </a>
+                        <ul class="dropdown-menu bg-dark">
                             <li>
-                                <a class="dropdown-item" href="../medico/medicoCriar.html"> Médico</a>
+                                <a class="dropdown-item text-light" href="#"> Médico</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="../paciente/pacienteCriar.html"> Paciente </a>
+                                <a class="dropdown-item text-light" href="../paciente/pacienteCriar.html"> Paciente </a>
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../login/login.html"> Login </a>
+                    </li>
+                    
                 </ul>
             </div>
         </nav>
@@ -53,12 +54,12 @@
 
     <main role="main" class="container text-center">
 
-        <form class="form-signin col-md-8 col-mb-3" id="form-medico">
+        <form class="form-signin col-5 col-mb-3" id="form-medico">
 
             <!--Informações Básicas-->
 
             <div class="form-group">
-                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
+                <input type="text" name="nome" id="nome" class="form-control form-control-lg" placeholder="Nome">
             </div>
 
             <div class="form-group">
@@ -83,6 +84,8 @@
                 <div class="col mb-3">
                     <select name="sexo" id="sexo" class="form-control">
                         <option selected>Sexo</option>
+                        <option>M</option>
+                        <option>F</option>
                     </select>
                 </div>
             </div>
@@ -141,13 +144,13 @@
         </form>
 
     </main>
-    <footer>
+    <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
 
     <!-- Script com ligações para banco e visual studio -->
 
-    <script src="medicoCriar.js"></script>
+    <!-- <script src="medicoCriar.js"></script> -->
 
 
 </body>
