@@ -54,11 +54,7 @@
 
     <main role="main" class="container text-center">
 
-        <h2 class="mb-3" id="titulo-medico">
-
-        </h2>
-
-        <form class="form-signin col-md-4 col-mb-3" id="form-medico">
+        <form class="form-signin col-md-4 col-mb-3" id="form-paciente">
 
             <!--Informações Básicas-->
 
@@ -68,6 +64,10 @@
 
             <div class="form-group">
                 <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
+            </div>
+
+            <div class="form-group">
+                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail">
             </div>
 
             <div class="form-group">
@@ -84,6 +84,8 @@
                 <div class="col mb-3">
                     <select name="sexo" id="sexo" class="form-control">
                         <option selected>Sexo</option>
+                        <option>M</option>
+                        <option>F</option>
                     </select>
                 </div>
             </div>

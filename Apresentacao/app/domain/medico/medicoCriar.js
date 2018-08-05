@@ -11,32 +11,30 @@ var elementosMedico = {
     especialidade: document.querySelector('#especialidade')
 };
 
-var query = location.search.slice(1); // Pega as informações enviadas após o ponto de interrogação na URL
+// var query = location.search.slice(1); // Pega as informações enviadas após o ponto de interrogação na URL
 
-var partes = query.split('&'); // Caso tenha mais de um parâmetro eles serão separados pelo caracter & - A função split quebra a string em arrays, conforme um caracter informado
+// var partes = query.split('&'); // Caso tenha mais de um parâmetro eles serão separados pelo caracter & - A função split quebra a string em arrays, conforme um caracter informado
 
-var data = {}; // Cria um objeto que conterá as informações passadas pela url
+// var data = {}; // Cria um objeto que conterá as informações passadas pela url
 
-partes.forEach(function (parte) { // percorre as informações passadas
+// partes.forEach(function (parte) { // percorre as informações passadas
 
-    var chaveValor = parte.split('='); // quebra em array o nome da informação e seu valor
-    var chave = chaveValor[0]; // o nome da informação fica na posição 0
-    var valor = chaveValor[1]; // o valor da informação fica na posição 1
-    data[chave] = valor; // Essa é uma notação de array, porém, como chave não é um número, isso acaba também funcioando para criar um objeto
-});
+//     var chaveValor = parte.split('='); // quebra em array o nome da informação e seu valor
+//     var chave = chaveValor[0]; // o nome da informação fica na posição 0
+//     var valor = chaveValor[1]; // o valor da informação fica na posição 1
+//     data[chave] = valor; // Essa é uma notação de array, porém, como chave não é um número, isso acaba também funcioando para criar um objeto
+// });
 
-console.log(data); 
+// console.log(data); 
 
-if(data.id) { // Se voi passado um id, quer dizer que eu estou alterando
-    obterMedico(data.id);
-    titulo.innerHTML = 'ALTERAR MÉDICO';
-}
-else{
+// if(data.id) { // Se foi passado um id, quer dizer que eu estou alterando
+//     obterMedico(data.id);
+//     titulo.innerHTML = 'ALTERAR MÉDICO';
+// }
+// else{
     obterEspecialidades();
-    
-    titulo.innerHTML ='ADICIONAR MÉDICO';
-    
-}
+    // titulo.innerHTML ='ADICIONAR MÉDICO';
+// }
 
 document.querySelector('#form-medico').addEventListener('submit', function (event) {
 
