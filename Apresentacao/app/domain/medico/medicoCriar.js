@@ -1,18 +1,22 @@
 ﻿var api = 'http://localhost:53731/api/medico/';
 var apiEspecialidade = 'http://localhost:53731/api/especialidade/';
 
-var titulo = document.querySelector('#titulo-medico');
 var especialidade = document.querySelector('#especialidade');
+
+var form1 = document.getElementById("form-medico");
 
 var elementosMedico = {
     nome: document.querySelector('#nome'),
     cpf: document.querySelector('#cpf'),
     crm: document.querySelector('#crm'),
-    idEspecialidade: document.querySelector('#especialidade'),
-    telefone_r: document.querySelector('#celular'),
+    Especialidade: document.querySelector('#especialidade'),
+    telefone_r: document.querySelector('#telefone_r'),
     telefone_c: document.querySelector('#telefone_c'),
-    endereco_c: document.querySelector('#logradouro'),
+    logradouro: document.querySelector('#logradouro'),
+    bairro: document.querySelector('#bairro'),
+    numero: document.querySelector('#numero'),
     cidade: document.querySelector('#cidade'),
+    uf: document.querySelector('#uf'),
     sexo: document.querySelector('#sexo'),
     email: document.querySelector('#email'),
     senha: document.querySelector('#senha')
@@ -46,28 +50,27 @@ var elementosMedico = {
 document.querySelector('#form-medico').addEventListener('submit', function (event) {
 
     event.preventDefault();
+    console.log(elementosMedico.idEspecialidade);
 
     var medico = {
         nome: elementosMedico.nome.value,
         cpf: elementosMedico.cpf.value,
         crm: elementosMedico.crm.value,
-        idEspecialidade: parseInt(elementosMedico.especialidade.value),
-        telefone_r: elementosMedico.celular.value,
+        idEspecialidade: parseInt(elementosMedico.Especialidade.value),
+        telefone_r: elementosMedico.telefone_r.value,
         telefone_c: elementosMedico.telefone_c.value,
-        endereco_c: elementosMedico.endereco_c.value,
+        endereco_c: elementosMedico.logradouro.value +", "+ elementosMedico.bairro.value +", "+ elementosMedico.numero.value,
+        estado: elementosMedico.uf.value,
         cidade: elementosMedico.cidade.value,
         sexo: elementosMedico.sexo.value,
         email: elementosMedico.email.value,
         senha: elementosMedico.senha.value
     };
+    console.log(medico);
 
-    if (data.id) {
-        alterarMedico(data.id, medico);
-    }
-    else {
+
         inserirMedico(medico);
-    }
-
+        form1.reset();
 });
 
 function inserirMedico(medico) {
@@ -85,7 +88,6 @@ function inserirMedico(medico) {
             console.log(response);
             if (response.status == 201) {
                 alert("Médico inserido com sucesso");
-                atribuirValorAoFormulario();
             } else {
 
                 response.json().then(function (message) {
@@ -101,61 +103,61 @@ function inserirMedico(medico) {
 
 }
 
-function alterarMedico(idMedico, medico) {
+// function alterarMedico(idMedico, medico) {
 
-    var request = new Request(api + idMedico, {
-        method: "PUT",
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify(medico)
-    });
+//     var request = new Request(api + idMedico, {
+//         method: "PUT",
+//         headers: new Headers({
+//             'Content-Type': 'application/json'
+//         }),
+//         body: JSON.stringify(medico)
+//     });
 
-    fetch(request)
-        .then(function (response) {
-            // console.log(response);
-            if (response.status == 202) {
-                alert("Médico alterado com sucesso");
-                window.location.href = "medico.html";
-            } else {
-                response.json().then(function (message) {
-                    alert(message.error);
-                });
-            }
-        })
-        .catch(function (response) {
-            // console.log(response);
-            alert("Desculpe, ocorreu um erro no servidor.");
-        });
+//     fetch(request)
+//         .then(function (response) {
+//             // console.log(response);
+//             if (response.status == 202) {
+//                 alert("Médico alterado com sucesso");
+//                 window.location.href = "medico.html";
+//             } else {
+//                 response.json().then(function (message) {
+//                     alert(message.error);
+//                 });
+//             }
+//         })
+//         .catch(function (response) {
+//             // console.log(response);
+//             alert("Desculpe, ocorreu um erro no servidor.");
+//         });
 
-}
+// }
 
-function obterMedico(idMedico) {
-    var request = new Request(api + idMedico, {
-        method: "GET",
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        })
-    });
+// function obterMedico(idMedico) {
+//     var request = new Request(api + idMedico, {
+//         method: "GET",
+//         headers: new Headers({
+//             'Content-Type': 'application/json'
+//         })
+//     });
 
-    fetch(request)
-        .then(function (response) {
-            // console.log(response);
-            if (response.status == 200) {
-                response.json()
-                    .then(function (medico) {
-                        atribuirValorAoFormulario(medico);
-                        obterEspecialidades(medico.idEspecialidade);
-                    });
-            } else {
-                alert("Ocorreu um erro ao obter o médico");
-            }
-        })
-        .catch(function (response) {
-            // console.log(response);
-            alert("Desculpe, ocorreu um erro no servidor.");
-        });
-}
+//     fetch(request)
+//         .then(function (response) {
+//             // console.log(response);
+//             if (response.status == 200) {
+//                 response.json()
+//                     .then(function (medico) {
+//                         atribuirValorAoFormulario(medico);
+//                         obterEspecialidades(medico.idEspecialidade);
+//                     });
+//             } else {
+//                 alert("Ocorreu um erro ao obter o médico");
+//             }
+//         })
+//         .catch(function (response) {
+//             // console.log(response);
+//             alert("Desculpe, ocorreu um erro no servidor.");
+//         });
+// }
 
 function obterEspecialidades(id) {
     var request = new Request(apiEspecialidade, {
@@ -198,11 +200,4 @@ function templateEspecialidades(especialidades = [], id = null) {
         }).join('')
         }
     `;
-}
-
-function atribuirValorAoFormulario(medico = {}) {
-    elementosMedico.nome.value = medico.nome || '';
-    elementosMedico.cpf.value = medico.cpf || '';
-    elementosMedico.crm.value = medico.crm || '';
-    elementosMedico.especialidade.value = medico.idEspecialidade || '';
 }
