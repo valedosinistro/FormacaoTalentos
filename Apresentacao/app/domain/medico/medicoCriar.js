@@ -43,8 +43,8 @@ var elementosMedico = {
 //     titulo.innerHTML = 'ALTERAR MÉDICO';
 // }
 // else{
-    obterEspecialidades();
-    // titulo.innerHTML ='ADICIONAR MÉDICO';
+obterEspecialidades();
+// titulo.innerHTML ='ADICIONAR MÉDICO';
 // }
 
 document.querySelector('#form-medico').addEventListener('submit', function (event) {
@@ -59,18 +59,19 @@ document.querySelector('#form-medico').addEventListener('submit', function (even
         idEspecialidade: parseInt(elementosMedico.Especialidade.value),
         telefone_r: elementosMedico.telefone_r.value,
         telefone_c: elementosMedico.telefone_c.value,
-        endereco_c: elementosMedico.logradouro.value +", "+ elementosMedico.bairro.value +", "+ elementosMedico.numero.value,
+        endereco_c: elementosMedico.logradouro.value + ", " + elementosMedico.bairro.value + ", " + elementosMedico.numero.value,
         estado: elementosMedico.uf.value,
         cidade: elementosMedico.cidade.value,
         sexo: elementosMedico.sexo.value,
         email: elementosMedico.email.value,
         senha: elementosMedico.senha.value
     };
-    console.log(medico);
+
+    inserirMedico(medico);
+    form1.reset();
 
 
-        inserirMedico(medico);
-        form1.reset();
+
 });
 
 function inserirMedico(medico) {
@@ -201,3 +202,19 @@ function templateEspecialidades(especialidades = [], id = null) {
         }
     `;
 }
+
+// confirmar se senhas digitadas estão iguais
+var senha1 = document.getElementById("senha");
+var senha2 = document.getElementById("confirmar-senha");
+
+function validaSenha() {
+    if (senha1.value != senha2.value) {
+        senha2.setCustomValidity("Senhas diferentes!");
+    } else {
+        senha2.setCustomValidity('');
+    }
+}
+
+senha1.onchange = validatePassword;
+senha2.onkeyup = validatePassword;
+

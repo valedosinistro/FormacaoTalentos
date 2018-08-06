@@ -97,11 +97,11 @@
 
             <div class="form-row">
                 <div class="col">
-                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
                 </div>
 
                 <div class="col mb-2">
-                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control" placeholder="Confirmar Senha">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control" placeholder="Confirmar Senha" required>
                 </div>
             </div>
 
@@ -110,6 +110,7 @@
                 aria-controls="multiCollapseExample1">+ Informações Comerciais</a>
             <br>
 
+            
             <div class="row">
                 <div class="col">
                     <div class="collapse multi-collapse" id="multiCollapseExample">
@@ -172,7 +173,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-lg btn-success btn-login" type="submit">Cadastrar</button>
+            <button class="btn btn-lg btn-success btn-login" type="submit" onclick="return validaSenha()">Cadastrar</button>
         </form>
 
     </main>
