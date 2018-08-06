@@ -63,22 +63,22 @@
             </div>
 
             <div class="form-group">
-                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail">
+                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail" required autofocus>
             </div>
 
 
 
             <div class="form-group">
-                <input type="text" name="telefone_r" id="telefone_r" class="form-control" placeholder="Telefone Residencial / Celular">
+                <input type="text" name="telefone_r" id="telefone_r" class="form-control phone_with_ddd" placeholder="Telefone Residencial / Celular" required autofocus>
             </div>
 
             <div class="form-row">
                 <div class="col">
-                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                    <input type="password" name="senha" id="senha" class="form-control senha" placeholder="Senha">
                 </div>
 
                 <div class="col mb-2">
-                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control" placeholder="Confirmar Senha">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control senha" placeholder="Confirmar Senha" required autofocus>
                 </div>
             </div>
 
@@ -91,23 +91,23 @@
                 <div class="col">
                     <div class="collapse multi-collapse" id="multiCollapseExample">
                         <div class="form-group">
-                            <input type="text" name="cep" id="cep" class="form-control" placeholder="CEP">
+                            <input type="text" name="cep" id="cep" class="form-control cep" placeholder="CEP" required autofocus>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro">
+                            <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro" required autofocus>
                         </div>
                         <div class="form-row">
                             <div class="col-md-8">
-                                <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
+                                <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" required autofocus>
                             </div>
 
                             <div class="col mb-2">
-                                <input type="text" name="numero" id="numero" class="form-control" placeholder="Nº">
+                                <input type="text" name="numero" id="numero" class="form-control" placeholder="Nº" required autofocus>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-8">
-                                <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
+                                <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade" required autofocus>
                             </div>
 
                             <div class="col mb-3">
@@ -144,7 +144,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="telefone_c" id="telefone_c" class="form-control" placeholder="Telefone Comercial">
+                            <input type="text" name="telefone_c" id="telefone_c" class="form-control phone_with_ddd" placeholder="Telefone Comercial" required autofocus>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
     </footer>
 
     <!-- Script com ligações para banco e visual studio -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="medico.js"></script>
 
 

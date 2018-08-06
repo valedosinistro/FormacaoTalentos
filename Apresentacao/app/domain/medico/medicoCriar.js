@@ -203,23 +203,7 @@ function templateEspecialidades(especialidades = [], id = null) {
     `;
 }
 
-// confirmar se senhas digitadas estão iguais
-var senha1 = document.getElementById("senha");
-var senha2 = document.getElementById("confirmar-senha");
-
-function validaSenha() {
-    if (senha1.value != senha2.value) {
-        senha2.setCustomValidity("Senhas diferentes!");
-    } else {
-        senha2.setCustomValidity('');
-    }
-}
-
-senha1.onchange = validatePassword;
-senha2.onkeyup = validatePassword;
-
 //busca cep
-
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('logradouro').value=("");
@@ -285,3 +269,33 @@ else {
 }
 };
 
+// Máscaras
+$(document).ready(function(){
+    $('.date').mask('00/00/0000');
+    $('.time').mask('00:00:00');
+    $('.date_time').mask('00/00/0000 00:00:00');
+    $('.cep').mask('00000-000');
+    $('.phone').mask('0000-0000');
+    $('.phone_with_ddd').mask('(00) 0000-0000');
+    $('.phone_us').mask('(000) 000-0000');
+    $('.mixed').mask('AAA 000-S0S');
+    $('.cpf').mask('000.000.000-00', {reverse: true});
+    $('.crm').mask('000000/AA');
+    $('.senha').mask('AAAAAAAA');
+    $('.money').mask('000.000.000.000.000,00', {reverse: true});
+  });
+
+  // confirmar se senhas digitadas estão iguais
+var senha1 = document.getElementById("senha");
+var senha2 = document.getElementById("confirmar-senha");
+
+function validaSenha() {
+    if (senha1.value != senha2.value) {
+        senha2.setCustomValidity("Senhas diferentes!");
+    } else {
+        senha2.setCustomValidity('');
+    }
+}
+
+senha1.onchange = validatePassword;
+senha2.onkeyup = validatePassword;
