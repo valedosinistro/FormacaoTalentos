@@ -127,3 +127,19 @@ $(document).ready(function(){
     $('.crm').mask('000000/AA');
     $('.money').mask('000.000.000.000.000,00', {reverse: true});
   });
+
+
+// confirmar se senhas digitadas estão iguais
+var senha1 = document.getElementById("senha");
+var senha2 = document.getElementById("confirmar-senha");
+
+function validaSenha() {
+    if (senha1.value != senha2.value) {
+        senha2.setCustomValidity("Senhas diferentes!");
+    } else {
+        senha2.setCustomValidity('');
+    }
+}
+
+senha1.onchange = validatePassword;
+senha2.onkeyup = validatePassword;
