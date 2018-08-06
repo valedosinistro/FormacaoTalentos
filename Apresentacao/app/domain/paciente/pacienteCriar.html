@@ -61,30 +61,33 @@
             <!--Informações Básicas-->
 
             <div class="form-group">
-                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
+                <input type="text" name="cpf" id="cpf" class="form-control cpf" placeholder="CPF" required autofocus>
+            </div>
+            <div class="form-group">
+                <input type="text" name="cpf" id="cpf" class="form-control crm" placeholder="CPF" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail">
+                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="text" name="celular" id="celular" class="form-control" placeholder="Celular">
+                <input type="text" name="celular" id="celular" class="form-control phone_with_ddd" placeholder="Celular" required autofocus>
             </div>
 
             <div class="form-row">
                 <div class="col-md-8 mb-3">
 
-                    <input type="text" name="data-nasc" id="data-nasc" class="form-control" placeholder="Data de Nascimento">
+                    <input type="text" name="data-nasc" id="data-nasc" class="form-control date" placeholder="Data de Nascimento" required autofocus>
 
                 </div>
 
                 <div class="col mb-3">
-                    <select name="sexo" id="sexo" class="form-control">
+                    <select name="sexo" id="sexo" class="form-control" required autofocus>
                         <option selected>Sexo</option>
                         <option>M</option>
                         <option>F</option>
@@ -94,11 +97,11 @@
 
             <div class="form-row">
                 <div class="col">
-                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required autofocus>
                 </div>
 
                 <div class="col mb-2">
-                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control" placeholder="Confirmar Senha">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control" placeholder="Confirmar Senha" required autofocus>
                 </div>
             </div>
 
@@ -113,10 +116,10 @@
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
-    <!-- Script com ligações para banco e visual studio -->
 
+    <!-- Script com ligações para banco, visual studio e máscaras -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="pacienteCriar.js"></script>
-
 
 </body>
 
