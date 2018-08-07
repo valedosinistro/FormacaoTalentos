@@ -6,7 +6,8 @@
     <title>WebApp - Luva</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
     <script src="lib/jquery.js"></script>
     <script src="lib/bootstrap.bundle.min.js"></script>
 </head>
@@ -23,36 +24,62 @@
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Home
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-home"></i> Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"><i class="fas fa-user-plus"></i> Cadastrar </a>
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fas fa-user-plus"></i> Cadastrar </a>
                         <ul class="dropdown-menu bg-dark">
                             <li>
-                                <a class="dropdown-item text-light" href="app/domain/medico/medicoCriar.html"><i class="fas fa-user-md"></i> Médico</a>
+                                <a class="dropdown-item text-light" href="app/domain/medico/medicoCriar.html">
+                                    <i class="fas fa-user-md"></i> Médico</a>
                             </li>
                             <li>
-                                <a class="dropdown-item text-light" href="app/domain/paciente/pacienteCriar.html"><i class="fas fa-user"></i> Paciente </a>
+                                <a class="dropdown-item text-light" href="app/domain/paciente/pacienteCriar.html">
+                                    <i class="fas fa-user"></i> Paciente </a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="app/domain/login/login.html"><i class="fas fa-sign-in-alt"></i> Login </a>
+                        <a class="nav-link" href="app/domain/login/login.html">
+                            <i class="fas fa-sign-in-alt"></i> Login </a>
                     </li>
-                    
+
                 </ul>
             </div>
         </nav>
     </header>
     <main>
-        <h1 class="titulo-home">MedServ</h1>
-        <h2 class="slogan-home">Boa saúde em suas mãos!</h2>
+        <div class="titulomain">
+            <h1 class="titulo-home">MedServ</h1>
+            <h2 class="slogan-home" id="typewriter"></h2>
+        </div>
     </main>
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
+
+    <script src="typewriter.js"></script>
+    <script>
+        var app = document.getElementById('typewriter');
+
+        var typewriter = new Typewriter(app, {
+            loop: true
+        });
+
+        typewriter.typeString('Bem vindo ao MedServ!')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Sua saúde em boas mãos')
+            .pauseFor(2500)
+            .deleteAll()
+            .typeString('Cuide de você e viva saudável :3')
+            .pauseFor(2500)
+            .start();
+    </script>
 </body>
 
 </html>
