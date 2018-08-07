@@ -1,6 +1,7 @@
  //Caminho da API
 var api = 'http://localhost:53731/api/paciente/';
 
+// Pega o formulário
 var form = document.getElementById('form-paciente');
 
 //Pegando os Input
@@ -34,7 +35,7 @@ document.querySelector('#form-paciente').addEventListener('submit', function (ev
         form.reset();
 });
 
-// Função que insere os pacientes 
+// API que insere os pacientes 
 function inserirPaciente(paciente) {
 
     var request = new Request(api, {
@@ -62,6 +63,7 @@ function inserirPaciente(paciente) {
         });
 }
 
+// Máscaras 
 $(document).ready(function(){
     $('.date').mask('00/00/0000');
     $('.time').mask('00:00:00');
@@ -77,7 +79,7 @@ $(document).ready(function(){
   });
 
 
-// confirmar se senhas digitadas estão iguais
+// Validação de senhas: conferir se são iguais 
 var senha1 = document.getElementById("senha");
 var senha2 = document.getElementById("confirmar-senha");
 

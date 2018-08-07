@@ -105,7 +105,7 @@ $(document).ready(function () {
     $('.money').mask('000.000.000.000.000,00', { reverse: true });
 });
 
-// confirmar se senhas digitadas estão iguais
+// Validação de senhas: conferir se são iguais
 var senha1 = document.getElementById("senha");
 var senha2 = document.getElementById("confirmar-senha");
 

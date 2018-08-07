@@ -1,48 +1,6 @@
 ﻿var api = 'http://localhost:53731/api/medico/';
 
-var tabela = document.querySelector('#medicos');
-
 obterTodos();
-
-function update(medicos) {
-    tabela.innerHTML = template(medicos);
-}
-
-function template(medicos = []) {
-    return `
-    <table class="table table-hover table-bordered">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nome</th>
-                <th>Cpf</th>
-                <th>Crm</th>
-                <th>Especialidade</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-        ${
-            medicos.map(function(medico){
-                return `
-                    <tr>
-                        <td>${medico.id}</td>
-                        <td>${medico.nome}</td>
-                        <td>${medico.cpf}</td>
-                        <td>${medico.crm}</td>
-                        <td>${medico.especialidade}</td>
-                        <td>
-                            <a href="#" onclick="alterarMedico(${medico.id})">Editar</a> | 
-                            <a href="#" onclick="excluirMedico(${medico.id})">Excluir</a>
-                        </td>
-                    </tr>
-                `;
-            }).join('')
-        }
-        </tbody>
-    </table>
-    `;
-}
 
 function obterTodos() {
 
@@ -76,6 +34,7 @@ function alterarMedico(idMedico) {
     window.location.href = 'medicoCriar.html?id=' + idMedico;
 }
 
+// API Exclui Médico
 function excluirMedico(idMedico) {
     if (confirm('Tem certeza que deseja excluir esse médico?')) {
         
@@ -101,7 +60,6 @@ function excluirMedico(idMedico) {
             });
     }
 
-
 }
 
 // Máscaras
@@ -120,7 +78,7 @@ $(document).ready(function(){
     $('.money').mask('000.000.000.000.000,00', {reverse: true});
   });
 
-  // confirmar se senhas digitadas estão iguais
+// Validação de senhas: conferir se são iguais
 var senha1 = document.getElementById("senha");
 var senha2 = document.getElementById("confirmar-senha");
 

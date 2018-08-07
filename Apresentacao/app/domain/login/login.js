@@ -17,8 +17,9 @@ document.querySelector('#form-login')
 
         autenticarUsuario(obj);
 
-    });
+});
 
+// Autenticar usuário utilizando API 
 function autenticarUsuario(obj) {
 
     var teste = $('input[name=login]:checked').val();
@@ -65,6 +66,7 @@ function autenticarUsuario(obj) {
         });
 }
 
+// Máscara
 $(document).ready(function () {
     $('.senha').mask('AAAAAAAA');
 });
