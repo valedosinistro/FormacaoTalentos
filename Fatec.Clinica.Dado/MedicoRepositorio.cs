@@ -90,7 +90,7 @@ namespace Fatec.Clinica.Dado
             {
                 var obj = connection.QueryFirstOrDefault<Medico>($"SELECT * " +
                                                                   $"FROM [Medico] " +
-                                                                  $"WHERE Crm = {crm}");
+                                                                  $"WHERE Crm = '{crm}'");
                 return obj;
             }
         }

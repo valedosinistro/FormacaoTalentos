@@ -19,7 +19,7 @@ document.querySelector('#form-medico').addEventListener('submit', function (even
     event.preventDefault();
 
     // Objeto Medico att
-    var paciente = {
+    var medico = {
         telefone_r: elementosMedico.telefone_r.value,
         telefone_c: elementosMedico.telefone_c.value,
         endereco_c: elementosMedico.logradouro.value + ", " + elementosMedico.bairro.value + ", " + elementosMedico.numero.value,

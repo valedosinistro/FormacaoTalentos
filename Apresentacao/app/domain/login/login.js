@@ -15,6 +15,7 @@ document.querySelector('#form-login')
             senha: elementosForm.senha.value
         };
 
+
         autenticarUsuario(obj);
 
 });
@@ -25,10 +26,8 @@ function autenticarUsuario(obj) {
     var teste = $('input[name=login]:checked').val();
     var apiatt;
     if (teste === 'medico') {
-        // window.location.href = "../medico/medicoPerfil.html";
         apiatt = api + 'medico';
     } else {
-        // window.location.href = "../paciente/pacientePerfil.html";
         apiatt = api + 'paciente';
     }
 
@@ -47,9 +46,9 @@ function autenticarUsuario(obj) {
                 response.json()
                     .then(function (usuario) {
                         if (teste === 'medico') {
-                            window.location.href = "../medico/medicoPerfil.html?id=" + usuario.id;
+                            window.location.href = "../dashboard/medicoDash.html?id=" + usuario.id;
                         } else {
-                            window.location.href = "../paciente/pacientePerfil.html?id=" + usuario.id;
+                            window.location.href = "../dashboard/pacienteDash.html?id=" + usuario.id;
                         }
                     });
 
