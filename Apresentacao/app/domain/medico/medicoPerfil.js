@@ -1,10 +1,44 @@
 ﻿var api = 'http://localhost:53731/api/medico/';
 
-obterTodos();
+//Pegando os Input
+var elementosMedico = {
+    email: document.querySelector('#email'),
+    senha: document.querySelector('#senha'),
+    telefone_r: document.querySelector('#telefone_r'),
+    telefone_c: document.querySelector('#telefone_c'),
+    logradouro: document.querySelector('#logradouro'),
+    bairro: document.querySelector('#bairro'),
+    numero: document.querySelector('#numero'),
+    cidade: document.querySelector('#cidade'),
+    uf: document.querySelector('#uf'),
+};
 
-function obterTodos() {
+// "Escuta" o evento de ENVIAR do Formulário do Paciente
+document.querySelector('#form-medico').addEventListener('submit', function (event) {
 
-    var request = new Request(api, {
+    event.preventDefault();
+
+    // Objeto Medico att
+    var paciente = {
+        telefone_r: elementosMedico.telefone_r.value,
+        telefone_c: elementosMedico.telefone_c.value,
+        endereco_c: elementosMedico.logradouro.value + ", " + elementosMedico.bairro.value + ", " + elementosMedico.numero.value,
+        estado: elementosMedico.uf.value,
+        cidade: elementosMedico.cidade.value,
+        email: elementosMedico.email.value,
+        senha: elementosMedico.senha.value
+    };
+
+    alterarMedico(medico);
+});
+
+// API obter Médico 
+function obterMedico() {
+
+    var urlParams = new URLSearchParams(location.search);
+    var idMedico = urlParams.get('id');
+
+    var request = new Request(api + idMedico, {
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json'
@@ -13,28 +47,29 @@ function obterTodos() {
 
     fetch(request)
         .then(function (response) {
-            // console.log(response);
+            
             if (response.status == 200) {
                 response.json()
-                    .then(function (medicos) {
-                        update(medicos);
+                    .then(function (medico) {
+                        document.getElementById('nome').value = medico.nome;
+                        document.getElementById('crm').value = medico.crm;
                     });
             } else {
-                alert("Ocorreu um erro ao obter os médicos");
+                alert("Ocorreu um erro ao obter o médico");
             }
         })
         .catch(function (response) {
-            // console.log(response);
             alert("Desculpe, ocorreu um erro no servidor.");
         });
-
 }
 
-function alterarMedico(idMedico) {
-    window.location.href = 'medicoCriar.html?id=' + idMedico;
-}
+obterMedico();
 
-function alterarMedico(idMedico, medico) {
+// API alterar médico 
+function alterarMedico(medico) {
+
+    var urlParams = new URLSearchParams(location.search);
+    var idMedico = urlParams.get('id');
 
     var request = new Request(api + idMedico, {
         method: "PUT",
@@ -46,10 +81,9 @@ function alterarMedico(idMedico, medico) {
 
     fetch(request)
         .then(function (response) {
-            // console.log(response);
             if (response.status == 202) {
                 alert("Médico alterado com sucesso");
-                window.location.href = "medico.html";
+                window.location.href = 'medicoDash.html?id=' + idMedico;
             } else {
                 response.json().then(function (message) {
                     alert(message.error);
@@ -57,37 +91,9 @@ function alterarMedico(idMedico, medico) {
             }
         })
         .catch(function (response) {
-            // console.log(response);
             alert("Desculpe, ocorreu um erro no servidor.");
         });
 
-}
-
-function obterMedico(idMedico) {
-    var request = new Request(api + idMedico, {
-        method: "GET",
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        })
-    });
-
-    fetch(request)
-        .then(function (response) {
-            // console.log(response);
-            if (response.status == 200) {
-                response.json()
-                    .then(function (medico) {
-                        atribuirValorAoFormulario(medico);
-                        obterEspecialidades(medico.idEspecialidade);
-                    });
-            } else {
-                alert("Ocorreu um erro ao obter o médico");
-            }
-        })
-        .catch(function (response) {
-            // console.log(response);
-            alert("Desculpe, ocorreu um erro no servidor.");
-        });
 }
 
 // Máscaras

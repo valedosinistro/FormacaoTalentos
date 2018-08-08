@@ -20,12 +20,11 @@ document.querySelector('#form-paciente').addEventListener('submit', function (ev
     };
 
     alterarPaciente(paciente);
-    form.reset();
 });
 
 
 // API Pegar Paciente
-function obterIdPaciente() {
+function obterPaciente() {
 
     var urlParams = new URLSearchParams(location.search);
     var idUser = urlParams.get('id');
@@ -49,13 +48,12 @@ function obterIdPaciente() {
             }
         })
         .catch(function (response) {
-            // console.log(response);
             alert("Desculpe, ocorreu um erro no servidor.");
         });
 }
 
 //Chamando função 
-obterIdPaciente();
+obterPaciente();
 
 // API Altera Paciente 
 function alterarPaciente(paciente) {
@@ -75,7 +73,7 @@ function alterarPaciente(paciente) {
         .then(function (response) {
             if (response.status == 202) {
                 alert("Paciente alterado com sucesso");
-                window.location.href = "pacienteDash.html?id="+idUser;
+                window.location.href = "pacienteDash.html?id=" + idUser;
             } else {
                 response.json().then(function (message) {
                     alert(message.error);
@@ -83,7 +81,6 @@ function alterarPaciente(paciente) {
             }
         })
         .catch(function (response) {
-            // console.log(response);
             alert("Desculpe, ocorreu um erro no servidor.");
         });
 
