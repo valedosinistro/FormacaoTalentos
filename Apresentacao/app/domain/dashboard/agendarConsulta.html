@@ -5,19 +5,21 @@
 
     <meta charset="utf-8">
 
-    <title id="titulo">MedServ - Principal</title>
+    <title>MedServ - Agendar Consulta</title>
 
     <link rel="stylesheet" href="../../../css/bootstrap.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../login/login.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../login/login.css">
     <script src="../../../lib/jquery.js"></script>
     <script src="../../../lib/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="pacienteDash.css">
 
 </head>
 
 <body>
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="../../../index.html">
@@ -34,8 +36,8 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="agendarConsulta.html">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
                             <i class="far fa-calendar-alt"></i> Agenda</a>
                     </li>
                     <li class="nav-item">
@@ -50,21 +52,53 @@
             </div>
         </nav>
     </header>
-
     <main role="main" class="container">
 
-        <a class="button" href="#">
-            <i class="fas fa-medkit icone"></i>EMERGÊNCIA
-        </a>
+        <h2 class="titulo text-center"> Agendar consulta</h2>
 
+        <form class="form-signin col-5 col-mb-3 text-center" id="form-agenda">
+
+            <div class="form-row">
+                <div class="col mb-3">
+                    <select name="especialidade" id="especialidade" class="form-control" required>
+                        <option selected>Especialidade</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col mb-3">
+                    <select name="local" id="local" class="form-control" required>
+                        <option selected>Local</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="date" clas="datepick" name="data" id="data" class="form-control cpf" required autofocus>
+            </div>
+
+            <div class="form-row">
+                <div class="col mb-3">
+                    <select name="medico" id="medico" class="form-control" required>
+                        <option selected>Médico Disponível</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="time" clas="datepick" name="horario" id="horario" class="form-control cpf" required autofocus>
+            </div>
+
+            <button class="btn btn-lg btn-success btn-login" type="submit">Agendar</button>
+
+        </form>
 
     </main>
-
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
-    <script src="pacienteDash.js"></script>
-
+    <script src="#"></script>
 </body>
 
 </html>
