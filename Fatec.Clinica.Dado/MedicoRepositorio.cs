@@ -128,6 +128,24 @@ namespace Fatec.Clinica.Dado
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public Medico SelecionarPorEmailPorId(string email, int id)
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var obj = connection.QueryFirstOrDefault<Medico>($"SELECT * " +
+                                                                 $"FROM [Medico] " +
+                                                                 $"WHERE Email = '{email}' AND Id != {id}");
+                return obj;
+
+            }
+        }
+
+
 
         /// <summary>
         /// 

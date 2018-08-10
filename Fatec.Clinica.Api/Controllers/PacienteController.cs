@@ -99,7 +99,7 @@ namespace Fatec.Clinica.Api.Controllers
         [SwaggerResponse((int)HttpStatusCode.Accepted, typeof(Paciente), nameof(HttpStatusCode.Accepted))]
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError)]
-        public IActionResult Put([FromRoute]int id, [FromBody]PacienteInput input)
+        public IActionResult Put([FromRoute]int id, [FromBody]PacienteAlteraInput input)
         {
             var objPaciente = new Paciente()
             {
