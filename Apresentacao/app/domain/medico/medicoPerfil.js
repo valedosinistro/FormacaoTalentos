@@ -51,8 +51,18 @@ function obterMedico() {
             if (response.status == 200) {
                 response.json()
                     .then(function (medico) {
+                        var quebrar = medico.endereco_c.split(", ");
                         document.getElementById('nome').value = medico.nome;
                         document.getElementById('crm').value = medico.crm;
+                        document.getElementById('email').value = medico.email;
+                        document.getElementById('telefone_r').value = medico.telefone_r;
+                        document.getElementById('senha').value = medico.senha;
+                        document.getElementById('logradouro').value = quebrar[0];
+                        document.getElementById('bairro').value = quebrar[1];
+                        document.getElementById('numero').value = quebrar[2];
+                        document.getElementById('cidade').value = medico.cidade;
+                        document.getElementById('estado').value = medico.estado;
+                        document.getElementById('telefone_c').value = medico.telefone_c;
                     });
             } else {
                 alert("Ocorreu um erro ao obter o médico");
@@ -83,7 +93,7 @@ function alterarMedico(medico) {
         .then(function (response) {
             if (response.status == 202) {
                 alert("Médico alterado com sucesso");
-                window.location.href = 'medicoDash.html?id=' + idMedico;
+                window.location.href = 'dashboard/medicoDash.html?id=' + idMedico;
             } else {
                 response.json().then(function (message) {
                     alert(message.error);
@@ -93,8 +103,73 @@ function alterarMedico(medico) {
         .catch(function (response) {
             alert("Desculpe, ocorreu um erro no servidor.");
         });
-
 }
+
+// Buscar CEP 
+function limpa_formulário_cep() {
+    //Limpa valores do formulário de cep.
+    document.getElementById('logradouro').value=("");
+    document.getElementById('bairro').value=("");
+    document.getElementById('cidade').value=("");
+    document.getElementById('uf').value=("");
+}
+
+function meu_callback(conteudo) {
+if (!("erro" in conteudo)) {
+    //Atualiza os campos com os valores.
+    document.getElementById('logradouro').value=(conteudo.logradouro);
+    document.getElementById('bairro').value=(conteudo.bairro);
+    document.getElementById('cidade').value=(conteudo.localidade);
+    document.getElementById('uf').value=(conteudo.uf);
+} //end if.
+else {
+    //CEP não Encontrado.
+    limpa_formulário_cep();
+    alert("CEP não encontrado.");
+}
+}
+
+function pesquisacep(valor) {
+
+//Nova variável "cep" somente com dígitos.
+var cep = valor.replace(/\D/g, '');
+
+//Verifica se campo cep possui valor informado.
+if (cep != "") {
+
+    //Expressão regular para validar o CEP.
+    var validacep = /^[0-9]{8}$/;
+
+    //Valida o formato do CEP.
+    if(validacep.test(cep)) {
+
+        //Preenche os campos com "..." enquanto consulta webservice.
+        document.getElementById('logradouro').value="...";
+        document.getElementById('bairro').value="...";
+        document.getElementById('cidade').value="...";
+        document.getElementById('uf').value="...";
+
+        //Cria um elemento javascript.
+        var script = document.createElement('script');
+
+        //Sincroniza com o callback.
+        script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+        //Insere script no documento e carrega o conteúdo.
+        document.body.appendChild(script);
+
+    } //end if.
+    else {
+        //cep é inválido.
+        limpa_formulário_cep();
+        alert("Formato de CEP inválido.");
+    }
+} //end if.
+else {
+    //cep sem valor, limpa formulário.
+    limpa_formulário_cep();
+}
+};
 
 // Máscaras
 $(document).ready(function () {

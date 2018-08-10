@@ -42,6 +42,9 @@ function obterPaciente() {
                 response.json()
                     .then(function (paciente) {
                         document.getElementById('nome').value = paciente.nome;
+                        document.getElementById('email').value = paciente.email;
+                        document.getElementById('celular').value = paciente.telefone;
+                        document.getElementById('senha').value = paciente.senha;
                     });
             } else {
                 alert("Ocorreu um erro ao obter os pacientes?");
@@ -93,7 +96,7 @@ $(document).ready(function () {
     $('.date_time').mask('00/00/0000 00:00:00');
     $('.cep').mask('00000-000');
     $('.phone').mask('0000-0000');
-    $('.phone_with_ddd').mask('(00) 0000-0000');
+    $('.phone_with_ddd').mask('(00) 00000-0000');
     $('.phone_us').mask('(000) 000-0000');
     $('.mixed').mask('AAA 000-S0S');
     $('.cpf').mask('000.000.000-00', { reverse: true });

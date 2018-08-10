@@ -45,6 +45,7 @@ document.querySelector('#form-medico').addEventListener('submit', function (even
     };
     console.log(medico)
     inserirMedico(medico);
+    form1.reset();
 
 });
 
