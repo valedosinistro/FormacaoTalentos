@@ -90,7 +90,7 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var obj = connection.Query<CidadesDto>($"SELECT Cidade " + 
+                var obj = connection.Query<CidadesDto>($"SELECT DISTINCT Cidade " + 
                                                                     $"FROM [Medico] " +
                                                                     $"WHERE IdEspecialidade = {idEspecialidade} AND Ativo = 1 AND Ativo_Adm = 1");
                 return obj;
