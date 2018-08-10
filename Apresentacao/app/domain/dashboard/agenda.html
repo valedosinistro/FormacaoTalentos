@@ -3,105 +3,6 @@
 
 <head>
 
-    <script>
-
-        var apiEspecialidade = 'http://localhost:53731/api/especialidade/';
-        var api = 'http://localhost:53731/api/medico/';
-
-        function obterEspecialidades(id) {
-            var request = new Request(apiEspecialidade, {
-                method: "GET",
-                headers: new Headers({
-                    'Content-Type': 'application/json'
-                })
-            });
-
-            fetch(request)
-                .then(function (response) {
-                    // console.log(response);
-                    if (response.status == 200) {
-                        response.json()
-                            .then(function (especialidades) {
-                                updateTemplateEspecialidades(especialidades, id);
-                            });
-                    } else {
-                        alert("Ocorreu um erro ao obter as especialidades");
-                    }
-                })
-                .catch(function (response) {
-                    // console.log(response);
-                    alert("Desculpe, ocorreu um erro no servidor.");
-                });
-        }
-
-        obterEspecialidades();
-
-        // Recebe o ID da especialidade e mostra no Select 
-        function updateTemplateEspecialidades(especialidades, id) {
-            especialidade.innerHTML = templateEspecialidades(especialidades, id);
-        }
-
-        function templateEspecialidades(especialidades = [], id = null) {
-            return `
-        <option>Especialidade</option>
-        ${
-                especialidades.map(function (especialidade) {
-                    return `
-                    <option value="${especialidade.id}" ${especialidade.id == id ? 'selected' : ''}>${especialidade.nome}</option>
-                `;
-                }).join('')
-                }
-    `;
-        }
-
-        function obterTodos() {
-
-            var request = new Request(api, {
-                method: "GET",
-                headers: new Headers({
-                    'Content-Type': 'application/json'
-                })
-            });
-
-            fetch(request)
-                .then(function (response) {
-                    // console.log(response);
-                    if (response.status == 200) {
-                        response.json()
-                            .then(function (medicos) {
-                                update(medicos);
-                            });
-                    } else {
-                        alert("Ocorreu um erro ao obter os médicos");
-                    }
-                })
-                .catch(function (response) {
-                    // console.log(response);
-                    alert("Desculpe, ocorreu um erro no servidor.");
-                });
-
-        }
-        obterTodos();
-
-        // Recebe o ID do médico e mostra no Select 
-        function updateTemplateEspecialidades(medicos, id) {
-            medicos.innerHTML = templateEspecialidades(medicos, id);
-        }
-
-        function templateEspecialidades(medicos = [], id = null) {
-            return `
-        <option>Medico</option>
-        ${
-                medicos.map(function (medicos) {
-                    return `
-                    <option value="${medicos.id}" ${medicos.id == id ? 'selected' : ''}>${medicos.nome}</option>
-                `;
-                }).join('')
-                }
-    `;
-        }
-    </script>
-
     <meta charset="utf-8">
 
     <title>Médico Principal</title>
@@ -155,7 +56,7 @@
 
         <h2 class="titulo text-center">Agendar Consulta</h2>
 
-        <form class="form-signin col-5 col-mb-3" id="form-agenda">
+        <form class="form-signin col-8 col-mb-3" id="form-agenda">
             <div class="form-row">
                 <div class="col-md-8 mb-3">
                     <select id="especialidade" name="especialidade" class="form-control">
@@ -163,15 +64,16 @@
                     </select>
                 </div>
                 <div class="col-md-8 mb-3">
-                    <select name="medico" id="medico" class="form-control">
-                        <option selected>Selecionar Medico</option>
-                    </select>
-                </div>
-                <div class="col-md-8 mb-3">
                     <select name="local" id="local" class="form-control">
                         <option selected>Selecionar Local</option>
                     </select>
                 </div>
+                <div class="col-md-8 mb-3">
+                    <select name="medico" id="medico" class="form-control">
+                        <option selected>Selecionar Médico</option>
+                    </select>
+                </div>
+                
             </div>
         </form>
 
@@ -181,7 +83,7 @@
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
-    <script src="medicoDash.js"></script>
+    <script src="agendarConsulta.js"></script>
 </body>
 
 </html>
