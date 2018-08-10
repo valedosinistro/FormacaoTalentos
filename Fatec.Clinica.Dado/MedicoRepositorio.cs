@@ -62,6 +62,43 @@ namespace Fatec.Clinica.Dado
             }
         }
 
+
+        /// <summary>
+        /// Método que Seleciona Medicos que estão ativos com filtro de cidade e especialidade
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IEnumerable<MedicoDto> SelecionarMedicosAtivosPorEspecialidadeECidade(string cidade,int idEspecialidade)
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var obj = connection.Query<MedicoDto>($"SELECT M.Id,M.Email, M.Nome, M.Sexo, M.Cpf, M.Crm, M.IdEspecialidade, M.Telefone_r, M.Telefone_c, M.Endereco_C, M.Cidade, M.Estado, M.Ativo, M.Ativo_Adm, E.Nome As Especialidade " +
+                                                                    $"FROM [Medico] M " +
+                                                                    $"JOIN [Especialidade] E ON M.IdEspecialidade = E.Id " +
+                                                                    $"WHERE E.Id = {idEspecialidade} AND M.Cidade = '{cidade}' AND Ativo = 1 AND Ativo_Adm = 1");
+                return obj;
+            }
+
+        }
+
+        /// <summary>
+        /// Método que Seleciona Cidades dos Médicos Ativos por Especialidade
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IEnumerable<CidadesDto> SelecionarCidadesAtivosPorEspecialidade(int idEspecialidade)
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var obj = connection.Query<CidadesDto>($"SELECT Cidade " + 
+                                                                    $"FROM [Medico] " +
+                                                                    $"WHERE IdEspecialidade = {idEspecialidade} AND Ativo = 1 AND Ativo_Adm = 1");
+                return obj;
+            }
+
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -79,6 +116,7 @@ namespace Fatec.Clinica.Dado
             }
         }
 
+     
         /// <summary>
         /// 
         /// </summary>
@@ -90,7 +128,7 @@ namespace Fatec.Clinica.Dado
             {
                 var obj = connection.QueryFirstOrDefault<Medico>($"SELECT * " +
                                                                   $"FROM [Medico] " +
-                                                                  $"WHERE Crm = '{crm}'");
+                                                                  $"WHERE Crm = '{crm}' ");
                 return obj;
             }
         }
@@ -127,6 +165,24 @@ namespace Fatec.Clinica.Dado
                 return obj;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public Medico SelecionarPorEmailPorId(string email, int id)
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var obj = connection.QueryFirstOrDefault<Medico>($"SELECT * " +
+                                                                 $"FROM [Medico] " +
+                                                                 $"WHERE Email = '{email}' AND Id != {id}");
+                return obj;
+
+            }
+        }
+
 
 
         /// <summary>

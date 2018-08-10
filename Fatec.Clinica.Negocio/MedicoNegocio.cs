@@ -60,6 +60,29 @@ namespace Fatec.Clinica.Negocio
         }
 
         /// <summary>
+        ///  Método que Seleciona Medicos que estão ativos com filtro de cidade e especialidade
+        /// </summary>
+        /// <param name="cidade"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IEnumerable<MedicoDto> SelecionarPorEspecialidadeECidade(string cidade,int id)
+        {
+            return _medicoRepositorio.SelecionarMedicosAtivosPorEspecialidadeECidade(cidade, id);
+        }
+
+
+        /// <summary>
+        ///  Método que Seleciona Cidades dos Médicos Ativos por Especialidade
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IEnumerable<CidadesDto> SelecionarCidadesPorEspecialidade( int id)
+        {
+            return _medicoRepositorio.SelecionarCidadesAtivosPorEspecialidade(id);
+        }
+
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
@@ -114,7 +137,7 @@ namespace Fatec.Clinica.Negocio
         /// <returns></returns>
         public MedicoDto Alterar(int id, Medico entity)
         {
-            var emailExistente = _medicoRepositorio.SelecionarPorEmail(entity.Email);
+            var emailExistente = _medicoRepositorio.SelecionarPorEmailPorId(entity.Email,id);
             //Verifica se já existe um usuario com o Email já cadastrado
             if (emailExistente != null)
                 throw new ConflitoException($"Já existe usuário cadastrado com Email {emailExistente.Email}!");
