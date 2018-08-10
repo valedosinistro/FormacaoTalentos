@@ -102,7 +102,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// Metodo que retorna consultas pelo Status
+        /// Metodo que retorna consultas pela Data
         /// </summary>
         /// <param name="DataConsulta"></param>
         /// <returns></returns>
