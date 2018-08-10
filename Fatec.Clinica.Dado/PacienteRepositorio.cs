@@ -75,6 +75,23 @@ namespace Fatec.Clinica.Dado
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public PacienteDto SelecionarPorEmailPorId(string email, int id)
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var obj = connection.QueryFirstOrDefault<PacienteDto>($"SELECT * " +
+                                                                 $"FROM [Paciente] " +
+                                                                 $"WHERE Email = '{email}' AND Id != {id}");
+                return obj;
+
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
         public int Inserir(Paciente entity)

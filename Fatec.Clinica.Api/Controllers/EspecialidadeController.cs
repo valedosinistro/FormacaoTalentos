@@ -25,7 +25,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// Método que obtem uma lista de métodos
+        /// Método que obtem uma lista de Especialidades
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -37,7 +37,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// Método que seleciona um médico..
+        /// Método que seleciona uma especialidade
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -51,7 +51,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// Método que insere um médico..
+        /// Método que insere uma especialidade
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
@@ -72,7 +72,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///  Método que altera uma especialidade
         /// </summary>
         /// <param name="id"></param>
         /// <param name="input"></param>
@@ -94,7 +94,7 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        ///  Método que deleta uma especialidade
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

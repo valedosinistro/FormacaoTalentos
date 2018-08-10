@@ -89,7 +89,7 @@ namespace Fatec.Clinica.Negocio
         /// <returns></returns>
         public PacienteDto Alterar(int id, Paciente entity)
         {
-            var emailExistente = _pacienteRepositorio.SelecionarPorEmail(entity.Email);
+            var emailExistente = _pacienteRepositorio.SelecionarPorEmailPorId(entity.Email,id);
             //Verifica se já existe um Paciente com o Email já cadastrado
             if (emailExistente != null)
                 throw new ConflitoException($"Já existe usuário cadastrado com Email {emailExistente.Email}!");
