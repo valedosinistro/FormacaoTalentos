@@ -85,6 +85,37 @@ namespace Fatec.Clinica.Api.Controllers
             return Ok(_medicoNegocio.SelecionarMedicosAtivos());
         }
 
+
+        /// <summary>
+        /// Método que Seleciona Cidades dos Médicos Ativos por Especialidade
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("Ativos/Cidade/Especialidade/{id}")]
+        [SwaggerResponse((int)HttpStatusCode.OK, typeof(CidadesDto), nameof(HttpStatusCode.OK))]
+        [SwaggerResponse((int)HttpStatusCode.NotFound)]
+        public IActionResult GetMedicosAtivosPorEspecialidade( int id)
+        {
+            return Ok(_medicoNegocio.SelecionarCidadesPorEspecialidade(id));
+        }
+
+
+        /// <summary>
+        /// Método que obtem uma lista de médicos ativos por Cidade e Especialidade
+        /// </summary>
+        /// <param name="cidade"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("Ativos/Cidade/{cidade}/Especialidade/{id}")]
+        [SwaggerResponse((int)HttpStatusCode.OK, typeof(MedicoDto), nameof(HttpStatusCode.OK))]
+        [SwaggerResponse((int)HttpStatusCode.NotFound)]
+        public IActionResult GetMedicosAtivosPorEspecialidadeECidade(string cidade,int id)
+        {
+            return Ok(_medicoNegocio.SelecionarPorEspecialidadeECidade(cidade,id));
+        }
+
         /// <summary>
         /// Método que insere um médico
         /// </summary>
