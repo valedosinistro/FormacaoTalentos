@@ -2,7 +2,8 @@ var apiEspecialidade = 'http://localhost:53731/api/especialidade/';
 var apiMedicoEspecialidade = 'http://localhost:53731/api/medico/especialidade/';
 var apiMedico = 'http://localhost:53731/api/medico/';
 var apiCidade = 'http://localhost:53731/api/Medico/Ativos/Cidade/Especialidade/';
-var apiMedicoCidade = 'http://localhost:53731/api/Medico/Ativos/Cidade/{nomeCidade}/Especialidade/';
+var apiMedicoCidade = 'http://localhost:53731/api/Medico/Ativos/Cidade/';
+var apiNomeCidade = '/Especialidade/';
 
 // API que pega as especialidades 
 function obterEspecialidades(id) {
@@ -100,8 +101,9 @@ $("#especialidade").change(function(){
 
 // API que seleciona os médicos por Cidade e por Especialidade
 
-function obterMedicoCidade(id) {
-    var request = new Request(apiMedicoCidade + id,{
+function obterMedicoCidade(cidade,id) {
+    
+    var request = new Request(apiMedicoCidade + cidade + apiNomeCidade + id ,{
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json'
@@ -113,7 +115,8 @@ function obterMedicoCidade(id) {
             if (response.status == 200) {
                 response.json()
                     .then(function (MedicoCidades) {
-                        updateTemplateMedicoCidades(MedicoCidades, id);
+                       
+                        updateTemplateMedicoCidades(MedicoCidades,id);
                     });
             } else {
                 alert("Ocorreu um erro ao obter os Médicos");
@@ -125,15 +128,17 @@ function obterMedicoCidade(id) {
 }
 
 // Recebe Medicos
-function updateTemplateMedicoCidades(MedicoCidades, id){
-    MedicoCidade.innerHTML = templateMedicoCidades(MedicoCidades, id);
+function updateTemplateMedicoCidades(MedicoCidades){
+    var inputMedico = document.getElementById('medico');
+    inputMedico.innerHTML = templateMedicoCidades(MedicoCidades);
 }
 
-function templateMedicoCidades(MedicoCidades = [], id = null) {
+function templateMedicoCidades(MedicoCidades = []) {
     return `
         <option>Selecionar Médico</option>
         ${
-            MedicoCidades.map(function (MedicoCidade) {
+            MedicoCidades.map(function (MedicoCidade,id) {
+              
             return `
                     <option value="${MedicoCidade.id}" ${MedicoCidade.id == id ? 'selected' : ''}>${MedicoCidade.nome}</option>
                 `;
@@ -145,7 +150,8 @@ function templateMedicoCidades(MedicoCidades = [], id = null) {
 // Pega ID da cidade e seleciona o médico
 $("#cidade").change(function(){
     var obterCidade = document.getElementById('cidade').value;
-    obterMedicoCidade(obterCidade);
+    var obterEspecialidade = document.getElementById('especialidade').value;
+    obterMedicoCidade(obterCidade,obterEspecialidade);
 }); 
 
 
