@@ -1,4 +1,4 @@
-var api = 'http://localhost:53731/api/medico/';
+var api = 'http://localhost:53731/api/medico';
 
 
 $("#menu-toggle").click(function(e) {
@@ -7,9 +7,6 @@ $("#menu-toggle").click(function(e) {
 });
 
 function obterMedico() {
-
-    var urlParams = new URLSearchParams(location.search);
-    var idMedico = urlParams.get('id');
 
     var request = new Request(api, {
         method: "GET",
@@ -49,9 +46,8 @@ function obterMedico() {
 
 var tabela = document.querySelector('.medicos');
 
-obterMedico();
 
-function templateMédicos(medicos){
+function templateMédicos(medicoS){
     
 
     return `
@@ -67,7 +63,7 @@ function templateMédicos(medicos){
     </thead>
     <tbody>
     ${
-        medicos.map(function(medico){
+        medicoS.map(function(medico){
             return `
             <tr>
                 <td>${medico.nome}</td>
