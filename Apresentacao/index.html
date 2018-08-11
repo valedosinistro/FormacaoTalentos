@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>WebApp - Luva</title>
+    <title>MedServ - Bem vindo </title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="fixo">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
                 <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
@@ -53,15 +53,43 @@
         </nav>
     </header>
     <main>
-        <h1 class="titulo-home">MedServ</h1>
-        <h2 class="slogan-home" id="typewriter"></h2>
+            <h1 class="titulo-home">MedServ</h1>
+            <h2 class="slogan-home" id="typewriter"></h2>
+            <a href="#about">
+                <i class="fas fa-angle-down"></i>
+            </a>
     </main>
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>A MedServ</h2>
+                    <p>Hoje em dia os hospitais estão lotados, as filas para realizar uma consulta é extensa... Que tal reduzirmos
+                        o tumulto e consultarmos todos com qualidade e rapidez? O App MedServ surgiu com esse intuito. Venha
+                        fazer parte dessa comunidade que vem crescendo nos últimos meses e saia das filas! </p>
+                    <img src="img/doctor-home.png" alt="">
+                </div>
+                <div class="col-md-4 icone">
+                    <i class="fas fa-lock"></i>
+                    <p class="about">100% seguro</p>
+                    <i class="far fa-calendar-alt"></i>
+                    <p class="about">Agendamento de consultas </br> 24 horas por dia</p>
+                    <i class="far fa-handshake"></i>
+                    <p class="about">80% dos usuários </br> recomendam nossos serviços</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
 
     <script src="typewriter.js"></script>
+    <script src="aos.js"></script>
+
     <script>
+
+        // Typewriter
         var app = document.getElementById('typewriter');
 
         var typewriter = new Typewriter(app, {
@@ -73,10 +101,18 @@
             .deleteAll()
             .typeString('Sua saúde em boas mãos')
             .pauseFor(2500)
-            .deleteAll()
-            .typeString('Cuide de você e viva saudável :3')
-            .pauseFor(2500)
             .start();
+
+        // SCROLL
+        $('main a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('href'),
+                targetOffset = $(id).offset().top;
+            $('html, body').animate({
+                scrollTop: targetOffset - 0
+            }, 1000);
+        });
+
     </script>
 </body>
 
