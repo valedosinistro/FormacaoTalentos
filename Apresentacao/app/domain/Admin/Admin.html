@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MedServ - Painel Administrativo</title>
+    <link rel="stylesheet" href="Admin.css">
+    <link rel="stylesheet" href="Admin-min.css">
+
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../login/login.css">
+    <script src="../../../lib/jquery.js"></script>
+    <script src="../../../lib/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="wrapper">
+                <!-- Sidebar -->
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav" style="margin-left:0;">
+                        <li class="sidebar-brand">
+
+                            <a href="#menu-toggle" id="menu-toggle" style="margin-top:20px;float:right;">
+                                <i class="fa fa-bars " style="font-size:20px !Important;" aria-hidden="true" aria-hidden="true"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" onclick="templateMédicos()">
+                                <i class="fas fa-user-md"></i>
+                                <span style="margin-left:10px;" >Médicos</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-user"></i>
+                                <span style="margin-left:10px;">Pacientes</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-book-open"></i>
+                                <span style="margin-left:10px;">Especialidades</span>
+                            </a>
+                        </li>
+                        <li class="sair">
+                            <a href="#">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                <span style="margin-left:10px;" >Logout</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="titulo text-center">Painel Administrativo</h2>
+
+    <div class="médico">
+
+    </div>
+
+    <footer class="fixed-bottom rodape">
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
+
+    <script src="Admin.js"></script>
+
+
+</body>
+
+</html>
