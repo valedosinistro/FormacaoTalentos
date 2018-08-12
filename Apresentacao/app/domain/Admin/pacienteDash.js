@@ -14,7 +14,7 @@ function template(pacientes = []) {
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Cpf</th>
+                <th>CPF</th>
                 <th>Email</th>
                 <th>Celular</th>
                 <th>Data N.</th>

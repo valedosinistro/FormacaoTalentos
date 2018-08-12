@@ -14,8 +14,8 @@ function template(medicos = []) {
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Cpf</th>
-                <th>Crm</th>
+                <th>CPF</th>
+                <th>CRM</th>
                 <th>Especialidade</th>
                 <th>Ações</th>
             </tr>
