@@ -1,5 +1,17 @@
 ﻿var api = 'http://localhost:53731/api/medico/';
 
+var urlParams = new URLSearchParams(location.search);
+var idMedico = urlParams.get('id');
+
+var link = document.querySelector('.inicio');
+link.href = '../dashboard/medicoDash.html?id=' + idMedico;
+
+var link2 = document.querySelector('.agendar');
+link2.href = '../dashboard/consultasPendentes.html?id=' + idMedico;
+
+var link3 = document.querySelector('.sair');
+link3.href = '../login/login.html';
+
 //Pegando os Input
 var elementosMedico = {
     email: document.querySelector('#email'),
