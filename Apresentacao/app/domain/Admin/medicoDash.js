@@ -34,7 +34,6 @@ function template(medicos = []) {
                         <td>${medico.crm}</td>
                         <td>${medico.especialidade}</td>
                         <td>
-                            <a href="#" onclick="alterarMedico(${medico.id})">Editar</a> | 
                             <a href="#" onclick="desativarMedico(${medico.id})">Desativar Médico</a>
                         </td>
                     </tr>
@@ -48,7 +47,6 @@ function template(medicos = []) {
                         <td>${medico.crm}</td>
                         <td>${medico.especialidade}</td>
                         <td>
-                            <a>Editar</a> | 
                             <a href="#" onclick="desativarMedico(${medico.id})">Ativar Médico</a>
                         </td>
                     </tr>
@@ -60,6 +58,7 @@ function template(medicos = []) {
     </table>
     `;
 }
+//                             <a href="#" onclick="alterarMedico(${medico.id})">Editar</a> | 
 
 function obterTodos() {
 

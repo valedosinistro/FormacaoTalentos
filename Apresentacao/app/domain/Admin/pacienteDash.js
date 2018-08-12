@@ -1,14 +1,14 @@
-var api = 'http://localhost:53731/api/paciente/'; 
+var api = 'http://localhost:53731/api/paciente/';
 var apiDesativa = 'http://localhost:53731/api/Admin/Paciente/MudarAtivoAdm//';
-var tabela = document.querySelector('#pacientes'); 
- 
-obterTodos(); 
- 
-function update(pacientes) { 
-    tabela.innerHTML = template(pacientes); 
-} 
- 
-function template(pacientes = []) { 
+var tabela = document.querySelector('#pacientes');
+
+obterTodos();
+
+function update(pacientes) {
+    tabela.innerHTML = template(pacientes);
+}
+
+function template(pacientes = []) {
     return ` 
     <table class="table table-hover table-dark"> 
         <thead> 
@@ -24,10 +24,10 @@ function template(pacientes = []) {
             </tr> 
         </thead> 
         <tbody> 
-        ${ 
-        pacientes.map(function (paciente) { 
+        ${
+        pacientes.map(function (paciente) {
             if (paciente.ativo_Adm === true) {
-            return ` 
+                return ` 
                     <tr> 
                         <td>${paciente.id}</td> 
                         <td>${paciente.nome}</td> 
@@ -36,13 +36,12 @@ function template(pacientes = []) {
                         <td>${paciente.telefone}</td> 
                         <td>${paciente.data_Nasc}</td> 
                         <td>${paciente.sexo}</td> 
-                        <td> 
-                            <a href="#" onclick="alterarMedico(${paciente.id})">Editar</a> |  
+                        <td>  
                             <a href="#" onclick="desativarPaciente(${paciente.id})">Desativar Paciente</a> 
                         </td> 
                     </tr> 
                 `;
-            }else{
+            } else {
                 return ` 
                 <tr style="color: rgb(114, 114, 114)"> 
                     <td>${paciente.id}</td> 
@@ -53,7 +52,6 @@ function template(pacientes = []) {
                     <td>${paciente.data_Nasc}</td> 
                     <td>${paciente.sexo}</td> 
                     <td> 
-                        <a>Editar</a> |  
                         <a href="#" onclick="desativarPaciente(${paciente.id})">Ativar Paciente</a> 
                     </td> 
                 </tr> 
@@ -61,68 +59,69 @@ function template(pacientes = []) {
 
             }
 
-        }).join('') 
+        }).join('')
         } 
         </tbody> 
     </table> 
-    `; 
-} 
- 
-function obterTodos() { 
- 
-    var request = new Request(api, { 
-        method: "GET", 
-        headers: new Headers({ 
-            'Content-Type': 'application/json' 
-        }) 
-    }); 
- 
-    fetch(request) 
-        .then(function (response) { 
+    `;
+}
+//                             <a href="#" onclick="alterarMedico(${paciente.id})">Editar</a> |
+
+function obterTodos() {
+
+    var request = new Request(api, {
+        method: "GET",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    });
+
+    fetch(request)
+        .then(function (response) {
             // console.log(response); 
-            if (response.status == 200) { 
-                response.json() 
-                    .then(function (pacientes) { 
-                        update(pacientes); 
-                    }); 
-            } else { 
-                alert("Ocorreu um erro ao obter os pacientes"); 
-            } 
-        }) 
-        .catch(function (response) { 
+            if (response.status == 200) {
+                response.json()
+                    .then(function (pacientes) {
+                        update(pacientes);
+                    });
+            } else {
+                alert("Ocorreu um erro ao obter os pacientes");
+            }
+        })
+        .catch(function (response) {
             // console.log(response); 
-            alert("Desculpe, ocorreu um erro no servidor."); 
-        }); 
-} 
- 
-function alterarPaciente(idPaciente) { 
-    window.location.href = 'medicoCriar.html?id=' + idPaciente; 
-} 
- 
-function excluirPaciente(idPaciente) { 
-    if (confirm('Tem certeza que deseja excluir esse médico?')) { 
- 
-        var request = new Request(api + idPaciente, { 
-            method: "DELETE", 
-            headers: new Headers({ 
-                'Content-Type': 'application/json' 
-            }) 
-        }); 
- 
-        fetch(request) 
-            .then(function (response) { 
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
+}
+
+function alterarPaciente(idPaciente) {
+    window.location.href = 'medicoCriar.html?id=' + idPaciente;
+}
+
+function excluirPaciente(idPaciente) {
+    if (confirm('Tem certeza que deseja excluir esse médico?')) {
+
+        var request = new Request(api + idPaciente, {
+            method: "DELETE",
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        });
+
+        fetch(request)
+            .then(function (response) {
                 // console.log(response); 
-                if (response.status == 200) { 
-                    obterTodos(); 
-                } else { 
-                    alert("Ocorreu um erro ao excluir os paciente"); 
-                } 
-            }) 
-            .catch(function (response) { 
+                if (response.status == 200) {
+                    obterTodos();
+                } else {
+                    alert("Ocorreu um erro ao excluir os paciente");
+                }
+            })
+            .catch(function (response) {
                 // console.log(response); 
-                alert("Desculpe, ocorreu um erro no servidor."); 
-            }); 
-    } 
+                alert("Desculpe, ocorreu um erro no servidor.");
+            });
+    }
 }
 
 function desativarPaciente(idPaciente) {
