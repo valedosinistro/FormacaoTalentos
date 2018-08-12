@@ -64,7 +64,8 @@ function inserirMedico(medico) {
         .then(function (response) {
             console.log(response);
             if (response.status == 201) {
-                alert("Médico inserido com sucesso");
+                alert("Cadastro realizado com Sucesso!!!");
+                window.location.href="../login/login.html";
             } else {
 
                 response.json().then(function (message) {

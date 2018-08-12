@@ -3,15 +3,9 @@ var api = 'http://localhost:53731/api/Consulta/medico/';
 var urlParams = new URLSearchParams(location.search);
 var idMedico = urlParams.get('id');
 
-var link = document.querySelector('.link');
-link.href = '../medico/medicoPerfil.html?id=' + idMedico;
 
-var link2 = document.getElementById('consultaAgendada');
-link2.href = '../dashboard/consultasPendentes.html?id=' + idMedico; 
-
-console.log(link2);
-
-console.log(idMedico);
+var link = document.getElementById('consultaAgendada');
+link.href = '../dashboard/consultasPendentes.html?id=' + idMedico;
 
 var tabela = document.querySelector('#ConsultasPendentes');
 
@@ -36,6 +30,7 @@ function template(consultas = []) {
         <tbody>
         ${
         consultas.map(function (consulta) {
+            console.log(consulta);
             return `
                     <tr>
                         <td>${consulta.id}</td>
@@ -55,7 +50,7 @@ function template(consultas = []) {
 
 function obterTodos() {
 
-    var request = new Request(api, idMedico, {
+    var request = new Request(api + idMedico, {
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json'
