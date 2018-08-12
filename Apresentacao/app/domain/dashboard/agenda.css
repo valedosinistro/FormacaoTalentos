@@ -65,3 +65,15 @@ footer p{
     transition: .2s;
     -webkit-transition: .2s;
 }
+
+.teste{
+    padding: 0 60px;
+}
+
+.agendar{
+    margin-bottom: 40px;
+}
+
+#minhasConsultas{
+    margin-bottom: 50px;
+}

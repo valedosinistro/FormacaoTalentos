@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../login/login.css">
     <link rel="stylesheet" href="../paciente/paciente.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
     <script src="../../../lib/jquery.js"></script>
     <script src="../../../lib/bootstrap.bundle.min.js"></script>
 
@@ -29,25 +31,29 @@
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../index.html">Home
+                        <a class="nav-link inicio" href="#">
+                            <i class="fas fa-tachometer-alt"></i> Início
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"> Perfil </a>
+                        <a class="nav-link agendar" id="consultaAgendada" href="">
+                            <i class="far fa-calendar-alt"></i> Minha Agenda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../login/login.html"> Login </a>
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-user"></i> Editar Perfil</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link sair" href="#">
+                            <i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
-
-    <h2>Editar seu Perfil</h2>
-
-    <main role="main" class="container text-center">
+    
+    <main class="container text-center">
 
         <img src="../../../img/doutor.png" class="img-circle" alt="Foto do Perfil">
         <form class="form-signin col-5 col-mb-3" id="form-medico">

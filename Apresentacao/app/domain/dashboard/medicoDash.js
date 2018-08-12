@@ -9,6 +9,9 @@ link.href = '../medico/medicoPerfil.html?id=' + idMedico;
 var link2 = document.getElementById('consultaAgendada');
 link2.href = '../dashboard/consultasPendentes.html?id=' + idMedico; 
 
+var link3 = document.querySelector('.sair');
+link3.href = '../login/login.html'; 
+
 console.log(link2);
 
 console.log(idMedico);

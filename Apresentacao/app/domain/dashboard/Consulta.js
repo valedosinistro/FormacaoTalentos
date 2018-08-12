@@ -3,9 +3,17 @@ var api = 'http://localhost:53731/api/Consulta/medico/';
 var urlParams = new URLSearchParams(location.search);
 var idMedico = urlParams.get('id');
 
-
 var link = document.getElementById('consultaAgendada');
 link.href = '../dashboard/consultasPendentes.html?id=' + idMedico;
+
+var link2 = document.querySelector('.inicio');
+link2.href = 'medicoDash.html?id=' + idMedico;
+
+var link3 = document.querySelector('.perfil');
+link3.href = '../medico/medicoPerfil.html?id=' + idMedico;
+
+var link4 = document.querySelector('.sair');
+link4.href = '../login/login.html';
 
 var tabela = document.querySelector('#ConsultasPendentes');
 
