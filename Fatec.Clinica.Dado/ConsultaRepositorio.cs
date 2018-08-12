@@ -21,7 +21,11 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var lista = connection.Query<ConsultaDto>($"SELECT C.Id, C.IdPaciente, C.IdMedico, C.DataConsulta, C.Horario, C.Status FROM [Consulta] C");
+                var lista = connection.Query<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico,E.Nome as Especialidade, P.Nome as NomePaciente ,  C.DataConsulta, C.Horario, C.Status "+
+                                                          $"FROM [Consulta] C "+
+                                                          $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
+                                                          $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
+                                                          $"INNER JOIN [Especialidade] E ON C.IdMedico = E.Id ");
                 return lista;
             }
         }
