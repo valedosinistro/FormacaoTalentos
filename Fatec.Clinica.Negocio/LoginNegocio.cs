@@ -50,7 +50,7 @@ namespace Fatec.Clinica.Negocio
             }
 
 
-
+    
             return obj;
         }
 

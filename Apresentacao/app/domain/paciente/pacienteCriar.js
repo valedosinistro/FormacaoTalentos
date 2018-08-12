@@ -30,7 +30,6 @@ document.querySelector('#form-paciente').addEventListener('submit', function (ev
         data_Nasc: data,
         senha: elementosPaciente.senha.value
     };
-    console.log(paciente);
         inserirPaciente(paciente);
         form.reset();
 });
@@ -51,6 +50,7 @@ function inserirPaciente(paciente) {
             console.log(response);
             if (response.status == 201) {
                 alert("Paciente inserido com sucesso");
+                window.location.href="../login/login.html";
             } else {
 
                 response.json().then(function (message) {

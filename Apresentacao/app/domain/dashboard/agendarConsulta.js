@@ -11,6 +11,16 @@ var api = 'http://localhost:53731/api/Consulta/';
 var urlParams = new URLSearchParams(location.search);
 var idPaciente = urlParams.get('id');
 
+
+var linkInicio = document.querySelector('.inicio');
+linkInicio.href = "pacienteDash.html?id=" + idPaciente;
+
+var linkPerfil = document.querySelector('.perfil');
+linkPerfil.href = '../paciente/pacientePerfil.html?id=' + idPaciente; 
+
+var linkSair = document.querySelector('.sair');
+linkSair.href = "../login/login.html";
+
 var form1 = document.getElementById('form-agenda');
 
 var elementosConsulta = {
