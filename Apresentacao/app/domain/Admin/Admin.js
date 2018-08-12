@@ -1,7 +1,6 @@
 var api = 'http://localhost:53731/api/medico';
 
-
-$("#menu-toggle").click(function(e) {
+$("#menu-toggle").click(function (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
 });
@@ -15,10 +14,9 @@ function obterMedico() {
         })
     });
 
-
     fetch(request)
         .then(function (response) {
-            
+
             if (response.status == 200) {
                 response.json()
                     .then(function (medico) {
@@ -47,8 +45,8 @@ function obterMedico() {
 var tabela = document.querySelector('.medicos');
 
 
-function templateMédicos(medicoS){
-    
+function templateMédicos(medicoS) {
+
 
     return `
     <table class="table table-hover table-bordered">
@@ -63,7 +61,7 @@ function templateMédicos(medicoS){
     </thead>
     <tbody>
     ${
-        medicoS.map(function(medico){
+        medicoS.map(function (medico) {
             return `
             <tr>
                 <td>${medico.nome}</td>
@@ -74,11 +72,35 @@ function templateMédicos(medicoS){
             </tr>
             `;
         }).join('')
-    }      
+        }      
     </tbody>
     `;
 }
 
-function update(medicos){
-    tabela.innerHTML =  template(medicos);
+function update(medicos) {
+    tabela.innerHTML = template(medicos);
 }
+
+// LOGIN NO PAINEL ADMIN
+document.querySelector('#form-login')
+    .addEventListener('submit', function (event) {
+
+        event.preventDefault();
+        loginAdmin();
+    
+    });
+
+function loginAdmin() {
+
+    var form = document.getElementById('form-login');
+    var login = document.getElementById('login');
+    var senha = document.getElementById('senha');
+
+    if (login.value == "admin@admin" && senha.value == "admin") {
+        window.location.href = "dashboard.html";
+    }
+    else {
+        form.reset();
+    }   
+}
+

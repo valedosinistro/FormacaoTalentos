@@ -57,12 +57,13 @@ function obterMedico() {
                         document.getElementById('email').value = medico.email;
                         document.getElementById('telefone_r').value = medico.telefone_r;
                         document.getElementById('senha').value = medico.senha;
+                        document.getElementById('telefone_c').value = medico.telefone_c;
                         document.getElementById('logradouro').value = quebrar[0];
                         document.getElementById('bairro').value = quebrar[1];
                         document.getElementById('numero').value = quebrar[2];
                         document.getElementById('cidade').value = medico.cidade;
                         document.getElementById('estado').value = medico.estado;
-                        document.getElementById('telefone_c').value = medico.telefone_c;
+                        
                     });
             } else {
                 alert("Ocorreu um erro ao obter o médico");

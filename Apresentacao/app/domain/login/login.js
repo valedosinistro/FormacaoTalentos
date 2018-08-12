@@ -10,12 +10,12 @@ document.querySelector('#form-login')
 
         event.preventDefault();
 
-        // var obj = {
-        //     user: elementosForm.login.value,
-        //     senha: elementosForm.senha.value
-        // };
+        var obj = {
+            user: elementosForm.login.value,
+            senha: elementosForm.senha.value
+        };
 
-        // autenticarUsuario(obj);
+        autenticarUsuario(obj);
     
     });
 
@@ -102,19 +102,3 @@ function autenticarUsuario(obj) {
     $(document).ready(function () {
         $('.senha').mask('AAAAAAAA');
     });
-
-    function loginAdmin(){
-
-        if (login == "admin@admin" && senha == "admin") {
-            window.location.href = "../Admin/Admin.html";
-        }else{
-
-            var obj = {
-                user: elementosForm.login.value,
-                senha: elementosForm.senha.value
-            };
-
-            autenticarUsuario(obj);
-        }
-
-    }
