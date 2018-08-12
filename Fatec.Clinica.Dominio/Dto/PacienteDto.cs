@@ -13,6 +13,13 @@ namespace Fatec.Clinica.Dominio.Dto
         public char Sexo { get; set; }
         public string Telefone { get; set; }
         public DateTime Data_Nasc { get; set; }
+        public string DataNasc_Formatada
+        {
+            get
+            {
+                return Data_Nasc.ToShortDateString();
+            }
+        }
         public Boolean Ativo { get; set; }
         public Boolean Ativo_Adm { get; set; }
 

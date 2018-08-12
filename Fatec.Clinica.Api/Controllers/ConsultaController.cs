@@ -102,6 +102,21 @@ namespace Fatec.Clinica.Api.Controllers
         }
 
         /// <summary>
+        /// Metodo que retorna horarios diponiveis de um determinado médico/data
+        /// </summary>
+        /// <param name="DataConsulta"></param>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("data/{DataConsulta}/Medico/{id}")]
+        [SwaggerResponse((int)HttpStatusCode.OK, typeof(ConsultaDto), nameof(HttpStatusCode.OK))]
+        [SwaggerResponse((int)HttpStatusCode.NotFound)]
+        public IActionResult GetStatus(DateTime DataConsulta,int id)
+        {
+            return Ok(_ConsultaNegocio.ListaDeHorasDisponiveis(DataConsulta,id));
+        }
+
+        /// <summary>
         /// Metodo que retorna consultas pela Data
         /// </summary>
         /// <param name="DataConsulta"></param>

@@ -4,6 +4,7 @@ using Fatec.Clinica.Dominio.Dto;
 using Fatec.Clinica.Dominio.Excecoes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Fatec.Clinica.Negocio
@@ -124,6 +125,33 @@ namespace Fatec.Clinica.Negocio
 
             return lista;
         }
+
+        ///<summary>
+        /// Método que retorna lista de horas possiveis para Agendamento de um determinado médico/data
+        ///</summary>
+        ///<param name = "DataConsulta" ></ param >
+        ///<param name = "idMedico" ></ param >
+        /// <returns></returns>
+        public List<string> ListaDeHorasDisponiveis(DateTime DataConsulta, int IdMedico)
+        {
+
+            //Gera uma lista com as Horas Agendadas do dia do médico
+            var listaHorasAgendada = _ConsultaRepositorio.ListaDeHorasAgendada(DataConsulta, IdMedico).ToList();
+
+            //Cria lista com 24hrs 
+            var horasTotais = Enumerable.Range(00, 24).Select(i => (DateTime.MinValue.AddHours(i).AddMinutes(0).AddSeconds(0).ToLongTimeString())).ToList();
+
+            //Remove horas agendadas da lista 24hrs
+            foreach(ConsultaDto HorasAgendada in listaHorasAgendada)
+            {
+                horasTotais.Remove(HorasAgendada.Horario.ToString());
+            }
+
+            //Retorna horas disponives para consulta
+            return horasTotais;
+
+        }
+
 
         /// <summary>
         /// 
