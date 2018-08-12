@@ -8,13 +8,11 @@
     <title>MedServ - Agenda do Paciente</title>
 
     <link rel="stylesheet" href="../../../css/bootstrap.css">
-    <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../login/login.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
     <script src="../../../lib/jquery.js"></script>
     <script src="../../../lib/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="medicoDash.css">
+    <link rel="stylesheet" href="agenda.css">
 
 </head>
 
@@ -53,58 +51,59 @@
         </nav>
     </header>
 
-    <main role="main" class="container text-center">
+    <main class="container text-center">
 
         <h2 class="titulo text-center">Agendar Consulta</h2>
-
-        <form class="form-signin col-5 col-mb-3 text-center" id="form-agenda">
-            <div class="form-row">
-
-                <div class="form-group">
-                    <div class="col mb-3">
-                        <select name="especialidade" id="especialidade" class="form-control">
-                            <option selected>Selecionar Especialidade</option>
-                        </select>
+        <div class="row">
+            <div class="col-md-6 teste">
+                <form id="form-agenda" class="form-signin col-8">
+                    <div class="form-group">
+                        <div class="form-agenda">
+                            <select name="especialidade" id="especialidade" class="form-control">
+                                <option selected>Selecionar Especialidade</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col mb-3">
-                        <select name="cidade" id="cidade" class="form-control">
-                            <option selected>Selecionar Cidade</option>
-                        </select>
+                    <div class="form-group">
+                        <div class="form-agenda">
+                            <select name="cidade" id="cidade" class="form-control">
+                                <option selected>Selecionar Cidade</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col mb-3">
-                        <select name="medico" id="medico" class="form-control">
-                            <option selected>Selecionar Médico</option>
-                        </select>
+                    <div class="form-group">
+                        <div class="form-agenda">
+                            <select name="medico" id="medico" class="form-control">
+                                <option selected>Selecionar Médico</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col mb-3">
-                        <input type="date" clas="datepick" name="data" id="data" class="form-control" required autofocus>
+                    <div class="form-group">
+                        <div class="form-agenda">
+                            <input type="date" clas="datepick" name="data" id="data" class="form-control" required autofocus>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col mb-3">
-                        <select name="hora" id="hora" class="form-control">
-                            <option selected>Selecionar Horário</option>
-                        </select>
+                    <div class="form-group">
+                        <div class="form-agenda">
+                            <select name="hora" id="hora" class="form-control">
+                                <option selected>Selecionar Horário</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
+
+                    <button class="btn btn-lg btn-success" type="submit">Agendar</button>
+                </form>
             </div>
-
-            <button class="btn btn-lg btn-success btn-login" type="submit">Agendar</button>
-
-        </form>
+            <div class="col-md-6 teste" id="minhasConsultas">
+                <h2>Minhas consultas</h2>
+            </div>
+        </div>
 
     </main>
-
 
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
