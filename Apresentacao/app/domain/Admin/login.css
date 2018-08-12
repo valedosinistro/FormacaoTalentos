@@ -5,14 +5,14 @@ body {
 
 body {
     background-color: #343f6a;
-    text-align: center;
 }
+
 
 .form-signin {
     margin: auto;
     max-width: 330px;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 11%;
 }
 
 .form-signin .form-control {
@@ -52,6 +52,16 @@ body {
     -webkit-transition: .2s;
 }
 
+.esqueci_senha{
+    margin-left: 170px;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.esqueci_senha:hover{
+    color: #fff;
+}
+
 .btn-login{
     margin-top: 20px;
     margin-bottom: 70px;
@@ -65,23 +75,5 @@ body {
 
 .titulo{
     color: #fff;
-    font-weight: bold;
     margin-top: 40px;
-}
-
-footer{
-    background-color:#303030;
-    height: 6vh;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    clear: both;
-}
-
-footer p{
-    margin-bottom: 0;
 }

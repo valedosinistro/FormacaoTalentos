@@ -9,7 +9,9 @@
 
     <link rel="stylesheet" href="../../../css/bootstrap.css">
     <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../login/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="medico.css">
     <script src="../../../lib/jquery.js"></script>
     <script src="../../../lib/bootstrap.bundle.min.js"></script>
 
@@ -17,50 +19,73 @@
 
 <body>
 
-        <!-- <header>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a class="navbar-brand" href="#"> <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbar1">
-                        <ul class="navbar-nav ml-auto"> 
-                    <li class="nav-item active">
-                    <a class="nav-link" href="../../../index.html">Home <span class="sr-only">(current)</span></a>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="../../../index.html">
+                <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">
+                            <i class="fas fa-home"></i> Home
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"> Login </a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Cadastrar  </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="../medico/medicoCriar.html"> Médico</a></li>
-                          <li><a class="dropdown-item" href="../paciente/pacienteCriar.html"> Paciente </a></li>
+                        <a class="nav-link  dropdown-toggle active" href="#" data-toggle="dropdown">
+                            <i class="fas fa-user-plus"></i> Cadastrar </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li>
+                                <a class="dropdown-item text-light" href="#">
+                                    <i class="fas fa-user-md"></i> Médico</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light" href="../paciente/pacienteCriar.html">
+                                    <i class="fas fa-user"></i> Paciente </a>
+                            </li>
                         </ul>
                     </li>
-                        </ul>
-                      </div>
-                    </nav>
-        </header> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../login/login.html">
+                            <i class="fas fa-sign-in-alt"></i> Login </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h2 class="titulo text-center">Cadastrar Medico</h2>
 
     <main role="main" class="container text-center">
 
-        <form class="form-signin col-md-4 col-mb-3" id="form-medico">
+        <form class="form-signin col-5 col-mb-3" id="form-medico">
 
             <!--Informações Básicas-->
 
             <div class="form-group">
-                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
+                <input type="text" name="nome" id="nome" class="form-control form-control-lg" placeholder="Nome" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
+                <input type="text" name="cpf" id="cpf" class="form-control cpf" placeholder="CPF" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="text" name="crm" id="crm" class="form-control" placeholder="CRM">
+                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="text" name="celular" id="celular" class="form-control" placeholder="Celular">
+                <input type="text" name="crm" id="crm" class="form-control crm" placeholder="CRM" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="telefone_r" id="telefone_r" class="form-control phone_with_ddd" placeholder="Telefone Residencial / Celular"
+                    required autofocus>
             </div>
 
             <div class="form-row">
@@ -73,67 +98,106 @@
                 <div class="col mb-3">
                     <select name="sexo" id="sexo" class="form-control">
                         <option selected>Sexo</option>
+                        <option>M</option>
+                        <option>F</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="col">
-                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                    <input type="password" name="senha" id="senha" class="form-control senha" placeholder="Senha" required autofocus>
                 </div>
 
                 <div class="col mb-2">
-                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control" placeholder="Confirmar Senha">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control senha" placeholder="Confirmar Senha"
+                        required autofocus>
                 </div>
             </div>
 
             <!--Informações Comerciais-->
-            <button class="btn btn-light btn-block" data-toggle="collapse" data-target="#info">+ Informações Comerciais</button>
+            <a class="btn btn-light btn-block" data-toggle="collapse" href="#multiCollapseExample" role="button" aria-expanded="false"
+                aria-controls="multiCollapseExample1">+ Informações Comerciais</a>
             <br>
 
-            <div id="info" class="collapse mb-3">
-                <div class="form-group">
-                    <input type="text" name="cep" id="cep" class="form-control" placeholder="CEP">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro">
-                </div>
-                <div class="form-row">
-                    <div class="col-md-8">
-                        <input type="password" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
-                    </div>
 
-                    <div class="col mb-2">
-                        <input type="password" name="numero" id="numero" class="form-control" placeholder="Nº">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-8">
-                        <input type="password" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample">
+                        <div class="form-group">
+                            <input type="text" name="cep" id="cep" class="form-control cep" placeholder="CEP" onblur="pesquisacep(this.value);" required
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro" required autofocus>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" required autofocus>
+                            </div>
 
-                    <div class="col mb-3">
-                        <select name="uf" id="uf" class="form-control">
-                            <option selected>UF</option>
-                        </select>
+                            <div class="col mb-2">
+                                <input type="text" name="numero" id="numero" class="form-control" placeholder="Nº" required autofocus>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade" required autofocus>
+                            </div>
+
+                            <div class="col mb-3">
+                                <select name="uf" id="uf" class="form-control">
+                                    <option selected>UF</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SP">SP</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefone_c" id="telefone_c" class="form-control phone_with_ddd" placeholder="Telefone Comercial"
+                                required autofocus>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="telefone-comercial" id="telefone-comercial" class="form-control" placeholder="Telefone Comercial">
                 </div>
             </div>
-
-            <button class="btn btn-lg btn-success btn-login" type="submit">Cadastrar</button>
-
+            <button class="btn btn-lg btn-success btn-login" type="submit" onclick="return validaSenha()">Cadastrar</button>
         </form>
 
     </main>
+    <footer class="fixed-bottom">
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
 
     <!-- Script com ligações para banco e visual studio -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="medicoCriar.js"></script>
 
-    
+
 </body>
 
 </html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Editar Perfil</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../login/login.css">
+    <link rel="stylesheet" href="../paciente/paciente.css">
+    <script src="../../../lib/jquery.js"></script>
+    <script src="../../../lib/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="../../../index.html">
+                <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"> Perfil </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../login/login.html"> Login </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h2>Editar seu Perfil</h2>
+
+    <main role="main" class="container text-center">
+
+        <img src="../../../img/doutor.png" class="img-circle" alt="Foto do Perfil">
+        <form class="form-signin col-5 col-mb-3" id="form-medico">
+
+            <!--Informações Básicas-->
+
+            <div class="form-group">
+                <input type="text" name="nome" id="nome" class="form-control form-control-lg" placeholder="Nome" readonly>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="crm" id="crm" class="form-control" placeholder="CRM" readonly>
+            </div>
+
+            <div class="form-group">
+                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail">
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="text" name="telefone_r" id="telefone_r" class="form-control phone_with_ddd" placeholder="Telefone Residencial / Celular">
+            </div>
+
+            <div class="form-row">
+                <div class="col">
+                    <input type="password" name="senha" id="senha" class="form-control senha" placeholder="Senha">
+                </div>
+
+                <div class="col mb-2">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control senha" placeholder="Confirmar Senha">
+                </div>
+            </div>
+
+            <!--Informações Comerciais-->
+            <a class="btn btn-light btn-block" data-toggle="collapse" href="#multiCollapseExample" role="button" aria-expanded="false"
+                aria-controls="multiCollapseExample1">+ Informações Comerciais</a>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample">
+                        <div class="form-group">
+                            <input type="text" name="cep" id="cep" class="form-control cep" onblur="pesquisacep(this.value);" placeholder="CEP">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
+                            </div>
+
+                            <div class="col mb-2">
+                                <input type="text" name="numero" id="numero" class="form-control" placeholder="Nº">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
+                            </div>
+
+                            <div class="col mb-3">
+                                <select name="uf" id="uf" class="form-control">
+                                    <option selected>UF</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espirito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefone_c" id="telefone_c" class="form-control phone_with_ddd" placeholder="Telefone Comercial">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-success btn-login" type="submit">Salvar</button>
+        </form>
+
+    </main>
+    <footer class="fixed-bottom">
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
+
+    <!-- Script com ligações para banco e visual studio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="medicoPerfil.js"></script>
+
+</body>
+
+</html>

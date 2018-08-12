@@ -1,15 +1,9 @@
 ﻿var api = 'http://localhost:53731/api/medico/';
-var apiEspecialidade = 'http://localhost:53731/api/especialidade/';
 
-var especialidade = document.querySelector('#especialidade');
-
-var form1 = document.getElementById("form-medico");
-
+//Pegando os Input
 var elementosMedico = {
-    nome: document.querySelector('#nome'),
-    cpf: document.querySelector('#cpf'),
-    crm: document.querySelector('#crm'),
-    Especialidade: document.querySelector('#especialidade'),
+    email: document.querySelector('#email'),
+    senha: document.querySelector('#senha'),
     telefone_r: document.querySelector('#telefone_r'),
     telefone_c: document.querySelector('#telefone_c'),
     logradouro: document.querySelector('#logradouro'),
@@ -17,72 +11,34 @@ var elementosMedico = {
     numero: document.querySelector('#numero'),
     cidade: document.querySelector('#cidade'),
     uf: document.querySelector('#uf'),
-    sexo: document.querySelector('#sexo'),
-    email: document.querySelector('#email'),
-    senha: document.querySelector('#senha')
 };
 
-obterEspecialidades();
-
+// "Escuta" o evento de ENVIAR do Formulário do Paciente
 document.querySelector('#form-medico').addEventListener('submit', function (event) {
 
     event.preventDefault();
-    console.log(elementosMedico.idEspecialidade);
 
+    // Objeto Medico att
     var medico = {
-        nome: elementosMedico.nome.value,
-        cpf: elementosMedico.cpf.value,
-        crm: elementosMedico.crm.value,
-        idEspecialidade: parseInt(elementosMedico.Especialidade.value),
         telefone_r: elementosMedico.telefone_r.value,
         telefone_c: elementosMedico.telefone_c.value,
         endereco_c: elementosMedico.logradouro.value + ", " + elementosMedico.bairro.value + ", " + elementosMedico.numero.value,
         estado: elementosMedico.uf.value,
         cidade: elementosMedico.cidade.value,
-        sexo: elementosMedico.sexo.value,
         email: elementosMedico.email.value,
         senha: elementosMedico.senha.value
     };
-    console.log(medico)
-    inserirMedico(medico);
-    form1.reset();
 
+    alterarMedico(medico);
 });
 
-// API que inseri o médico 
-function inserirMedico(medico) {
+// API obter Médico 
+function obterMedico() {
 
-    var request = new Request(api, {
-        method: "POST",
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify(medico)
-    });
+    var urlParams = new URLSearchParams(location.search);
+    var idMedico = urlParams.get('id');
 
-    fetch(request)
-        .then(function (response) {
-            console.log(response);
-            if (response.status == 201) {
-                alert("Médico inserido com sucesso");
-            } else {
-
-                response.json().then(function (message) {
-                    alert(message.error);
-                });
-
-            }
-        })
-        .catch(function (response) {
-            console.log(response);
-            alert("Desculpe, ocorreu um erro no servidor.");
-        });
-
-}
-
-// API que pega a especialidade do médico 
-function obterEspecialidades(id) {
-    var request = new Request(apiEspecialidade, {
+    var request = new Request(api + idMedico, {
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json'
@@ -91,38 +47,63 @@ function obterEspecialidades(id) {
 
     fetch(request)
         .then(function (response) {
-            // console.log(response);
+            
             if (response.status == 200) {
                 response.json()
-                    .then(function (especialidades) {
-                        updateTemplateEspecialidades(especialidades, id);
+                    .then(function (medico) {
+                        var quebrar = medico.endereco_c.split(", ");
+                        document.getElementById('nome').value = medico.nome;
+                        document.getElementById('crm').value = medico.crm;
+                        document.getElementById('email').value = medico.email;
+                        document.getElementById('telefone_r').value = medico.telefone_r;
+                        document.getElementById('senha').value = medico.senha;
+                        document.getElementById('telefone_c').value = medico.telefone_c;
+                        document.getElementById('logradouro').value = quebrar[0];
+                        document.getElementById('bairro').value = quebrar[1];
+                        document.getElementById('numero').value = quebrar[2];
+                        document.getElementById('cidade').value = medico.cidade;
+                        document.getElementById('estado').value = medico.estado;
+                        
                     });
             } else {
-                alert("Ocorreu um erro ao obter as especialidades");
+                alert("Ocorreu um erro ao obter o médico");
             }
         })
         .catch(function (response) {
-            // console.log(response);
             alert("Desculpe, ocorreu um erro no servidor.");
         });
 }
 
-// Recebe o ID da especialidade e mostra no Select 
-function updateTemplateEspecialidades(especialidades, id) {
-    especialidade.innerHTML = templateEspecialidades(especialidades, id);
-}
+obterMedico();
 
-function templateEspecialidades(especialidades = [], id = null) {
-    return `
-        <option>Especialidade</option>
-        ${
-        especialidades.map(function (especialidade) {
-            return `
-                    <option value="${especialidade.id}" ${especialidade.id == id ? 'selected' : ''}>${especialidade.nome}</option>
-                `;
-        }).join('')
-        }
-    `;
+// API alterar médico 
+function alterarMedico(medico) {
+
+    var urlParams = new URLSearchParams(location.search);
+    var idMedico = urlParams.get('id');
+
+    var request = new Request(api + idMedico, {
+        method: "PUT",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify(medico)
+    });
+
+    fetch(request)
+        .then(function (response) {
+            if (response.status == 202) {
+                alert("Médico alterado com sucesso");
+                window.location.href = 'dashboard/medicoDash.html?id=' + idMedico;
+            } else {
+                response.json().then(function (message) {
+                    alert(message.error);
+                });
+            }
+        })
+        .catch(function (response) {
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
 }
 
 // Buscar CEP 
@@ -192,20 +173,20 @@ else {
 };
 
 // Máscaras
-$(document).ready(function(){
+$(document).ready(function () {
     $('.date').mask('00/00/0000');
     $('.time').mask('00:00:00');
     $('.date_time').mask('00/00/0000 00:00:00');
     $('.cep').mask('00000-000');
     $('.phone').mask('0000-0000');
-    $('.phone_with_ddd').mask('(00) 00000-0000');
+    $('.phone_with_ddd').mask('(00) 0000-0000');
     $('.phone_us').mask('(000) 000-0000');
     $('.mixed').mask('AAA 000-S0S');
-    $('.cpf').mask('000.000.000-00', {reverse: true});
+    $('.cpf').mask('000.000.000-00', { reverse: true });
     $('.crm').mask('000000/AA');
     $('.senha').mask('AAAAAAAA');
-    $('.money').mask('000.000.000.000.000,00', {reverse: true});
-  });
+    $('.money').mask('000.000.000.000.000,00', { reverse: true });
+});
 
 // Validação de senhas: conferir se são iguais
 var senha1 = document.getElementById("senha");

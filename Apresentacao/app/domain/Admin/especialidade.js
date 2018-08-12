@@ -1,41 +1,35 @@
-var api = 'http://localhost:53731/api/paciente/';
-
-var tabela = document.querySelector('#pacientes');
+var api = 'http://localhost:53731/api/especialidade/';
+var tabela = document.querySelector('#especialidades');
 
 obterTodos();
 
-function update(pacientes) {
-    tabela.innerHTML = template(pacientes);
+function update(especialidades) {
+    tabela.innerHTML = template(especialidades);
 }
 
-function template(pacientes = []) {
+function template(especialidades = []) {
     return `
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover table-dark" style="width:70%; margin: auto">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nome</th>
-                <th>Cpf</th>
-                <th>Consulta</th>
+                <th>Nome da Especialidade</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
         ${
-            pacientes.map(function(paciente){
-                return `
+            especialidades.map(function (especialidade) {
+            return `
                     <tr>
-                        <td>${paciente.id}</td>
-                        <td>${paciente.nome}</td>
-                        <td>${paciente.cpf}</td>
-                        <td>${paciente.consulta}</td>
+                        <td>${especialidade.id}</td>
+                        <td>${especialidade.nome}</td>
                         <td>
-                            <a href="#" onclick="alterarpaciente(${paciente.id})">Editar</a> | 
-                            <a href="#" onclick="excluirpaciente(${paciente.id})">Excluir</a>
+                            <a href="#" onclick="excluirEspecialidade(${especialidade.id})">Excluir</a>
                         </td>
                     </tr>
                 `;
-            }).join('')
+        }).join('')
         }
         </tbody>
     </table>
@@ -56,11 +50,11 @@ function obterTodos() {
             // console.log(response);
             if (response.status == 200) {
                 response.json()
-                    .then(function (pacientes) {
-                        update(pacientes);
+                    .then(function (especialidades) {
+                        update(especialidades);
                     });
             } else {
-                alert("Ocorreu um erro ao obter os pacientes?");
+                alert("Ocorreu um erro ao obter as especialidades");
             }
         })
         .catch(function (response) {
@@ -70,14 +64,14 @@ function obterTodos() {
 
 }
 
-function alterarpaciente(idPaciente) {
-    window.location.href = 'pacienteCriar.html?id=' + idPaciente;
+function criarEspecialidade(idEspecialidade) {
+    window.location.href = 'medicoCriar.html?id=' + idEspecialidade;
 }
 
-function excluirpaciente(idPaciente) {
-    if (confirm('Tem certeza que deseja excluir esse paciente?')) {
-        
-        var request = new Request(api + idPaciente, {
+function excluirEspecialidade(idEspecialidade) {
+    if (confirm('Tem certeza que deseja excluir esse médico?')) {
+
+        var request = new Request(api + idEspecialidade, {
             method: "DELETE",
             headers: new Headers({
                 'Content-Type': 'application/json'
@@ -90,7 +84,7 @@ function excluirpaciente(idPaciente) {
                 if (response.status == 200) {
                     obterTodos();
                 } else {
-                    alert("Ocorreu um erro ao excluir os paciente");
+                    alert("Ocorreu um erro ao excluir as especialidades");
                 }
             })
             .catch(function (response) {
@@ -98,6 +92,4 @@ function excluirpaciente(idPaciente) {
                 alert("Desculpe, ocorreu um erro no servidor.");
             });
     }
-
-
 }
