@@ -43,7 +43,6 @@ document.querySelector('#form-medico').addEventListener('submit', function (even
         email: elementosMedico.email.value,
         senha: elementosMedico.senha.value
     };
-    console.log(medico)
     inserirMedico(medico);
     form1.reset();
 
@@ -64,7 +63,8 @@ function inserirMedico(medico) {
         .then(function (response) {
             console.log(response);
             if (response.status == 201) {
-                alert("Médico inserido com sucesso");
+                alert("Cadastro realizado com Sucesso!!!");
+                window.location.href="../login/login.html";
             } else {
 
                 response.json().then(function (message) {

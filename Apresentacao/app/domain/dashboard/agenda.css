@@ -1,18 +1,32 @@
-html,
-body {
-    height: 100%;
-}
-
 body {
     background-color: #343f6a;
 }
 
+main{
+    height: 90vh;
+}
 
-.form-signin {
-    margin: auto;
-    max-width: 330px;
-    width: 100%;
-    margin-top: 100px;
+footer{
+  background-color:#303030;
+  height: 6vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clear: both;
+}
+
+footer p{
+  margin-bottom: 0;
+}
+
+.titulo{
+    color: #fff;
+    margin-top: 40px;
+    margin-bottom: 5%;
 }
 
 .form-signin .form-control {
@@ -20,7 +34,7 @@ body {
     font-size: 16px;
     height: auto;
     padding: 10px;
-    position: relative;
+    margin: auto;
 }
 
 .form-signin .form-control:focus {
@@ -50,31 +64,4 @@ body {
     top: 10px;
     transition: .2s;
     -webkit-transition: .2s;
-}
-
-.esqueci_senha{
-    margin-left: 170px;
-    margin-bottom: 50px;
-    color: #fff;
-}
-
-.esqueci_senha:hover{
-    color: #fff;
-}
-
-.btn-login{
-    margin-top: 20px;
-    margin-bottom: 70px;
-}
-
-.label-login{
-    color: #fff;
-    font-weight: bold;
-    margin-right: 5px; 
-}
-
-.titulo{
-    color: #fff;
-    margin-top: 40px;
-    margin-bottom: 20px;
 }

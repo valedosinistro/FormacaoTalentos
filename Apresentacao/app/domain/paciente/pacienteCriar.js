@@ -1,5 +1,5 @@
  //Caminho da API
-var api = 'http://localhost:53731/api/paciente/';
+var api = 'http://localhost:53731/api/Paciente/';
 
 // Pega o formulário
 var form = document.getElementById('form-paciente');
@@ -19,7 +19,7 @@ var elementosPaciente = {
 document.querySelector('#form-paciente').addEventListener('submit', function (event) {
 
     event.preventDefault();
-
+ var data = elementosPaciente.data_Nasc.value.split('/').reverse().join('-');
     // Objeto Paciente
     var paciente = {
         nome: elementosPaciente.nome.value,
@@ -27,10 +27,9 @@ document.querySelector('#form-paciente').addEventListener('submit', function (ev
         sexo: elementosPaciente.sexo.value,
         email: elementosPaciente.email.value,
         telefone: elementosPaciente.telefone.value,
-        data_Nasc: elementosPaciente.data_Nasc.value,
+        data_Nasc: data,
         senha: elementosPaciente.senha.value
     };
-
         inserirPaciente(paciente);
         form.reset();
 });
@@ -45,22 +44,26 @@ function inserirPaciente(paciente) {
         }),
         body: JSON.stringify(paciente)
     });
-
+    console.log(JSON.stringify(paciente));
     fetch(request)
         .then(function (response) {
             console.log(response);
             if (response.status == 201) {
-                alert("Paciente cadastrado com sucesso");
+                alert("Paciente inserido com sucesso");
+                window.location.href="../login/login.html";
             } else {
-		        response.json().then(function(message){
-			    alert(message.error);
-		});
+
+                response.json().then(function (message) {
+                    alert(message.error);
+                });
+
             }
         })
         .catch(function (response) {
             console.log(response);
             alert("Desculpe, ocorreu um erro no servidor.");
         });
+
 }
 
 // Máscaras 
