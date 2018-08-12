@@ -25,7 +25,7 @@ namespace Fatec.Clinica.Dado
                                                           $"FROM [Consulta] C "+
                                                           $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
                                                           $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
-                                                          $"INNER JOIN [Especialidade] E ON C.IdMedico = E.Id ");
+                                                          $"INNER JOIN [Especialidade] E ON M.IdEspecialidade = E.Id ");
                 return lista;
             }
         }
