@@ -1,97 +1,213 @@
-html,
-body {
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    
+}
+
+#wrapper.toggled {
+    padding-left: 200px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    
+    width: 0;
     height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background-color:#312A25 !Important;
+   
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-body {
-    background-color: #343f6a;
+#wrapper.toggled #sidebar-wrapper {
+    width: 0;
 }
 
-
-.form-signin {
-    margin: auto;
-    max-width: 330px;
+#page-content-wrapper {
     width: 100%;
-    margin-top: 100px;
-}
-
-.form-signin .form-control {
-    box-sizing: border-box;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    position: relative;
-}
-
-.form-signin .form-control:focus {
-    z-index: 2;
-}
-
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-}
-
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-}
-
-.label-float {
     position: absolute;
-    top: 20px;
-    padding: 0 20px;
-    cursor: text;
-    -webkit-transition: .2s;
-    transition: .2s;
+    padding: 10px;
 }
 
-.label-float .form-control:focus,
-.label-float .form-control:valid {
-    font-size: 12px;
-    top: 10px;
-    transition: .2s;
-    -webkit-transition: .2s;
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-left:-250px;
 }
 
-.esqueci_senha{
-    margin-left: 170px;
-    margin-bottom: 50px;
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    right:15px;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
     color: #fff;
+    background: #312A25;
 }
 
-.esqueci_senha:hover{
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
+    background: none;
 }
 
-.btn-login{
-    margin-top: 20px;
-    margin-bottom: 70px;
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 220px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 200px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 40px;
+        
+        
+    }
+
+#wrapper.toggled span {
+        visibility:hidden;
+        
+    }
+  #wrapper.toggled   i {
+ float:right;
+ } 
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
 }
 
-.label-login{
-    color: #fff;
-    font-weight: bold;
-    margin-right: 5px; 
+
+@media(max-width:414px) {
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right:60px;
 }
 
-.titulo{
-    color: #fff;
-    font-weight: bold;
-    margin: 40px 0;
+#wrapper.toggled {
+    padding-right: 60px;
 }
 
-footer{
-    background-color:#303030;
+ #wrapper {
+        padding-left: 20px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 50px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 140px;
+        
+        
+    }
+    
+    #wrapper.toggled span {
+        visibility:visible;
+        position:relative;
+        left:70px;
+        bottom:13px;
+        
+    }
+
+#wrapper span {
+        visibility:hidden;
+        
+    }
+  #wrapper.toggled   i {
+ float:right;
+ } 
+ 
+  #wrapper   i {
+ float:right;
+ } 
+
+    #page-content-wrapper {
+        padding: 5px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+
+
+
+}
+
+.rodape{
+    background-color:#312A25;
     height: 6vh;
     width: 100%;
     position: absolute;
     bottom: 0;
-    color: #fff;
+    color: #999999;
     display: flex;
     align-items: center;
     justify-content: center;
     clear: both;
 }
 
-footer p{
-    margin-bottom: 0;
+.sair{
+    margin-top: 60vh;
 }
