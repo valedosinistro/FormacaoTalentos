@@ -43,7 +43,6 @@ document.querySelector('#form-medico').addEventListener('submit', function (even
         email: elementosMedico.email.value,
         senha: elementosMedico.senha.value
     };
-    console.log(medico)
     inserirMedico(medico);
     form1.reset();
 

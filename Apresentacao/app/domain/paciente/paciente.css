@@ -12,7 +12,7 @@ body {
     margin: auto;
     max-width: 330px;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .form-signin .form-control {
@@ -86,8 +86,8 @@ footer p{
     margin-bottom: 0;
 }
 main img{
-    margin-bottom: 25px;
-    max-width: 15%;
+    margin: 9% 0 2% 0;
+    max-width: 20%;
 }
 
 .btn-login{

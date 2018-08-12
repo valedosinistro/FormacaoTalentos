@@ -1,5 +1,17 @@
 var api = 'http://localhost:53731/api/paciente/';
 
+var urlParams = new URLSearchParams(location.search);
+var idPaciente = urlParams.get('id');
+
+var linkInicio = document.querySelector('.inicio');
+linkInicio.href = "../dashboard/pacienteDash.html?id=" + idPaciente;
+
+var linkAgenda = document.querySelector('.agenda');
+linkAgenda.href = '../dashboard/agendarConsulta.html?id=' + idPaciente; 
+
+var linkSair = document.querySelector('.sair');
+linkSair.href = "../login/login.html";
+
 //Pegando os Input
 var elementosPaciente = {
     email: document.querySelector('#email'),

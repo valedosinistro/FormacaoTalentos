@@ -7,9 +7,20 @@ var apiNomeCidade = '/Especialidade/';
 var apiHora = 'http://localhost:53731/api/Consulta/data/';
 var apiHorario = '/Medico/'
 var api = 'http://localhost:53731/api/Consulta/';
+var pacienteConsulta = 'http://localhost:53731/api/Consulta/paciente';
 
 var urlParams = new URLSearchParams(location.search);
 var idPaciente = urlParams.get('id');
+
+
+var linkInicio = document.querySelector('.inicio');
+linkInicio.href = "pacienteDash.html?id=" + idPaciente;
+
+var linkPerfil = document.querySelector('.perfil');
+linkPerfil.href = '../paciente/pacientePerfil.html?id=' + idPaciente; 
+
+var linkSair = document.querySelector('.sair');
+linkSair.href = "../login/login.html";
 
 var form1 = document.getElementById('form-agenda');
 
@@ -264,4 +275,70 @@ function templateHorarios(horarios = [], id = null) {
         }).join('')
         }
     `;
+}
+
+// 
+// 
+// 
+
+var tabela = document.querySelector('#minhasConsultas');
+
+obterTodos();
+
+function update(consultas) {
+    tabela.innerHTML = template(consultas);
+}
+
+function template(consultas = []) {
+    return `
+    <table class="table table-hover table-dark" style="width:100%; margin: auto">
+        <thead>
+            <tr>
+                <th>Especialidade</th>
+                <th>Data Consulta</th>
+                <th>Hora Consulta</th>
+            </tr>
+        </thead>
+        <tbody>
+        ${
+        consultas.map(function (consulta) {
+            return `
+                    <tr>
+                        <td>${consulta.especialidade}</td>
+                        <td>${consulta.dataConsultaFormatada}</td>
+                        <td>${consulta.horario}</td>
+                    </tr>
+                `;
+
+        }).join('')
+        }
+        </tbody>
+    </table>
+    `;
+}
+
+function obterTodos() {
+
+    var request = new Request(api, {
+        method: "GET",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    });
+
+    fetch(request)
+        .then(function (response) {
+            if (response.status == 200) {
+                response.json()
+                    .then(function (consultas) {
+                        update(consultas);
+                    });
+            } else {
+                alert("Ocorreu um erro ao obter as consultas");
+            }
+        })
+        .catch(function (response) {
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
+
 }
