@@ -34,7 +34,7 @@ function template(pacientes = []) {
                         <td>${paciente.cpf}</td> 
                         <td>${paciente.email}</td> 
                         <td>${paciente.telefone}</td> 
-                        <td>${paciente.data_Nasc}</td> 
+                        <td>${paciente.dataNasc_Formatada}</td> 
                         <td>${paciente.sexo}</td> 
                         <td>  
                             <a href="#" onclick="desativarPaciente(${paciente.id})">Desativar Paciente</a> 
@@ -49,7 +49,7 @@ function template(pacientes = []) {
                     <td>${paciente.cpf}</td> 
                     <td>${paciente.email}</td> 
                     <td>${paciente.telefone}</td> 
-                    <td>${paciente.data_Nasc}</td> 
+                    <td>${paciente.dataNasc_Formatada}</td> 
                     <td>${paciente.sexo}</td> 
                     <td> 
                         <a href="#" onclick="desativarPaciente(${paciente.id})">Ativar Paciente</a> 
