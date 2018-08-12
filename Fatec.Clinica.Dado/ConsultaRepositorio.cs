@@ -21,7 +21,7 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var lista = connection.Query<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico,E.Nome as Especialidade, P.Nome as NomePaciente ,  C.DataConsulta, C.Horario, C.Status "+
+                var lista = connection.Query<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico,E.Nome as Especialidade, P.Nome as NomePaciente, P.Id as idPaciente, M.Id as idMedico,  C.DataConsulta, C.Horario, C.Status " +
                                                           $"FROM [Consulta] C "+
                                                           $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
                                                           $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
@@ -39,7 +39,11 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var obj = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, C.IdPaciente, C.IdMedico, C.DataConsulta, C.Horario, C.Status FROM [Consulta] C WHERE C.Id = {id}");
+                var obj = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico,E.Nome as Especialidade, P.Nome as NomePaciente , P.Id as idPaciente, M.Id as idMedico,  C.DataConsulta, C.Horario, C.Status " +
+                                                          $"FROM [Consulta] C " +
+                                                          $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
+                                                          $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
+                                                          $"INNER JOIN [Especialidade] E ON C.IdMedico = E.Id WHERE C.Id = {id}");
                 return obj;
             }
         }
@@ -52,9 +56,11 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var lista = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT * " +
-                                                                 $"FROM [Consulta] " +
-                                                                 $"WHERE IdPaciente = '{IdPaciente}'");
+                var lista = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico,E.Nome as Especialidade, P.Nome as NomePaciente , P.Id as idPaciente, M.Id as idMedico, C.DataConsulta, C.Horario, C.Status " +
+                                                          $"FROM [Consulta] C " +
+                                                          $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
+                                                          $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
+                                                          $"INNER JOIN [Especialidade] E ON C.IdMedico = E.Id WHERE P.Id = {IdPaciente}");
                 return lista;
             }
         }
@@ -96,9 +102,11 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var lista = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT * " +
-                                                                 $"FROM [Consulta] " +
-                                                                 $"WHERE IdMedico = '{IdMedico}'");
+                var lista = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico,E.Nome as Especialidade, P.Nome as NomePaciente ,P.Id as idPaciente, M.Id as idMedico,  C.DataConsulta, C.Horario, C.Status " +
+                                                          $"FROM [Consulta] C " +
+                                                          $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
+                                                          $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
+                                                          $"INNER JOIN [Especialidade] E ON C.IdMedico = E.Id WHERE M.Id = {IdMedico}");
                 return lista;
             }
         }
@@ -112,9 +120,11 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var lista = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT * " +
-                                                                 $"FROM [Consulta] " +
-                                                                 $"WHERE DataConsulta = '{DataConsulta}'");
+                var lista = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico, E.Nome as Especialidade, P.Nome as NomePaciente, P.Id as idPaciente, M.Id as idMedico, C.DataConsulta, C.Horario, C.Status " +
+                                                          $"FROM [Consulta] C " +
+                                                          $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
+                                                          $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
+                                                          $"INNER JOIN [Especialidade] E ON C.IdMedico = E.Id WHERE DataConsulta = '{DataConsulta}'");
                 return lista;
             }
         }
@@ -129,9 +139,11 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var lista = connection.Query<ConsultaDto>($"SELECT Horario " +
-                                                                 $"FROM [Consulta] " +
-                                                                 $"WHERE DataConsulta = '{DataConsulta}' AND IdMedico = {idMedico} AND Status = 'A' ");
+                var lista = connection.Query<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico,E.Nome as Especialidade, P.Nome as NomePaciente ,P.Id as idPaciente, M.Id as idMedico,  C.DataConsulta, C.Horario, C.Status " +
+                                                          $"FROM [Consulta] C " +
+                                                          $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
+                                                          $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
+                                                          $"INNER JOIN [Especialidade] E ON C.IdMedico = E.Id WHERE DataConsulta = '{DataConsulta}' AND IdMedico = {idMedico} AND Status = 'A' ");
                 return lista;
             }
 
@@ -147,9 +159,11 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var lista = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT * " +
-                                                                 $"FROM [Consulta] " +
-                                                                 $"WHERE Status = '{Status}'");
+                var lista = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, M.Nome as NomeMedico,E.Nome as Especialidade, P.Nome as NomePaciente ,P.Id as idPaciente, M.Id as idMedico,  C.DataConsulta, C.Horario, C.Status " +
+                                                          $"FROM [Consulta] C " +
+                                                          $"INNER JOIN [Medico] M ON C.IdMedico = M.Id " +
+                                                          $"INNER JOIN [Paciente] P ON C.IdPaciente = P.Id " +
+                                                          $"INNER JOIN [Especialidade] E ON C.IdMedico = E.Id WHERE C.Status = '{Status}'");
                 return lista;
             }
         }
