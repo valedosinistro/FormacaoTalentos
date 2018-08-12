@@ -64,7 +64,7 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var obj = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, C.IdPaciente, C.IdMedico, C.DataConsulta, C.Horario, C.Status FROM [Consulta] C WHERE C.DataConsulta = '{DataConsulta}' AND C.Horario = '{Horario}' AND C.IdMedico = {id}");
+                var obj = connection.QueryFirstOrDefault<ConsultaDto>($"SELECT C.Id, C.IdPaciente, C.IdMedico, C.DataConsulta, C.Horario, C.Status FROM [Consulta] C WHERE C.DataConsulta = '{DataConsulta}' AND C.Horario = '{Horario}' AND C.IdMedico = {id} AND C.Status = 'A' ");
                 return obj;
             }
         }
@@ -115,6 +115,25 @@ namespace Fatec.Clinica.Dado
             }
         }
 
+        ///<summary>
+        /// Método que retorna lista de horas já Agendada do determinado médico e hora
+        ///</summary>
+        ///<param name = "DataConsulta" ></ param >
+        ///<param name = "idMedico" ></ param >
+        /// <returns></returns>
+        public IEnumerable<ConsultaDto> ListaDeHorasAgendada(DateTime DataConsulta, int idMedico)
+        {
+            using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
+            {
+                var lista = connection.Query<ConsultaDto>($"SELECT Horario " +
+                                                                 $"FROM [Consulta] " +
+                                                                 $"WHERE DataConsulta = '{DataConsulta}' AND IdMedico = {idMedico} AND Status = 'A' ");
+                return lista;
+            }
+
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -162,7 +181,7 @@ namespace Fatec.Clinica.Dado
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
                 connection.Execute($"UPDATE [Consulta] " +
-                                   $"SET  Status = '{entity.Status}'," +
+                                   $"SET  Status = '{entity.Status}'" +
                                    $"WHERE Id = {entity.Id}");
             }
         }
