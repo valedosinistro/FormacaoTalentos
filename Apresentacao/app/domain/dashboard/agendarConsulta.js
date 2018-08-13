@@ -7,11 +7,11 @@ var apiNomeCidade = '/Especialidade/';
 var apiHora = 'http://localhost:53731/api/Consulta/data/';
 var apiHorario = '/Medico/'
 var api = 'http://localhost:53731/api/Consulta/';
-var pacienteConsulta = 'http://localhost:53731/api/Consulta/paciente';
+
+var pacienteConsulta = 'http://localhost:53731/api/Consulta/paciente/';
 
 var urlParams = new URLSearchParams(location.search);
 var idPaciente = urlParams.get('id');
-
 
 var linkInicio = document.querySelector('.inicio');
 linkInicio.href = "pacienteDash.html?id=" + idPaciente;
@@ -291,6 +291,8 @@ function update(consultas) {
 }
 
 function template(consultas = []) {
+    console.log(consultas);
+    
     return `
     <table class="table table-hover table-dark" style="width:100%; margin: auto">
         <thead>
@@ -326,7 +328,7 @@ function template(consultas = []) {
 
 function obterTodos() {
 
-    var request = new Request(api, {
+    var request = new Request(pacienteConsulta + idPaciente, {
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json'
@@ -338,6 +340,7 @@ function obterTodos() {
             if (response.status == 200) {
                 response.json()
                     .then(function (consultas) {
+                        console.log(consultas);
                         update(consultas);
                     });
             } else {
