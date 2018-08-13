@@ -1,5 +1,5 @@
 var api = 'http://localhost:53731/api/paciente/';
-var apiDesativa = 'http://localhost:53731/api/Admin/Paciente/MudarAtivoAdm//';
+var apiDesativa = 'http://localhost:53731/api/Admin/Paciente/MudarAtivoAdm/';
 var tabela = document.querySelector('#pacientes');
 
 obterTodos();
@@ -10,7 +10,7 @@ function update(pacientes) {
 
 function template(pacientes = []) {
     return ` 
-    <table class="table table-hover table-dark" style="width:40%; margin: auto"> 
+    <table class="table table-hover table-dark" style="width:80%; margin: auto"> 
         <thead> 
             <tr> 
                 <th>#</th> 

@@ -25,7 +25,7 @@ function update(consultas) {
 
 function template(consultas = [], id = null) {
     return `
-    <table class="table table-hover table-dark" style="width:70%; margin: auto">
+    <table class="table table-hover table-dark" margin: auto">
         <thead>
             <tr>
                 <th>#</th>
