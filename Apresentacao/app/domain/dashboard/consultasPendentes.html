@@ -55,6 +55,13 @@
 
     <main role="main" class="container">
         <h2 class="titulo text-center">Minha Agenda</h2>
+        <div class="row" style="margin-bottom: 10px">
+            <div class="col-lg-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar..." id="myInput">
+                </div>
+            </div>
+        </div>
         <div id="ConsultasPendentes">
 
         </div>
@@ -63,7 +70,18 @@
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
+
     <script src="Consulta.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#example tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -19,13 +19,17 @@ var tabela = document.querySelector('#ConsultasPendentes');
 
 obterTodos();
 
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
 function update(consultas) {
     tabela.innerHTML = template(consultas);
 }
 
 function template(consultas = [], id = null) {
     return `
-    <table class="table table-hover table-dark" margin: auto">
+    <table class="table table-hover table-dark" style="margin: auto">
         <thead>
             <tr>
                 <th>#</th>
@@ -35,7 +39,7 @@ function template(consultas = [], id = null) {
                 <th>Status</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="example">
         ${
         consultas.map(function (consulta) {
             console.log(consulta);
