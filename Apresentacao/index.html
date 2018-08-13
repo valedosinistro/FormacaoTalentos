@@ -16,7 +16,8 @@
     <header class="fixo">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-                <img class="logo" src="img/logo.png" height="80"></a>
+                <img class="logo" src="img/logo.png" height="80">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,12 +53,13 @@
             </div>
         </nav>
     </header>
-    <main>
-            <img src="img/logo2.png" alt="" class="img-responsive">
-            <!-- <h2 class="slogan-home" id="typewriter"></h2>
-            <a href="#about">
-                <i class="fas fa-angle-down"></i>
-            </a> -->
+    <main class="scroll">
+        <img src="img/logo2.png" height="180" alt="" class="img-responsive">
+        <!-- <h2 class="slogan-home" id="typewriter"></h2> -->
+        <a href="#about">
+
+            <i class="fas fa-angle-down"></i>
+        </a>
     </main>
     <section id="about">
         <div class="container">
@@ -84,36 +86,18 @@
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
 
-    <script src="typewriter.js"></script>
-    <script src="aos.js"></script>
-
     <script>
-
-        // Typewriter
-        var app = document.getElementById('typewriter');
-
-        var typewriter = new Typewriter(app, {
-            loop: true
-        });
-
-        typewriter.typeString('Bem vindo ao MedServ!')
-            .pauseFor(2500)
-            .deleteAll()
-            .typeString('Sua saúde em boas mãos')
-            .pauseFor(2500)
-            .start();
-
-        // SCROLL
-        $('main a[href^="#"]').on('click', function (e) {
+        $('.scroll a[href^="#"]').on('click', function (e) {
             e.preventDefault();
             var id = $(this).attr('href'),
                 targetOffset = $(id).offset().top;
-            $('html, body').animate({
-                scrollTop: targetOffset - 0
-            }, 1000);
-        });
 
+            $('html, body').animate({
+                scrollTop: targetOffset - 40
+            }, 700);
+        });
     </script>
+
 </body>
 
 </html>
