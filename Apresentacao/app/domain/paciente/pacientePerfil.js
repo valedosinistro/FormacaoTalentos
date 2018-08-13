@@ -55,6 +55,7 @@ function obterPaciente() {
             if (response.status == 200) {
                 response.json()
                     .then(function (paciente) {
+                        verificaStatus(paciente.ativo);
                         document.getElementById('nome').value = paciente.nome;
                         document.getElementById('email').value = paciente.email;
                         document.getElementById('celular').value = paciente.telefone;
@@ -102,6 +103,16 @@ function alterarPaciente(paciente) {
         });
 
 }
+function verificaStatus(ativo) {
+    var botao = document.querySelector('#botaoDesativa');
+    console.log(ativo);
+    if (ativo === true) {
+        botao.value = "Desativar Conta";
+    } else {
+        botao.value = "Ativar Conta";
+    }
+
+}
 
 function desativarPaciente(paciente) {
 
@@ -119,7 +130,7 @@ function desativarPaciente(paciente) {
     fetch(request)
         .then(function (response) {
             if (response.status == 202) {
-                alert("Conta desativada com sucesso");
+                alert("Operação efetuada com sucesso");
                 window.location.href = "../login/login.html";
             } else {
                 response.json().then(function (message) {

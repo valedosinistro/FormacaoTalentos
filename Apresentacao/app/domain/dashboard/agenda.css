@@ -4,6 +4,7 @@ body {
 
 main{
     height: 90vh;
+    margin: auto;
 }
 
 footer{
@@ -37,6 +38,7 @@ footer p{
     height: auto;
     padding: 10px;
     margin: auto;
+
 }
 
 .form-signin .form-control:focus {
