@@ -1,10 +1,3 @@
-/* aside{
-    background-color: #303030;
-    width: 20%;
-    height: 100%;
-    float: left;
-    margin-left: 0;
-} */
 html,
 body {
     height: 100%;
@@ -58,41 +51,39 @@ main{
   -webkit-justify-content: center;
   justify-content: center;
   color: #fff;
-
 }
 
 .icone{
+  display: flex;
   font-size: 10vh;
-  margin-right: 2vh;
-  margin-bottom: 2vh;
-
 }
 .button:hover{
   text-decoration: none;
   color:#303030;
 }
+
 @-webkit-keyframes glowing {
-  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 3px #FF6666; }
-  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 3px #FF3333; }
+  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 10px #FF3333; }
+  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 10px #FF6666; }
+  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 10px #FF3333; }
 }
 
 @-moz-keyframes glowing {
-  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 3px #FF6666; }
-  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 3px #FF3333; }
+  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 10px #FF3333; }
+  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 10px #FF6666; }
+  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 10px #FF3333; }
 }
 
 @-o-keyframes glowing {
-  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 3px #FF6666; }
-  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 3px #FF3333; }
+  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 10px #FF3333; }
+  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 10px #FF6666; }
+  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 10px #FF3333; }
 }
 
 @keyframes glowing {
-  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 3px #FF6666; }
-  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 3px #FF3333; }
+  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 10px #FF3333; }
+  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 10px #FF6666; }
+  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 10px #FF3333; }
 }
 
 .button {
@@ -100,4 +91,53 @@ main{
   -moz-animation: glowing 1500ms infinite;
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
+}
+
+@-webkit-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+@-moz-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+
+@-o-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+
+@keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+
+/*  */
+/*  */
+@-webkit-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@-moz-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@-o-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
 }
