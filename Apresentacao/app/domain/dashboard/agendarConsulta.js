@@ -291,34 +291,34 @@ function update(consultas) {
 }
 
 function template(consultas = []) {
-    console.log(consultas);
-    
     return `
-    <table class="table table-hover table-dark" style="width:100%; margin: auto">
+    <table class="table table-hover table-dark table-responsive" style="width:87%; margin: auto">
         <thead>
             <tr>
                 <th>Especialidade</th>
-                <th>Data Consulta</th>
-                <th>Hora Consulta</th>
-                <th>Opções</th>
+                <th>Médico</th>
+                <th>Data da Consulta</th>
+                <th>Hora da Consulta</th>
             </tr>
         </thead>
         <tbody>
         ${
         consultas.map(function (consulta) {
-            return `
+            if (consulta.status != "C") {
+                return `
                     <tr>
                         <td>${consulta.especialidade}</td>
+                        <td>${consulta.nomeMedico}</td>
                         <td>${consulta.dataConsultaFormatada}</td>
                         <td>${consulta.horario}</td>
                         <td>
-                        <a href='#' id="alterarConsulta">Alterar</a> |
-                        <a href='#' id="cancelarConsulta">Cancelar</a>
+                        <a href="#" onclick="cancelarConsulta(${consulta.id})">Cancelar</a>
                         </td>
-                    </tr>
-                        
+                    </tr>  
                 `;
-
+            } else {
+                
+            }
         }).join('')
         }
         </tbody>
@@ -351,4 +351,35 @@ function obterTodos() {
             alert("Desculpe, ocorreu um erro no servidor.");
         });
 
+}
+
+function cancelarConsulta(id) {
+    var consulta = {
+        status: "C"
+    }
+    if (confirm('Tem certeza que deseja cancelar a consulta?')) {
+
+        var request = new Request(api + id, {
+            method: "PUT",
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify(consulta)
+        });
+
+        fetch(request)
+            .then(function (response) {
+                if (response.status == 202) {
+                    alert("Operação realizada com sucesso");
+                    obterTodos();
+                    location.reload();
+                } else {
+                    alert("Ocorreu um erro ao cancelar consulta");
+                }
+            })
+            .catch(function (response) {
+                // console.log(response);
+                alert("Desculpe, ocorreu um erro no servidor.");
+            });
+    }
 }

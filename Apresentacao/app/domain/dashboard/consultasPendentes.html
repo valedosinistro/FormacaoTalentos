@@ -8,8 +8,8 @@
     <title>MedServ - Minha Agenda</title>
 
     <link rel="stylesheet" href="../../../css/bootstrap.css">
-    <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../login/login.css">
+    <!-- <link rel="stylesheet" href="../../../css/style.css"> -->
+    <!-- <link rel="stylesheet" href="../login/login.css"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
     <script src="../../../lib/jquery.js"></script>
@@ -54,7 +54,14 @@
     </header>
 
     <main role="main" class="container">
-
+        <h2 class="titulo text-center">Minha Agenda</h2>
+        <div class="row" style="margin-bottom: 10px">
+            <div class="col-lg-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar..." id="myInput">
+                </div>
+            </div>
+        </div>
         <div id="ConsultasPendentes">
 
         </div>
@@ -63,7 +70,18 @@
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
+
     <script src="Consulta.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#example tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -67,6 +67,12 @@ main{
   margin-bottom: 2vh;
 
 }
+.titulo{
+  color: #fff;
+  font-weight: bold;
+  margin: 40px;
+}
+
 /* .button:hover{
   text-decoration: none;
   color:#fff;

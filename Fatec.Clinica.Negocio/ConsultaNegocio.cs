@@ -56,7 +56,7 @@ namespace Fatec.Clinica.Negocio
         /// </summary>
         /// <param name="IdPaciente"></param>
         /// <returns></returns>
-        public ConsultaDto SelecionarPorPaciente(int IdPaciente)
+        public IEnumerable<ConsultaDto> SelecionarPorPaciente(int IdPaciente)
         {
             var lista = _ConsultaRepositorio.SelecionarPorPaciente(IdPaciente);
 
@@ -71,7 +71,7 @@ namespace Fatec.Clinica.Negocio
         /// </summary>
         /// <param name="IdMedico"></param>
         /// <returns></returns>
-        public ConsultaDto SelecionarPorMedico(int IdMedico)
+        public IEnumerable<ConsultaDto> SelecionarPorMedico(int IdMedico)
         {
             var lista = _ConsultaRepositorio.SelecionarPorMedico(IdMedico);
 
