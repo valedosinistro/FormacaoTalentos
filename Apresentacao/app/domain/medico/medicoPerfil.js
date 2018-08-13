@@ -107,7 +107,7 @@ function alterarMedico(medico) {
         .then(function (response) {
             if (response.status == 202) {
                 alert("Médico alterado com sucesso");
-                window.location.href = 'dashboard/medicoDash.html?id=' + idMedico;
+                window.location.href = '../dashboard/medicoDash.html?id=' + idMedico;
             } else {
                 response.json().then(function (message) {
                     alert(message.error);
