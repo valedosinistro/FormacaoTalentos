@@ -1,4 +1,5 @@
 var api = 'http://localhost:53731/api/paciente/';
+var apiDesativa = 'http://localhost:53731/api/Paciente/MudarAtivo/';
 
 var urlParams = new URLSearchParams(location.search);
 var idPaciente = urlParams.get('id');
@@ -33,6 +34,7 @@ document.querySelector('#form-paciente').addEventListener('submit', function (ev
 
     alterarPaciente(paciente);
 });
+
 
 
 // API Pegar Paciente
@@ -89,6 +91,36 @@ function alterarPaciente(paciente) {
             if (response.status == 202) {
                 alert("Paciente alterado com sucesso");
                 window.location.href = "pacienteDash.html?id=" + idUser;
+            } else {
+                response.json().then(function (message) {
+                    alert(message.error);
+                });
+            }
+        })
+        .catch(function (response) {
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
+
+}
+
+function desativarPaciente(paciente) {
+
+    var urlParams = new URLSearchParams(location.search);
+    var idUser = urlParams.get('id');
+
+    var request = new Request(apiDesativa + idUser, {
+        method: "PUT",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify(paciente)
+    });
+
+    fetch(request)
+        .then(function (response) {
+            if (response.status == 202) {
+                alert("Conta desativada com sucesso");
+                window.location.href = "../login/login.html";
             } else {
                 response.json().then(function (message) {
                     alert(message.error);
