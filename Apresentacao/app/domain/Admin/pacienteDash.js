@@ -10,7 +10,7 @@ function update(pacientes) {
 
 function template(pacientes = []) {
     return ` 
-    <table class="table table-hover table-dark"> 
+    <table class="table table-hover table-dark" style="width:40%; margin: auto"> 
         <thead> 
             <tr> 
                 <th>#</th> 

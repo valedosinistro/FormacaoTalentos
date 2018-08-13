@@ -16,7 +16,7 @@ function update(especialidades) {
 
 function template(especialidades = []) {
     return `
-    <table class="table table-hover table-dark text-center" style="width:70%; margin: auto; margin-bottom: -40px">
+    <table class="table table-hover table-dark " style="width:20%; margin: auto; margin-bottom: -40px">
         <thead>
             <tr>
                 <th>#</th>
