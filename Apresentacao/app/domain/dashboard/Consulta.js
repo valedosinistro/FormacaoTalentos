@@ -23,7 +23,7 @@ function update(consultas) {
     tabela.innerHTML = template(consultas);
 }
 
-function template(consultas = []) {
+function template(consultas = [], id = null) {
     return `
     <table class="table table-hover table-dark" style="width:70%; margin: auto">
         <thead>

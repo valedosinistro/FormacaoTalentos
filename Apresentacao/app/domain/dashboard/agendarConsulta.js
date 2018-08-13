@@ -17,7 +17,7 @@ var linkInicio = document.querySelector('.inicio');
 linkInicio.href = "pacienteDash.html?id=" + idPaciente;
 
 var linkPerfil = document.querySelector('.perfil');
-linkPerfil.href = '../paciente/pacientePerfil.html?id=' + idPaciente; 
+linkPerfil.href = '../paciente/pacientePerfil.html?id=' + idPaciente;
 
 var linkSair = document.querySelector('.sair');
 linkSair.href = "../login/login.html";
@@ -61,6 +61,7 @@ function inserirConsulta(consulta) {
             console.log(response);
             if (response.status == 201) {
                 alert("Consulta agendada com sucesso");
+                location.reload();
             } else {
 
                 response.json().then(function (message) {
@@ -297,6 +298,7 @@ function template(consultas = []) {
                 <th>Especialidade</th>
                 <th>Data Consulta</th>
                 <th>Hora Consulta</th>
+                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
@@ -307,7 +309,12 @@ function template(consultas = []) {
                         <td>${consulta.especialidade}</td>
                         <td>${consulta.dataConsultaFormatada}</td>
                         <td>${consulta.horario}</td>
+                        <td>
+                        <a href='#' id="alterarConsulta">Alterar</a> |
+                        <a href='#' id="cancelarConsulta">Cancelar</a>
+                        </td>
                     </tr>
+                        
                 `;
 
         }).join('')

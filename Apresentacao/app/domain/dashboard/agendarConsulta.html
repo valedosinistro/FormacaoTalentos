@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="agendar" href="#">
+                        <a class="nav-link active" id="agendar" href="#">
                             <i class="far fa-calendar-alt"></i> Agenda</a>
                     </li>
                     <li class="nav-item">
@@ -53,10 +53,14 @@
 
     <main class="container text-center">
 
-        <h2 class="titulo text-center">Agendar Consulta</h2>
+
+
         <div class="row">
             <div class="col-md-6 teste">
                 <form id="form-agenda" class="form-signin">
+
+                    <h2 class="titulo text-center">Agendar Consulta</h2>
+
                     <div class="form-group">
                         <div class="form-agenda">
                             <select name="especialidade" id="especialidade" class="form-control">
@@ -98,8 +102,15 @@
                     <button class="btn btn-lg btn-success agendar" type="submit">Agendar</button>
                 </form>
             </div>
-            <div class="col-md-6" id="minhasConsultas">
-                <h2>Minhas consultas</h2>
+
+            
+            <div class="col-md-6">
+
+                    <h2 class="titulo text-center">Minhas consultas</h2>
+                    <div id="minhasConsultas">
+
+                    </div>
+                
             </div>
         </div>
 
@@ -108,7 +119,7 @@
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
-    
+
     <script src="agendarConsulta.js"></script>
 </body>
 
