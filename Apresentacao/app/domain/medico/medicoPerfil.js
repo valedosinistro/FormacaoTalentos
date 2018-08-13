@@ -1,4 +1,5 @@
 ﻿var api = 'http://localhost:53731/api/medico/';
+var apiDesativa = 'http://localhost:53731/api/Medico/MudarAtivo/';
 
 var urlParams = new URLSearchParams(location.search);
 var idMedico = urlParams.get('id');
@@ -183,6 +184,37 @@ else {
     limpa_formulário_cep();
 }
 };
+
+//Método que o médico desativa sua conta
+function desativarMedico(medico) {
+
+    var urlParams = new URLSearchParams(location.search);
+    var idUser = urlParams.get('id');
+
+    var request = new Request(apiDesativa + idUser, {
+        method: "PUT",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify(medico)
+    });
+
+    fetch(request)
+        .then(function (response) {
+            if (response.status == 202) {
+                alert("Conta desativada com sucesso");
+                window.location.href = "../login/login.html";
+            } else {
+                response.json().then(function (message) {
+                    alert(message.error);
+                });
+            }
+        })
+        .catch(function (response) {
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
+
+}
 
 // Máscaras
 $(document).ready(function () {
