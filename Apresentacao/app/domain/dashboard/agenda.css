@@ -4,6 +4,7 @@ body {
 
 main{
     height: 90vh;
+    margin: auto;
 }
 
 footer{
@@ -25,8 +26,10 @@ footer p{
 
 .titulo{
     color: #fff;
-    margin-top: 40px;
-    margin-bottom: 5%;
+    margin-top: 80px;
+    margin-bottom: 5vh;
+    font-weight: bold;
+    
 }
 
 .form-signin .form-control {
@@ -35,6 +38,7 @@ footer p{
     height: auto;
     padding: 10px;
     margin: auto;
+
 }
 
 .form-signin .form-control:focus {
@@ -64,4 +68,16 @@ footer p{
     top: 10px;
     transition: .2s;
     -webkit-transition: .2s;
+}
+
+.teste{
+    padding: 0 60px;
+}
+
+.agendar{
+    margin-top: 20px;
+}
+
+#minhasConsultas{
+    margin-bottom: 70px;
 }

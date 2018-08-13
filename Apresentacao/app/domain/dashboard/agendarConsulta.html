@@ -21,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="../../../index.html">
-                <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+                <img class="logo" src="../../../img/logo.png" height="80"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,8 +35,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="agendar" href="#">
-                            <i class="far fa-calendar-alt"></i> Agenda</a>
+                        <a class="nav-link active" id="agendar" href="#">
+                            <i class="far fa-calendar-alt"></i> Agendar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link perfil" href="">
@@ -53,10 +53,14 @@
 
     <main class="container text-center">
 
-        <h2 class="titulo text-center">Agendar Consulta</h2>
+
+
         <div class="row">
-            <div class="col-md-6 teste">
-                <form id="form-agenda" class="form-signin col-8">
+            <div class="col-md-2">
+                <form id="form-agenda" class="form-signin">
+
+                    <h2 class="titulo text-center">Agendar Consulta</h2>
+
                     <div class="form-group">
                         <div class="form-agenda">
                             <select name="especialidade" id="especialidade" class="form-control">
@@ -95,11 +99,18 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-lg btn-success" type="submit">Agendar</button>
+                    <button class="btn btn-lg btn-success agendar" type="submit">Agendar</button>
                 </form>
             </div>
-            <div class="col-md-6 teste" id="minhasConsultas">
-                <h2>Minhas consultas</h2>
+
+            
+            <div class="col-md-4">
+
+                    <h2 class="titulo text-center">Minhas consultas</h2>
+                    <div id="minhasConsultas">
+
+                    </div>
+                    
             </div>
         </div>
 
@@ -108,6 +119,7 @@
     <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
+
     <script src="agendarConsulta.js"></script>
 </body>
 

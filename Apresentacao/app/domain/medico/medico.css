@@ -54,7 +54,7 @@ body {
 
 .btn-login{
     margin-top: 20px;
-    margin-bottom: 70px;
+    margin-bottom: 90px;
 }
 
 .label-login{
@@ -84,4 +84,8 @@ footer{
 
 footer p{
     margin-bottom: 0;
+}
+
+main img{
+    margin:0;
 }

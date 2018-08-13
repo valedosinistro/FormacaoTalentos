@@ -67,38 +67,57 @@ main{
   margin-bottom: 2vh;
 
 }
-/* .button:hover{
-  text-decoration: none;
-  color:#fff;
-} */
-
-/* @-webkit-keyframes glowing {
-  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 3px #FF6666; }
-  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 3px #FF3333; }
+.titulo{
+  color: #fff;
+  font-weight: bold;
+  margin: 40px;
 }
 
-@-moz-keyframes glowing {
-  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 3px #FF6666; }
-  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 3px #FF3333; }
+@-webkit-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+@-moz-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
 }
 
-@-o-keyframes glowing {
-  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 3px #FF6666; }
-  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 3px #FF3333; }
+@-o-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
 }
 
-@keyframes glowing {
-  0% { background-color: #FF3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-  50% { background-color: #FF6666; -webkit-box-shadow: 0 0 3px #FF6666; }
-  100% { background-color: #ff3333; -webkit-box-shadow: 0 0 3px #FF3333; }
-} */
+@keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
 
-/* .button {
-  -webkit-animation: glowing 1500ms infinite;
-  -moz-animation: glowing 1500ms infinite;
-  -o-animation: glowing 1500ms infinite;
-  animation: glowing 1500ms infinite;
-} */
+/*  */
+/*  */
+@-webkit-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@-moz-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@-o-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}

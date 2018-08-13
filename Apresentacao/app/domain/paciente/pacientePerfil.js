@@ -1,4 +1,5 @@
 var api = 'http://localhost:53731/api/paciente/';
+var apiDesativa = 'http://localhost:53731/api/Paciente/MudarAtivo/';
 
 var urlParams = new URLSearchParams(location.search);
 var idPaciente = urlParams.get('id');
@@ -35,6 +36,7 @@ document.querySelector('#form-paciente').addEventListener('submit', function (ev
 });
 
 
+
 // API Pegar Paciente
 function obterPaciente() {
 
@@ -53,6 +55,7 @@ function obterPaciente() {
             if (response.status == 200) {
                 response.json()
                     .then(function (paciente) {
+                        verificaStatus(paciente.ativo);
                         document.getElementById('nome').value = paciente.nome;
                         document.getElementById('email').value = paciente.email;
                         document.getElementById('celular').value = paciente.telefone;
@@ -89,6 +92,46 @@ function alterarPaciente(paciente) {
             if (response.status == 202) {
                 alert("Paciente alterado com sucesso");
                 window.location.href = "pacienteDash.html?id=" + idUser;
+            } else {
+                response.json().then(function (message) {
+                    alert(message.error);
+                });
+            }
+        })
+        .catch(function (response) {
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
+
+}
+function verificaStatus(ativo) {
+    var botao = document.querySelector('#botaoDesativa');
+    console.log(ativo);
+    if (ativo === true) {
+        botao.value = "Desativar Conta";
+    } else {
+        botao.value = "Ativar Conta";
+    }
+
+}
+
+function desativarPaciente(paciente) {
+
+    var urlParams = new URLSearchParams(location.search);
+    var idUser = urlParams.get('id');
+
+    var request = new Request(apiDesativa + idUser, {
+        method: "PUT",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify(paciente)
+    });
+
+    fetch(request)
+        .then(function (response) {
+            if (response.status == 202) {
+                alert("Operação efetuada com sucesso");
+                window.location.href = "../login/login.html";
             } else {
                 response.json().then(function (message) {
                     alert(message.error);

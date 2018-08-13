@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../login/login.css">
     <link rel="stylesheet" href="../paciente/paciente.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
     <script src="../../../lib/jquery.js"></script>
     <script src="../../../lib/bootstrap.bundle.min.js"></script>
 
@@ -21,7 +23,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="../../../index.html">
-                <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+                <img class="logo" src="../../../img/logo.png" height="80"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,25 +31,29 @@
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../index.html">Home
+                        <a class="nav-link inicio" href="#">
+                            <i class="fas fa-tachometer-alt"></i> Início
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"> Perfil </a>
+                        <a class="nav-link agendar" id="consultaAgendada" href="">
+                            <i class="far fa-calendar-alt"></i> Minha Agenda</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-user"></i> Editar Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../login/login.html"> Login </a>
+                        <a class="nav-link sair" href="#">
+                            <i class="fas fa-sign-out-alt"></i> Sair</a>
                     </li>
-
                 </ul>
             </div>
         </nav>
     </header>
-
-    <h2>Editar seu Perfil</h2>
-
-    <main role="main" class="container text-center">
+    
+    <main class="container text-center">
 
         <img src="../../../img/doutor.png" class="img-circle" alt="Foto do Perfil">
         <form class="form-signin col-5 col-mb-3" id="form-medico">
@@ -113,33 +119,33 @@
                             <div class="col mb-3">
                                 <select name="uf" id="uf" class="form-control">
                                     <option selected>UF</option>
-                                    <option value="AC">Acre</option>
-                                    <option value="AL">Alagoas</option>
-                                    <option value="AP">Amapá</option>
-                                    <option value="AM">Amazonas</option>
-                                    <option value="BA">Bahia</option>
-                                    <option value="CE">Ceará</option>
-                                    <option value="DF">Distrito Federal</option>
-                                    <option value="ES">Espirito Santo</option>
-                                    <option value="GO">Goiás</option>
-                                    <option value="MA">Maranhão</option>
-                                    <option value="MS">Mato Grosso do Sul</option>
-                                    <option value="MT">Mato Grosso</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="PA">Pará</option>
-                                    <option value="PB">Paraíba</option>
-                                    <option value="PR">Paraná</option>
-                                    <option value="PE">Pernambuco</option>
-                                    <option value="PI">Piauí</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="RN">Rio Grande do Norte</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                    <option value="RO">Rondônia</option>
-                                    <option value="RR">Roraima</option>
-                                    <option value="SC">Santa Catarina</option>
-                                    <option value="SP">São Paulo</option>
-                                    <option value="SE">Sergipe</option>
-                                    <option value="TO">Tocantins</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SP">SP</option>
+                                    <option value="TO">TO</option>
                                 </select>
                             </div>
                         </div>
@@ -150,6 +156,7 @@
                 </div>
             </div>
             <button class="btn btn-lg btn-success btn-login" type="submit">Salvar</button>
+            <input type="submit" id="botaoDesativa" class="btn btn-lg btn-danger btn-login" onclick="desativarMedico()">
         </form>
 
     </main>

@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>Médico Principal</title>
+    <title>MedServ - Painel Médico</title>
 
     <link rel="stylesheet" href="../../../css/bootstrap.css">
     <link rel="stylesheet" href="../../../css/style.css">
@@ -23,7 +23,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="../../../index.html">
-                <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
+                <img class="logo" src="../../../img/logo.png" height="80"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,21 +31,21 @@
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link active" href="#">
                             <i class="fas fa-tachometer-alt"></i> Início
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="consultaAgendada" href="">
-                            <i class="far fa-calendar-alt"></i> Consultas Agendadas</a>
+                            <i class="far fa-calendar-alt"></i> Minha Agenda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link" href="">
                             <i class="fas fa-user"></i> Editar Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link sair" href="">
                             <i class="fas fa-sign-out-alt"></i> Sair</a>
                     </li>
                 </ul>
@@ -58,8 +58,8 @@
 
         <main role="main" class="container">
 
-            <div class="button">
-                Nehuma chamada
+            <div class="button" id="lanca">
+                <p>Nenhuma Chamada</p>
             </div>
 
 

@@ -9,6 +9,9 @@ link.href = '../medico/medicoPerfil.html?id=' + idMedico;
 var link2 = document.getElementById('consultaAgendada');
 link2.href = '../dashboard/consultasPendentes.html?id=' + idMedico; 
 
+var link3 = document.querySelector('.sair');
+link3.href = '../login/login.html'; 
+
 console.log(link2);
 
 console.log(idMedico);
@@ -23,7 +26,7 @@ function update(consultas) {
 
 function template(consultas = []) {
     return `
-    <table class="table table-hover table-dark" style="width:70%; margin: auto">
+    <table class="table table-hover table-dark" style="width:80%; margin: auto">
         <thead>
             <tr>
                 <th>#</th>
@@ -80,3 +83,14 @@ function obterTodos() {
         });
 
 }
+
+$(document).ready(function () {
+    $("#lanca").click(function () {
+        $("#lanca").css("animation", "amarelo 1500ms infinite");
+        $("#lanca").text("Procurando...");
+        setInterval(function () { 
+            $("#lanca").css("animation", "verde 1500ms infinite");
+            $("#lanca").text("Paciente Encontrado");
+        }, 10000);
+    });
+});
