@@ -21,7 +21,6 @@ function template(especialidades = []) {
             <tr>
                 <th>#</th>
                 <th>Nome da Especialidade</th>
-
             </tr>
         </thead>
         <tbody>
