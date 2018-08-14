@@ -16,7 +16,7 @@ link3.href = '../login/login.html';
 // 
 
 var emergencia = {
-    idPaciente : idPaciente
+    idPaciente: idPaciente
 }
 
 $(document).ready(function () {
@@ -24,9 +24,10 @@ $(document).ready(function () {
         $("#lanca").css("animation", "amarelo 1500ms infinite");
         $("#lanca").text("Procurando...");
         emergenciaPaciente(emergencia);
-        setInterval(function () { 
-            $("#lanca").css("animation", "verde 1500ms infinite");
-            $("#lanca").text("Médico Encontrado");
+        setInterval(function () {
+            // $("#lanca").css("animation", "verde 1500ms infinite");
+            // $("#lanca").text("Em consulta");
+            arroz();
         }, 5000);
     });
 });
@@ -67,5 +68,28 @@ function emergenciaPaciente(emergencia) {
 
 }
 
+function arroz() {
+    var request = new Request(apiEmerg, {
+        method: "GET",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    });
 
-          
+    fetch(request)
+        .then(function (response) {
+            if (response.status == 200) {
+                console.log("Médico sem atender");
+            } else {
+                response.json()
+                    .then(function (emergencia) {
+                        console.log(emergencia);
+                        $("#lanca").css("animation", "verde 1500ms infinite");
+                        $("#lanca").text("Em atendimento");
+                    });
+            }
+        })
+        .catch(function (response) {
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
+}

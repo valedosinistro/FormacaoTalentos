@@ -8,10 +8,10 @@ var link = document.querySelector('.link');
 link.href = '../medico/medicoPerfil.html?id=' + idMedico;
 
 var link2 = document.getElementById('consultaAgendada');
-link2.href = '../dashboard/consultasPendentes.html?id=' + idMedico; 
+link2.href = '../dashboard/consultasPendentes.html?id=' + idMedico;
 
 var link3 = document.querySelector('.sair');
-link3.href = '../login/login.html'; 
+link3.href = '../login/login.html';
 
 console.log(link2);
 
@@ -90,24 +90,23 @@ function obterTodos() {
 // 
 
 var sla = {
-    id : null
+    id: null
 }
 
 $(document).ready(function () {
-    setInterval(function () { 
-       medicoEmergencia();
+    setInterval(function () {
+        medicoEmergencia();
     }, 5000);
 
     $("#lanca").click(function () {
-        console.log(sla.id);
         atendePaciente();
+        $("#lanca").css("animation", "verde 1500ms infinite");
+        $("#lanca").text("Em atendimento");
     });
 });
 
 function atendePaciente() {
-    console.log(apiEmerg + "/" + sla.id + "/atendendo/medico/" + idMedico);
-    
-    var request = new Request("http://localhost:53731/" + sla.id + "/atendendo/medico/" + idMedico, {
+    var request = new Request(apiEmerg + "/" + sla.id + "/atendendo/medico/" + idMedico, {
         method: "PUT",
         headers: new Headers({
             'Content-Type': 'application/json'
@@ -116,14 +115,10 @@ function atendePaciente() {
 
     fetch(request)
         .then(function (response) {
-            console.log(response.status);
-            
             if (response.status == 202) {
                 response.json()
                     .then(function (emergencia) {
-                        // $("#lanca").css("animation", "amarelo 1500ms infinite");
-                        // $("#lanca").text("Paciente Encontrado");
-                        console.log("Paciente Aceito");
+
                     });
             } else {
                 console.log("Não existe emergências");
