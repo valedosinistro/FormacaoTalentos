@@ -23,7 +23,8 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="../../../index.html">
-                <img class="logo" src="../../../img/logo.png" height="80"></a>
+                <img class="logo" src="../../../img/logo.png" height="80">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,7 +53,7 @@
             </div>
         </nav>
     </header>
-    
+
     <main class="container text-center">
 
         <img src="../../../img/doutor.png" class="img-circle" alt="Foto do Perfil">
@@ -118,7 +119,7 @@
 
                             <div class="col mb-3">
                                 <select name="uf" id="uf" class="form-control">
-                                    <option selected>UF</option>
+                                    <option>UF</option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
                                     <option value="AM">AM</option>
@@ -155,7 +156,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-lg btn-success btn-login" type="submit">Salvar</button>
+            <button class="btn btn-lg btn-success btn-login" type="submit" onclick="return validaSenha()">Salvar</button>
             <input type="submit" id="botaoDesativa" class="btn btn-lg btn-danger btn-login" onclick="desativarMedico()">
         </form>
 

@@ -60,6 +60,7 @@ function obterPaciente() {
                         document.getElementById('email').value = paciente.email;
                         document.getElementById('celular').value = paciente.telefone;
                         document.getElementById('senha').value = paciente.senha;
+                        document.getElementById('confirmar-senha').value = paciente.senha;
                     });
             } else {
                 alert("Ocorreu um erro ao obter os pacientes?");
