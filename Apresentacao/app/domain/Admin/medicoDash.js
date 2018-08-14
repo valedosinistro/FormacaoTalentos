@@ -10,7 +10,7 @@ function update(medicos) {
 
 function template(medicos = []) {
     return `
-    <table class="table table-hover table-dark" style="width:40%; margin: auto">
+    <table class="table table-hover table-dark table-responsive text-center" style="width:54.2%; margin: auto">
         <thead>
             <tr>
                 <th>#</th>

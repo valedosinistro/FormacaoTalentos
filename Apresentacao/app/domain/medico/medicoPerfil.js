@@ -22,8 +22,9 @@ var elementosMedico = {
     logradouro: document.querySelector('#logradouro'),
     bairro: document.querySelector('#bairro'),
     numero: document.querySelector('#numero'),
-    cidade: document.querySelector('#cidade'),
-    uf: document.querySelector('#uf'),
+    estado: document.querySelector('#uf'),
+    cidade: document.querySelector('#cidade')
+    
 };
 
 // "Escuta" o evento de ENVIAR do Formulário do Paciente
@@ -36,12 +37,11 @@ document.querySelector('#form-medico').addEventListener('submit', function (even
         telefone_r: elementosMedico.telefone_r.value,
         telefone_c: elementosMedico.telefone_c.value,
         endereco_c: elementosMedico.logradouro.value + ", " + elementosMedico.bairro.value + ", " + elementosMedico.numero.value,
-        estado: elementosMedico.uf.value,
+        estado: elementosMedico.estado.value,
         cidade: elementosMedico.cidade.value,
         email: elementosMedico.email.value,
         senha: elementosMedico.senha.value
     };
-
     alterarMedico(medico);
 });
 
@@ -71,12 +71,13 @@ function obterMedico() {
                         document.getElementById('email').value = medico.email;
                         document.getElementById('telefone_r').value = medico.telefone_r;
                         document.getElementById('senha').value = medico.senha;
+                        document.getElementById('confirmar-senha').value = medico.senha;
                         document.getElementById('telefone_c').value = medico.telefone_c;
                         document.getElementById('logradouro').value = quebrar[0];
                         document.getElementById('bairro').value = quebrar[1];
                         document.getElementById('numero').value = quebrar[2];
                         document.getElementById('cidade').value = medico.cidade;
-                        document.getElementById('estado').value = medico.estado;
+                        document.getElementById('uf').value = medico.estado;
                     });
             } else {
                 alert("Ocorreu um erro ao obter o médico");
@@ -102,9 +103,9 @@ function alterarMedico(medico) {
         }),
         body: JSON.stringify(medico)
     });
-
     fetch(request)
         .then(function (response) {
+            
             if (response.status == 202) {
                 alert("Médico alterado com sucesso");
                 window.location.href = '../dashboard/medicoDash.html?id=' + idMedico;
