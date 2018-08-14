@@ -36,7 +36,7 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var obj = connection.QueryFirstOrDefault<PacienteDto>($"SELECT P.Id, P.Email, P.Nome, P.Cpf, P.Sexo, P.Telefone, P.Data_Nasc, P.Ativo, P.Ativo_Adm FROM [Paciente] P WHERE P.Id = {id}");
+                var obj = connection.QueryFirstOrDefault<PacienteDto>($"SELECT P.Id, P.Email, P.Nome, P.Cpf, P.Sexo, P.Telefone, P.Data_Nasc, P.Ativo, P.Ativo_Adm , P.Senha FROM [Paciente] P WHERE P.Id = {id}");
                 return obj;
             }
         }

@@ -37,7 +37,7 @@ namespace Fatec.Clinica.Dado
         {
             using (var connection = new SqlConnection(DbConnectionFactory.SQLConnectionString))
             {
-                var obj = connection.QueryFirstOrDefault<MedicoDto>($"SELECT M.Id,M.Email, M.Sexo, M.Nome, M.Cpf, M.Crm, M.IdEspecialidade, M.Telefone_r, M.Telefone_c, M.Endereco_C, M.Cidade, M.Estado, M.Ativo, M.Ativo_Adm, E.Nome As Especialidade " +
+                var obj = connection.QueryFirstOrDefault<MedicoDto>($"SELECT M.Id,M.Email, M.Sexo, M.Nome, M.Cpf, M.Crm, M.IdEspecialidade, M.Telefone_r, M.Telefone_c, M.Endereco_C, M.Cidade,M.Senha, M.Estado, M.Ativo, M.Ativo_Adm, E.Nome As Especialidade " +
                                                                  $"FROM [Medico] M " +
                                                                  $"JOIN [Especialidade] E ON M.IdEspecialidade = E.Id " +
                                                                  $"WHERE M.Id = {id}");
