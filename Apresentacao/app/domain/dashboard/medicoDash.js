@@ -1,4 +1,5 @@
 var api = 'http://localhost:53731/api/Consulta/medico/';
+var apiEmerg = 'http://localhost:53731/api/Emergencia';
 
 var urlParams = new URLSearchParams(location.search);
 var idMedico = urlParams.get('id');
@@ -58,7 +59,7 @@ function template(consultas = []) {
 
 function obterTodos() {
 
-    var request = new Request(api, idMedico, {
+    var request = new Request(api + idMedico, {
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json'
@@ -84,13 +85,78 @@ function obterTodos() {
 
 }
 
+// 
+// 
+// 
+
+var sla = {
+    id : null
+}
+
 $(document).ready(function () {
+    setInterval(function () { 
+       medicoEmergencia();
+    }, 5000);
+
     $("#lanca").click(function () {
-        $("#lanca").css("animation", "amarelo 1500ms infinite");
-        $("#lanca").text("Procurando...");
-        setInterval(function () { 
-            $("#lanca").css("animation", "verde 1500ms infinite");
-            $("#lanca").text("Paciente Encontrado");
-        }, 10000);
+        console.log(sla.id);
+        atendePaciente();
     });
 });
+
+function atendePaciente() {
+    console.log(apiEmerg + "/" + sla.id + "/atendendo/medico/" + idMedico);
+    
+    var request = new Request("http://localhost:53731/" + sla.id + "/atendendo/medico/" + idMedico, {
+        method: "PUT",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    });
+
+    fetch(request)
+        .then(function (response) {
+            console.log(response.status);
+            
+            if (response.status == 202) {
+                response.json()
+                    .then(function (emergencia) {
+                        // $("#lanca").css("animation", "amarelo 1500ms infinite");
+                        // $("#lanca").text("Paciente Encontrado");
+                        console.log("Paciente Aceito");
+                    });
+            } else {
+                console.log("Não existe emergências");
+            }
+        })
+        .catch(function (response) {
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
+}
+
+function medicoEmergencia() {
+    var request = new Request(apiEmerg, {
+        method: "GET",
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    });
+
+    fetch(request)
+        .then(function (response) {
+            if (response.status == 200) {
+                response.json()
+                    .then(function (emergencia) {
+                        console.log(emergencia);
+                        sla.id = emergencia.id;
+                        $("#lanca").css("animation", "amarelo 1500ms infinite");
+                        $("#lanca").text("Paciente Encontrado");
+                    });
+            } else {
+                console.log("Não existe emergências");
+            }
+        })
+        .catch(function (response) {
+            alert("Desculpe, ocorreu um erro no servidor.");
+        });
+}
