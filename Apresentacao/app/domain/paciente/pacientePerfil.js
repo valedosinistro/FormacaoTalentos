@@ -92,7 +92,7 @@ function alterarPaciente(paciente) {
         .then(function (response) {
             if (response.status == 202) {
                 alert("Paciente alterado com sucesso");
-                window.location.href = "pacienteDash.html?id=" + idUser;
+                window.location.href = "../dashboard/pacienteDash.html?id=" + idUser;
             } else {
                 response.json().then(function (message) {
                     alert(message.error);
