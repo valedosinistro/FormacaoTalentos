@@ -72,7 +72,7 @@ namespace Fatec.Clinica.Api.Controllers
         /// <param name="idMedico"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("{id}/atendendo/medico/{idMedico}")]
+        [Route("/{id}/atendendo/medico/{idMedico}")]
         [SwaggerResponse((int)HttpStatusCode.Accepted, typeof(Emergencia), nameof(HttpStatusCode.Accepted))]
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError)]
@@ -90,7 +90,7 @@ namespace Fatec.Clinica.Api.Controllers
         /// <param name="idMedico"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("{id}/realizado")]
+        [Route("/{id}/realizado")]
         [SwaggerResponse((int)HttpStatusCode.Accepted, typeof(Emergencia), nameof(HttpStatusCode.Accepted))]
         [SwaggerResponse((int)HttpStatusCode.BadRequest)]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError)]
