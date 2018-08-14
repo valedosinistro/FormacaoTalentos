@@ -9,6 +9,7 @@ namespace Fatec.Clinica.Dominio
         public int Id { get; set; }
         public int IdPaciente { get; set; }
         public int IdMedico { get; set; }
-
+        public DateTime DataHora { get; set; }
+        public char Status { get; set; }
     }
 }
