@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MedServ - Painel Administrativo</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin-min.css">
+
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../login/login.css">
+    <script src="../../../lib/jquery.js"></script>
+    <script src="../../../lib/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                    <img class="logo" src="../../../img/logo.png" height="80"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="fas fa-home"></i> Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="medicoDash.html">
+                            <i class="fas fa-user-md"></i> Médicos </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pacienteDash.html">
+                            <i class="fas fa-user"></i>
+                            </i> Pacientes </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="especialidades.html">
+                            <i class="fas fa-book-open"></i> Especialidades </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consultas.html">
+                            <i class="fas fa-calendar-alt"></i> Consultas </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admin/login.html" style="margin-left: 40px;">
+                            <i class="fas fa-sign-out-alt"></i> Logout </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h2 class="titulo text-center">Especialidades Cadastradas</h2>
+
+    <div class="especialidade" id="especialidades">
+
+    </div>
+
+    <form class="form-signin col-mb-2" id="form-especialidade">
+
+        <div class="form-group">
+            <input type="text" name="nova-especialidade" id="nova-especialidade" class="form-control" placeholder="Adicionar nova especialidade"
+                required autofocus>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-success" type="submit"> Adicionar</button>
+        </div>
+    </form>
+
+    <footer class="fixed-bottom rodape">
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
+
+    <script src="admin.js"></script>
+    <script src="especialidade.js"></script>
+
+</body>
+
+</html>

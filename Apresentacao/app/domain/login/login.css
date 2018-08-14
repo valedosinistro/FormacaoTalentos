@@ -7,10 +7,12 @@ body {
     background-color: #343f6a;
 }
 
+
 .form-signin {
     margin: auto;
     max-width: 330px;
     width: 100%;
+    margin-top: 100px;
 }
 
 .form-signin .form-control {
@@ -62,10 +64,17 @@ body {
 
 .btn-login{
     margin-top: 20px;
+    margin-bottom: 70px;
 }
 
 .label-login{
     color: #fff;
     font-weight: bold;
     margin-right: 5px; 
+}
+
+.titulo{
+    color: #fff;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }

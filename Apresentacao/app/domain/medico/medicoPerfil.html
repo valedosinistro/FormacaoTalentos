@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Editar Perfil</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../login/login.css">
+    <link rel="stylesheet" href="../paciente/paciente.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <script src="../../../lib/jquery.js"></script>
+    <script src="../../../lib/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="../../../index.html">
+                <img class="logo" src="../../../img/logo.png" height="80">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link inicio" href="#">
+                            <i class="fas fa-tachometer-alt"></i> Início
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link agendar" id="consultaAgendada" href="">
+                            <i class="far fa-calendar-alt"></i> Minha Agenda</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-user"></i> Editar Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sair" href="#">
+                            <i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container text-center">
+
+        <img src="../../../img/doutor.png" class="img-circle" alt="Foto do Perfil">
+        <form class="form-signin col-5 col-mb-3" id="form-medico">
+
+            <!--Informações Básicas-->
+
+            <div class="form-group">
+                <input type="text" name="nome" id="nome" class="form-control form-control-lg" placeholder="Nome" readonly>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="crm" id="crm" class="form-control" placeholder="CRM" readonly>
+            </div>
+
+            <div class="form-group">
+                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail">
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="text" name="telefone_r" id="telefone_r" class="form-control phone_with_ddd" placeholder="Telefone Residencial / Celular">
+            </div>
+
+            <div class="form-row">
+                <div class="col">
+                    <input type="password" name="senha" id="senha" class="form-control senha" placeholder="Senha">
+                </div>
+
+                <div class="col mb-2">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control senha" placeholder="Confirmar Senha">
+                </div>
+            </div>
+
+            <!--Informações Comerciais-->
+            <a class="btn btn-light btn-block" data-toggle="collapse" href="#multiCollapseExample" role="button" aria-expanded="false"
+                aria-controls="multiCollapseExample1">+ Informações Comerciais</a>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample">
+                        <div class="form-group">
+                            <input type="text" name="cep" id="cep" class="form-control cep" onblur="pesquisacep(this.value);" placeholder="CEP">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="logradouro" id="logradouro" class="form-control" placeholder="Logradouro">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-8 mb-3">
+                                <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
+                            </div>
+
+                            <div class="col mb-3">
+                                <input type="text" name="numero" id="numero" class="form-control" placeholder="Nº">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-8 mb-3">
+                                <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
+                            </div>
+
+                            <div class="col mb-3">
+                                <select name="uf" id="uf" class="form-control">
+                                    <option>UF</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SP">SP</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefone_c" id="telefone_c" class="form-control phone_with_ddd" placeholder="Telefone Comercial">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-success btn-login" type="submit" onclick="return validaSenha()">Salvar</button>
+            <input type="submit" id="botaoDesativa" class="btn btn-lg btn-danger btn-login" onclick="desativarMedico()">
+        </form>
+
+    </main>
+    <footer class="fixed-bottom">
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
+
+    <!-- Script com ligações para banco e visual studio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="medicoPerfil.js"></script>
+
+</body>
+
+</html>

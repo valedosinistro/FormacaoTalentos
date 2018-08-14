@@ -1,122 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
-
 <head>
 
     <meta charset="utf-8">
 
-    <title>Projeto - Adicionar Paciente</title>
+    <title>MedServ - Criar Paciente</title>
 
     <link rel="stylesheet" href="../../../css/bootstrap.css">
-    <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../login/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="paciente.css">
     <script src="../../../lib/jquery.js"></script>
     <script src="../../../lib/bootstrap.bundle.min.js"></script>
 
 </head>
+<body>
 
-<body class="text-center">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="../../../index.html">
+                <img class="logo" src="../../../img/logo.png" height="80"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">
+                            <i class="fas fa-home"></i> Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle  active" href="#" data-toggle="dropdown">
+                            <i class="fas fa-user-plus"></i> Cadastrar </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li>
+                                <a class="dropdown-item text-light" href="../medico/medicoCriar.html">
+                                    <i class="fas fa-user-md"></i> Médico</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light" href="#">
+                                    <i class="fas fa-user"></i> Paciente </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../login/login.html">
+                            <i class="fas fa-sign-in-alt"></i> Login </a>
+                    </li>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand mr-5 ml-5" href="#">Projeto</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navbarsExampleDefault"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-        <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../medico/medico.html">Médico
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="paciente.html">Paciente</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav mr-auto contents">
+    <h2 class="titulo text-center">Cadastrar Paciente</h2>
 
-                <li class="nav-item mr-5">
-                    <a class="nav-link" href="../login/login.html">Sair</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <main role="main" class="container text-center">
 
-    <main role="main" class="container">
-
-        <h2 class="mb-3" id="titulo-medico">
-
-        </h2>
-
-        <form class="form-signin col-md-4 col-mb-3" id="form-medico">
+        <form class="form-signin col-md-4 col-mb-3" id="form-paciente">
 
             <!--Informações Básicas-->
 
             <div class="form-group">
-                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
+                <input type="text" name="cpf" id="cpf" class="form-control cpf" placeholder="CPF" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="text" name="celular" id="celular" class="form-control" placeholder="Celular">
+                <input type="email" name="email" id="email" class="form-control" placeholder="E-mail" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="celular" id="celular" class="form-control phone_with_ddd" placeholder="Celular" required autofocus>
             </div>
 
             <div class="form-row">
                 <div class="col-md-8 mb-3">
 
-                    <input type="text" name="data-nasc" id="data-nasc" class="form-control" placeholder="Data de Nascimento">
+                    <input type="text" name="data-nasc" id="data-nasc" class="form-control date" placeholder="Data de Nascimento" required autofocus>
 
                 </div>
 
                 <div class="col mb-3">
                     <select name="sexo" id="sexo" class="form-control">
                         <option selected>Sexo</option>
+                        <option>M</option>
+                        <option>F</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="col">
-                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+                    <input type="password" name="senha" id="senha" class="form-control senha" placeholder="Senha" required autofocus>
                 </div>
 
                 <div class="col mb-2">
-                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control" placeholder="Confirmar Senha">
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" class="form-control senha" placeholder="Confirmar Senha"
+                        required autofocus>
                 </div>
             </div>
 
-
-
-            <button class="btn btn-lg btn-success btn-login" type="submit">Cadastrar</button>
+            <button class="btn btn-lg btn-success btn-login" type="submit" onclick="return validaSenha()">Cadastrar</button>
 
         </form>
 
     </main>
 
-    <!-- Script com ligações para banco e visual studio -->
+    <footer class="fixed-bottom">
+        <p>Copyright &copy; 2018 - Vale do Sinistro</p>
+    </footer>
 
+    <!-- Script com ligações para banco, visual studio e máscaras -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="pacienteCriar.js"></script>
-
 
 </body>
 

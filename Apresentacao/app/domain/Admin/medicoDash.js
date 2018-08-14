@@ -1,5 +1,5 @@
-﻿var api = 'http://localhost:53731/api/medico/';
-
+var api = 'http://localhost:53731/api/medico/';
+var apiDesativa = 'http://localhost:53731/api/Admin/Medico/MudarAtivoAdm/';
 var tabela = document.querySelector('#medicos');
 
 obterTodos();
@@ -10,7 +10,7 @@ function update(medicos) {
 
 function template(medicos = []) {
     return `
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover table-dark table-responsive text-center" style="width:54.2%; margin: auto">
         <thead>
             <tr>
                 <th>#</th>
@@ -23,7 +23,9 @@ function template(medicos = []) {
         </thead>
         <tbody>
         ${
-            medicos.map(function(medico){
+        medicos.map(function (medico) {
+            if (medico.ativo_Adm === true) {
+
                 return `
                     <tr>
                         <td>${medico.id}</td>
@@ -32,17 +34,31 @@ function template(medicos = []) {
                         <td>${medico.crm}</td>
                         <td>${medico.especialidade}</td>
                         <td>
-                            <a href="#" onclick="alterarMedico(${medico.id})">Editar</a> | 
-                            <a href="#" onclick="excluirMedico(${medico.id})">Excluir</a>
+                            <a href="#" onclick="desativarMedico(${medico.id})">Desativar Médico</a>
                         </td>
                     </tr>
                 `;
-            }).join('')
+            } else {
+                return `
+                    <tr style="color: rgb(114, 114, 114)">
+                        <td>${medico.id}</td>
+                        <td>${medico.nome}</td>
+                        <td>${medico.cpf}</td>
+                        <td>${medico.crm}</td>
+                        <td>${medico.especialidade}</td>
+                        <td>
+                            <a href="#" onclick="desativarMedico(${medico.id})">Ativar Médico</a>
+                        </td>
+                    </tr>
+                `;
+            }
+        }).join('')
         }
         </tbody>
     </table>
     `;
 }
+//                             <a href="#" onclick="alterarMedico(${medico.id})">Editar</a> | 
 
 function obterTodos() {
 
@@ -76,11 +92,37 @@ function alterarMedico(idMedico) {
     window.location.href = 'medicoCriar.html?id=' + idMedico;
 }
 
-function excluirMedico(idMedico) {
-    if (confirm('Tem certeza que deseja excluir esse médico?')) {
-        
-        var request = new Request(api + idMedico, {
-            method: "DELETE",
+// function excluirMedico(idMedico) {
+//     if (confirm('Tem certeza que deseja excluir esse médico?')) {
+
+//         var request = new Request(api + idMedico, {
+//             method: "DELETE",
+//             headers: new Headers({
+//                 'Content-Type': 'application/json'
+//             })
+//         });
+
+//         fetch(request)
+//             .then(function (response) {
+//                 // console.log(response);
+//                 if (response.status == 200) {
+//                     obterTodos();
+//                 } else {
+//                     alert("Ocorreu um erro ao excluir os médico");
+//                 }
+//             })
+//             .catch(function (response) {
+//                 // console.log(response);
+//                 alert("Desculpe, ocorreu um erro no servidor.");
+//             });
+//     }
+// }
+
+function desativarMedico(idMedico) {
+    if (confirm('Tem certeza que deseja realizar essa operação?')) {
+
+        var request = new Request(apiDesativa + idMedico, {
+            method: "PUT",
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
@@ -89,7 +131,8 @@ function excluirMedico(idMedico) {
         fetch(request)
             .then(function (response) {
                 // console.log(response);
-                if (response.status == 200) {
+                if (response.status == 202) {
+                    alert("Operação realizada com sucesso");
                     obterTodos();
                 } else {
                     alert("Ocorreu um erro ao excluir os médico");
@@ -100,6 +143,4 @@ function excluirMedico(idMedico) {
                 alert("Desculpe, ocorreu um erro no servidor.");
             });
     }
-
-
 }

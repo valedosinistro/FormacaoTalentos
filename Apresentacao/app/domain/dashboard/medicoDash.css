@@ -1,0 +1,123 @@
+/* aside{
+    background-color: #303030;
+    width: 20%;
+    height: 100%;
+    float: left;
+    margin-left: 0;
+} */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #343f6a;
+}
+
+footer{
+  background-color:#303030;
+  height: 6vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clear: both;
+}
+
+footer p{
+  margin-bottom: 0;
+}
+main{
+  height: 90vh;
+  max-height: auto;
+  margin-left: 0;
+}
+
+.button {
+  background-color: #a8a8a8;
+  -webkit-border-radius: 5px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 4vh;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  width: 40vh;
+  height: 40vh;
+  border-radius: 50vh;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: #fff;
+
+}
+
+.icone{
+  font-size: 10vh;
+  margin-right: 2vh;
+  margin-bottom: 2vh;
+
+}
+.titulo{
+  color: #fff;
+  font-weight: bold;
+  margin: 40px;
+}
+
+@-webkit-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+@-moz-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+
+@-o-keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+
+@keyframes amarelo {
+  0% { background-color: rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px  rgb(191, 199, 73); }
+  50% { background-color: rgb(164, 182, 4); -webkit-box-shadow: 0 0 10px rgb(164, 182, 4); }
+  100% { background-color:rgb(191, 199, 73); -webkit-box-shadow: 0 0 10px rgb(191, 199, 73); }
+}
+
+/*  */
+/*  */
+@-webkit-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@-moz-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@-o-keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}
+
+@keyframes verde {
+  0% { background-color: rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+  50% { background-color: rgb(107, 145, 3); -webkit-box-shadow: 0 0 10px rgb(107, 145, 3); }
+  100% { background-color:rgb(106, 214, 18); -webkit-box-shadow: 0 0 10px rgb(106, 214, 18); }
+}

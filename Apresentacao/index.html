@@ -3,43 +3,101 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>WebApp - Luva</title>
+    <title>MedServ - Bem vindo </title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
     <script src="lib/jquery.js"></script>
     <script src="lib/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#"> <img class="logo" src="http://bootstrap-ecommerce.com/main/images/logo-white.png" height="40"> LOGO</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbar1">
-                    <ul class="navbar-nav ml-auto"> 
-                <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="app/domain/login/login.html"> Login </a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Cadastrar  </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="app/domain/medico/medicoCriar.html"> Médico</a></li>
-                      <li><a class="dropdown-item" href="app/domain/paciente/pacienteCriar.html"> Paciente </a></li>
-                    </ul>
-                </li>
-                    </ul>
-                  </div>
-                </nav>
+    <header class="fixo">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="img/logo.png" height="80">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-home"></i> Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fas fa-user-plus"></i> Cadastrar </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li>
+                                <a class="dropdown-item text-light" href="app/domain/medico/medicoCriar.html">
+                                    <i class="fas fa-user-md"></i> Médico</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light" href="app/domain/paciente/pacienteCriar.html">
+                                    <i class="fas fa-user"></i> Paciente </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="app/domain/login/login.html">
+                            <i class="fas fa-sign-in-alt"></i> Login </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
     </header>
-    <main>
-        <h1 class="titulo-home">MedServ</h1>
-        <h2 class="slogan-home">Boa saúde em suas mãos!</h2>
+    <main class="scroll">
+        <img src="img/logo2.png" height="180" alt="" class="img-responsive">
+        <!-- <h2 class="slogan-home" id="typewriter"></h2> -->
+        <a href="#about">
+
+            <i class="fas fa-angle-down"></i>
+        </a>
     </main>
-    <footer>
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>A MedServ</h2>
+                    <p>Hoje em dia os hospitais estão lotados, as filas para realizar uma consulta é extensa... Que tal reduzirmos
+                        o tumulto e consultarmos todos com qualidade e rapidez? O App MedServ surgiu com esse intuito. Venha
+                        fazer parte dessa comunidade que vem crescendo nos últimos meses e saia das filas! </p>
+                    <img src="img/doctor-home.png" alt="">
+                </div>
+                <div class="col-md-4 icone">
+                    <i class="fas fa-lock"></i>
+                    <p class="about">100% seguro</p>
+                    <i class="far fa-calendar-alt"></i>
+                    <p class="about">Agendamento de consultas </br> 24 horas por dia</p>
+                    <i class="far fa-handshake"></i>
+                    <p class="about">80% dos usuários </br> recomendam nossos serviços</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="fixed-bottom">
         <p>Copyright &copy; 2018 - Vale do Sinistro</p>
     </footer>
+
+    <script>
+        $('.scroll a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('href'),
+                targetOffset = $(id).offset().top;
+
+            $('html, body').animate({
+                scrollTop: targetOffset - 40
+            }, 700);
+        });
+    </script>
+
 </body>
+
 </html>
